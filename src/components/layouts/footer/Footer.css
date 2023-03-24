@@ -3,3 +3,24 @@
     background-color: #f09308;
     left: 0;
 }
+.footerContents-flex{
+    display: flex;
+    color: #3f3f3f;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.headerGF-kitchen{
+    text-decoration: none;
+    color: #3f3f3f;
+}
+.footerContents-flex_1, .footerContents-flex_2, .footerContents-flex_3{
+    color: #3f3f3f;
+}
+.footerLinks{
+    text-decoration: none;
+    color: #3f3f3f;
+}
+.footerMd-link, .footerCompany{
+text-decoration: none;
+color: #3f3f3f;
+}
