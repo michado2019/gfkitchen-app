@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom'
+import menuIcon from './assets/menu_FILL0_wght400_GRAD0_opsz48.png' 
+import cancelIcon from './assets/cancel--icon.png' 
 import "./Header.css";
 const Header = () => {
   return (
@@ -20,6 +22,10 @@ const Header = () => {
             </div>
           </li>
         </ul>
+        <div className="headerMenu-icon_div">
+         <img src={menuIcon} alt='menuImg' className='headerMenu-icon' />
+         <img src={cancelIcon} alt='menuImg' className='headerMenu-icon' />
+        </div>
       </nav>
     </div>
   );

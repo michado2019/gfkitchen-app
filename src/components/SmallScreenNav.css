@@ -1,0 +1,26 @@
+.smallScreen-nav_wrapper {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .smallScreen-nav_wrapper {
+    display: block;
+  }
+  .smallScreen-nav_flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 100px 0;
+  }
+  .smallScreen-nav_link {
+    text-decoration: none;
+    color: #f09308;
+  }
+  .smallScreen-nav_links {
+    color: #f09308;
+    list-style: none;
+    cursor: pointer;
+    font-size: 24px;
+    margin: 10px 0;
+  }
+}

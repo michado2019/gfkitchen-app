@@ -12,7 +12,7 @@ export const Footer = () => {
                 <div className='footerContents-flex_services'><a href='#services' className='footerLinks'>Services</a></div>
             </div>
             <div className='footerContents-flex_2'>
-                <div className='footerContents-flex_staffs'><a href='#ourChefs' className='footerLinks'>Our Chefs and Staffs</a></div>
+                <div className='footerContents-flex_staffs'><a href='#ourChefs' className='footerLinks'>Our Staffs</a></div>
                 <div className='footerContents-flex_staffs'><Link to='/ourMD' className='footerMd-link'>Our MD</Link></div>
             </div>
             <div className='footerContents-flex_3'>

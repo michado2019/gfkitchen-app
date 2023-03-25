@@ -1,7 +1,11 @@
 .footerWrapper{
-    height: 15vh;
+    height: 23vh;
     background-color: #f09308;
+    position: absolute;
+    width: 100%;
     left: 0;
+    bottom: 0;
+    padding-top: 50px;
 }
 .footerContents-flex{
     display: flex;
@@ -19,8 +23,10 @@
 .footerLinks{
     text-decoration: none;
     color: #3f3f3f;
+    font-size: 18px;
 }
 .footerMd-link, .footerCompany{
 text-decoration: none;
 color: #3f3f3f;
+font-size: 18px;
 }
