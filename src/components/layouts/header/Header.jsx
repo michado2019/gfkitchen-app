@@ -3,7 +3,12 @@ import { Link } from 'react-router-dom'
 import menuIcon from './assets/menu_FILL0_wght400_GRAD0_opsz48.png' 
 import cancelIcon from './assets/cancel--icon.png' 
 import "./Header.css";
-const Header = () => {
+const Header = ({display, setDisplay}) => {
+
+    //handlers
+    const handleSmallScreenNavDisplay = () => {
+        setDisplay(prev => !prev)
+    }
   return (
     <div className="headerWrapper">
       <nav className="headerNav">
@@ -23,8 +28,11 @@ const Header = () => {
           </li>
         </ul>
         <div className="headerMenu-icon_div">
-         <img src={menuIcon} alt='menuImg' className='headerMenu-icon' />
-         <img src={cancelIcon} alt='menuImg' className='headerMenu-icon' />
+            {
+                display ? 
+         <img src={cancelIcon} alt='menuImg' className='headerMenu-icon' onClick={handleSmallScreenNavDisplay}/> :
+         <img src={menuIcon} alt='menuImg' className='headerMenu-icon' onClick={handleSmallScreenNavDisplay}/>
+            }
         </div>
       </nav>
     </div>
