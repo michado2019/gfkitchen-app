@@ -1,7 +1,7 @@
 .footerWrapper{
     height: 23vh;
     background-color: #f09308;
-    position: absolute;
+    position: fixed;
     width: 100%;
     left: 0;
     bottom: 0;

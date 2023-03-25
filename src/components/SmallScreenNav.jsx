@@ -8,7 +8,7 @@ const SmallScreenNav = ({display, setDisplay}) => {
         setDisplay(prev => !prev)
     }
   return (
-    <div className="smallScreen-nav_wrapper" style={{marginLeft: display ? '-1000px' : '0', transition: 'all 0.5s'}}>
+    <div className="smallScreen-nav_wrapper" style={{marginLeft: display ? '0' : '-1000px', transition: 'all 0.5s'}}>
       <nav className="smallScreen-nav">
         <ul className="smallScreen-nav_flex">
           <li className="smallScreen-nav_links">

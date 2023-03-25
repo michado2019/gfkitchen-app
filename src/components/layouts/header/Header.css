@@ -18,6 +18,12 @@
   display: flex;
   align-items: center;
 }
+.headerLogo-link{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: #f09308;
+}
 .headerLogo {
   font-size: 28px;
 }
@@ -34,6 +40,10 @@
   list-style: none;
   color: #f09308;
   cursor: pointer;
+}
+.headerHome-links {
+  color: #f09308;
+  text-decoration: none;
 }
 .headerLink {
   color: #f09308;

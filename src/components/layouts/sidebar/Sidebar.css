@@ -1,11 +1,21 @@
-.sidebarWrapper{
-    background-color: #fff;
-    width: 250px;
-    height: 75vh;
-    box-shadow: 2px 0.5px 0.5px #f2f2f2;
+.sidebarWrapper {
+  background-color: #fff;
+  min-width: 250px;
+  height: 66.5vh;
+  box-shadow: 2px 0.5px 0.5px #f2f2f2;
+  position: sticky;
+  top: 11vh;
+  left: 0;
+  border-top: 1px solid #f09308;
+}
+@media (max-width: 940px) {
+  .sidebarWrapper {
+    margin-top: -50vh;
+    border-top: none;
+  }
 }
 @media screen and (max-width: 768px) {
-    .sidebarWrapper{
-        display: none;
-    }
+  .sidebarWrapper {
+    display: none;
+  }
 }
