@@ -1,0 +1,46 @@
+.registerWrapper{
+}
+.loginContents{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.loginTitle{
+    color: #555;
+}
+.loginForm{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+.loginInputs, .loginSubmit-btn{
+    padding: 15px 10px;
+    border: 1px solid #ddd;
+    margin: 5px 0;
+    border-radius: 4px;
+    outline: 0;
+}
+.loginInputs:hover, .loginSubmit-btn:hover{
+    border-bottom: 3px solid #f09308;
+    transition: all .5s;
+}
+.loginSubmit-btn{
+    font-weight: 900;
+    color: #f09308;
+    cursor: pointer;
+}
+.loginRegisterAnd-password_div{
+    color: #555;
+}
+.loginRegister-and_password{
+    color: #f09308;
+    font-size: 12px;
+}
+@media (max-width: 940px) {
+    .loginContents{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}

@@ -1,0 +1,56 @@
+.registerWrapper {
+}
+.registerContents {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.registerContent-one,
+.registerContent-two {
+  display: flex;
+  flex-direction: column;
+}
+.registerTitle {
+  color: #555;
+}
+.registerContent-two {
+  max-width: 400px;
+  margin: 10%;
+}
+.registerForm {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+.registerInputs,
+.registerSubmit-btn {
+  padding: 15px 10px;
+  border: 1px solid #ddd;
+  margin: 5px 0;
+  border-radius: 4px;
+  outline: 0;
+}
+.registerInputs:hover,
+.registerSubmit-btn:hover {
+  border-bottom: 3px solid #f09308;
+  transition: all 0.5s;
+}
+.registerSubmit-btn {
+  font-weight: 900;
+  color: #f09308;
+  cursor: pointer;
+}
+.registerLogin {
+  color: #f09308;
+  text-align: center;
+}
+.registerTitle-details{
+    color: #555;
+}
+@media (max-width: 940px) {
+  .registerContents {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}

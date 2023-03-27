@@ -1,12 +1,45 @@
 .sidebarWrapper {
   background-color: #fff;
   min-width: 250px;
-  height: 66.5vh;
+  height: 67vh;
   box-shadow: 2px 0.5px 0.5px #f2f2f2;
   position: sticky;
   top: 11vh;
   left: 0;
   border-top: 1px solid #f09308;
+}
+.sidebarContents {
+  background-image: url("./assets/codeLogo.png");
+  background-repeat: no-repeat;
+  background-size: 70%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: repeat-y;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  justify-content: center;
+  align-items: center;
+  max-width: 250px;
+  padding: 0 15px;
+  text-align: center;
+  text-shadow: 2px 3px 5px #f09308;
+  background-color: #f2f2f2;
+  font-size: 24px;
+}
+.sidebarIntro{
+  animation: animatedBackground 5s linear infinite alternate;
+  animation-timeline: 10s;
+}
+@keyframes animatedBackground {
+  from {
+    margin-left: -1000px;
+  }
+  to {
+    margin-left:  inherit;
+    transition: all 5s;
+  }
 }
 @media (max-width: 940px) {
   .sidebarWrapper {

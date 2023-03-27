@@ -41,9 +41,49 @@
   color: #f09308;
   cursor: pointer;
 }
+.headerNav-links:hover {
+  border-bottom: 4px solid #f09308;
+  transition: 0.3s;
+}
+.headerNav-links_flex{
+  display: flex;
+  align-items: center;
+}
+.headerSwitch{
+  margin: 3px;
+  background-color: #f09308;
+  color: #f2f2f2;
+  font-size: 12px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  text-align: center;
+}
 .headerHome-links {
   color: #f09308;
   text-decoration: none;
+}
+.headerServices-lists, .headerAbout-us_lists{
+  background-color: #555;
+  width: fit-content;
+  height: fit-content;
+  position: absolute;
+  padding: 5px 15px;
+  border-radius: 4px;
+  min-width: 150px;
+  min-height: 220px;
+  max-width: 170px;
+  text-align: center;
+  margin-top: 10px;
+  padding-top: 30px;
+}
+.headerServices-list, .headerAbout-us_list{
+  font-size: 16px;
+  margin: 10px 0;
+  color: #f2f2f2;
+}
+.headerServices-lists_title, .headerAbout-lists_title{
+  color: #f09308;
 }
 .headerLink {
   color: #f09308;
