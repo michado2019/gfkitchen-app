@@ -1,4 +1,5 @@
 .registerWrapper {
+  margin-top: 40px;
 }
 .registerContents {
   display: flex;
@@ -48,6 +49,9 @@
     color: #555;
 }
 @media (max-width: 940px) {
+  .registerWrapper{
+    height: 100vh;
+  }
   .registerContents {
     flex-direction: column;
     align-items: center;

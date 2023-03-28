@@ -1,9 +1,10 @@
 .routesIndex-wrapper {
     padding: 20px auto;
     margin: 40px auto;
+    margin-left: 35%;
 }
-@media (max-width: 940px) {
-    .routesIndex-wrapper{
-    height: 100vh;
-    }
+@media (max-width: 768px) {
+.routesIndex-wrapper{
+    margin: 40px auto;
+}
 }

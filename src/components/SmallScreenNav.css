@@ -1,9 +1,10 @@
 .smallScreen-nav_wrapper {
   display: none;
   background-color: #111;
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100%;
+  top: 10.3vh;
 }
 @media screen and (max-width: 768px) {
   .smallScreen-nav_wrapper {

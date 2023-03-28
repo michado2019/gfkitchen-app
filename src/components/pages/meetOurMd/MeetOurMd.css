@@ -1,0 +1,58 @@
+.meetOur-md_wrapper {
+  padding: 2% 7%;
+  margin-left: -15%;
+  margin-top: 40px;
+}
+.meetOur-md_content {
+  display: flex;
+  align-items: center;
+}
+.meetOur-md_pix {
+  width: 200px;
+  height: 250px;
+  border-radius: 7px;
+}
+.meetOur-md_speech {
+  width: 60%;
+  color: #555;
+  margin: 0 40px;
+}
+.meetOur-md_speechTitle {
+  margin-bottom: 10px;
+}
+.meetOur-md_speechDetails {
+  margin-bottom: 10px;
+}
+.meetOur-md_name {
+  color: #f09308;
+  font-size: 16px;
+  margin-left: 50px;
+}
+@media (max-width: 940px) {
+  .meetOur-md_wrapper {
+    height: 100vh;
+  }
+  .meetOur-md_content {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .meetOur-md_name{
+    margin-left: 160px;
+  }
+}
+@media (max-width:768px) {
+    .meetOur-md_wrapper{
+        margin: 40px auto;
+        height: 120vh;
+    }
+    .meetOur-md_name{
+        margin-left: 10px;
+      }
+}
+@media (max-width: 440px) {
+    .meetOur-md_speechDetails{
+        width: 130%;
+        margin-left: -10px;
+    }
+}

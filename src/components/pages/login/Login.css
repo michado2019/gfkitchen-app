@@ -1,4 +1,6 @@
-.registerWrapper{
+.loginWrapper{
+    margin-left: 45%;
+    margin-top: 70px;
 }
 .loginContents{
     display: flex;
@@ -38,6 +40,9 @@
     font-size: 12px;
 }
 @media (max-width: 940px) {
+    .loginWrapper{
+        margin: 40px auto;
+    }
     .loginContents{
         flex-direction: column;
         align-items: center;
