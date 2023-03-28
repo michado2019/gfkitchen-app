@@ -7,6 +7,7 @@ import Register from "../pages/register/Register";
 import ForgotPassword from "../pages/login/forgotPassword/ForgotPassword";
 import ChangePassword from "../pages/login/changePassword/ChangePassword";
 import OurKitchen from "../pages/ourKitchen/OurKitchen";
+import OurSingleKitchen from "../pages/ourKitchen/ourSingleKitchen/OurSingleKitchen";
 import MeetOurMd from "../pages/meetOurMd/MeetOurMd";
 
 const AppRouter = () => {
@@ -22,6 +23,7 @@ const AppRouter = () => {
           element={<ChangePassword />}
         />
         <Route path="/ourKitchen" element={<OurKitchen />} />
+        <Route path="/ourKitchen/:id" element={<OurSingleKitchen />} />
         <Route path="/meetOurMd" element={<MeetOurMd />} />
       </Routes>
     </div>

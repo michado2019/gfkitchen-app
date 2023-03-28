@@ -1,3 +1,6 @@
 .homeWrapper{
     min-height: 100vh;
 }
+.homeConntents{
+    margin: 70px auto;
+}

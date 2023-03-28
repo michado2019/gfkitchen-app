@@ -1,9 +1,13 @@
 import React from 'react'
 import './MeetOurMd.css'
 import mdPix from './assets/profile-pix.jpg'
+import BackBtn from '../../backBtn/BackBtn'
 const MeetOurMd = () => {
   return (
     <div className='meetOur-md_wrapper'>
+       <div style={{ marginLeft: "50px", marginTop: "-10px" }}>
+        <BackBtn />
+      </div>
       <div className='meetOur-md_content'>
         <div className='meetOur-md_info'>
           <img src={mdPix} alt='img' className='meetOur-md_pix'/>

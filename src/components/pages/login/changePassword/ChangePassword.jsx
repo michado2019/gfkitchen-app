@@ -1,8 +1,12 @@
 import React from "react";
+import BackBtn from "../../../backBtn/BackBtn";
 import "./ChangePassword.css";
 const ChangePassword = () => {
   return (
     <div className="changePassword-wrapper">
+      <div style={{ marginLeft: "-100px", marginTop: "5px" }}>
+        <BackBtn />
+      </div>
       <div className="changePassword-contents">
         <h2 className="changePassword-title">Change password</h2>
         <form className="changePassword-form">
@@ -16,7 +20,7 @@ const ChangePassword = () => {
             placeholder="Enter new password"
             className="changePassword-inputs"
           />
-           <input
+          <input
             type="email"
             placeholder="Enter email"
             className="changePassword-inputs"

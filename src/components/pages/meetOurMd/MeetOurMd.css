@@ -2,6 +2,7 @@
   padding: 2% 7%;
   margin-left: -15%;
   margin-top: 40px;
+  min-height: 50vh;
 }
 .meetOur-md_content {
   display: flex;

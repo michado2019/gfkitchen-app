@@ -22,12 +22,12 @@
 .footerLinks{
     text-decoration: none;
     color: #3f3f3f;
-    font-size: 18px;
+    font-size: 14px;
 }
 .footerMd-link, .footerCompany{
 text-decoration: none;
 color: #3f3f3f;
-font-size: 18px;
+font-size: 14px;
 }
 @media (max-width: 435px) {
     .footerWrapper{

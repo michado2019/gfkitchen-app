@@ -1,0 +1,89 @@
+.ourSingle-kitchen_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-items: center;
+}
+.ourSingleKitchen-contents {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  margin: 20px 40px;
+  margin-left: -30px;
+  gap: 10% 20%;
+  padding-bottom: 150px;
+}
+.ourSingleKitchen-content {
+  display: flex;
+  align-items: flex-start;
+}
+.ourSingleKitchen-content_id {
+  font-size: 14px;
+  padding: 4px;
+  background-color: #111;
+  color: #f2f2f2;
+  margin: 10px 0;
+  width: 20px;
+}
+.ourSingleKitchen-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.ourSingleKitchen {
+  margin-right: 15px;
+}
+.ourSingleKitchen-img {
+  width: 250px;
+  height: 250px;
+  border-radius: 5px;
+}
+.ourSingleKitchen-flex {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.ourSingleKitchen-ditch_name,
+.ourSingleKitchen-ditch_origin,
+.ourSingleKitchen-ditch_price,
+.ourSingleKitchen-ditch_value,
+.ourSingleKitchen-ditch_ingredients,
+.ourSingleKitchen-ditch_details {
+  font-size: 16px;
+  color: #555;
+}
+.ourSingleKitchen-ditch_price {
+  background-color: #555;
+  font-size: 14px;
+  width: fit-content;
+  font-weight: 700;
+  padding: 1px 2px;
+  color: #f2f2f2;
+}
+@media (max-width: 768px) {
+  .ourSingle-kitchen_wrapper {
+    margin: 40px 50px;
+  }
+}
+@media (max-width: 480px) {
+    .ourSingleKitchen-div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .ourSingleKitchen-ditch_detail{
+        width: 270px;
+        margin-top: 20px;
+      }
+}
+@media (max-width: 375px) {
+    .ourSingle-kitchen_wrapper {
+        margin: 0 auto;
+      }
+      .ourSingleKitchen-contents {
+        margin: 20px 40px;
+        margin-left: 0;
+        gap: 10% auto;
+        padding-bottom: 150px;
+      } 
+}
