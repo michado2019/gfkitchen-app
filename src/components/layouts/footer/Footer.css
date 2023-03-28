@@ -1,11 +1,10 @@
 .footerWrapper{
     height: 17vh;
     background-color: #f09308;
-    position: fixed;
+    position: absolute;
     width: 100%;
     left: 0;
-    bottom: 0;
-    padding-top: 20px;
+    padding: 20px 0;
 }
 .footerContents-flex{
     display: flex;
@@ -29,4 +28,9 @@
 text-decoration: none;
 color: #3f3f3f;
 font-size: 18px;
+}
+@media (max-width: 435px) {
+    .footerWrapper{
+        height: 27vh;
+    }
 }

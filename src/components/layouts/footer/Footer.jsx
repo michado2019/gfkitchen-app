@@ -5,7 +5,7 @@ export const Footer = () => {
   return (
     <div className='footerWrapper'>
         <div className='footerContents-flex'>
-            <div><Link to='/' className='headerGF-kitchen'>GFKitchen</Link></div>
+            <div><Link to='/' className='headerGF-kitchen'>GFkitchen</Link></div>
             <div className='footerContents-flex_1'>
                 <div className='footerContents-flex_home'><Link to='/' className='footerLinks'>Home</Link></div>
                 <div className='footerContents-flex_about'><a href='#about' className='footerLinks'>About us</a></div>
@@ -18,7 +18,7 @@ export const Footer = () => {
             <div className='footerContents-flex_3'>
                 <h2 className='footerContents-flex_need'>You need a website?</h2>
                 <div className='footerContents-flex_contact'>Contact us @ <a href='mailto: adeshinaobafemi09@gmail.com' className='footerCompany'>Michado</a></div>
-                <p className='footerContents-flex_rights'> All rights reserved &copy; </p>GF Kitchen 2023.
+                <p className='footerContents-flex_rights'> All rights reserved &copy; </p>GF kitchen 2023.
             </div>
         </div>
     </div>

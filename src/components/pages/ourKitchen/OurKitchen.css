@@ -1,0 +1,129 @@
+.ourKitchen-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-items: center;
+}
+.ourKitchen-contents {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  margin: 20px 40px;
+  margin-left: -30px;
+  gap: 10% 20%;
+  padding-bottom: 150px;
+}
+.ourKitchen-content {
+  display: flex;
+  align-items: flex-start;
+}
+.ourKitchen-content_index {
+  font-size: 14px;
+  padding: 4px;
+  background-color: #111;
+  color: #f2f2f2;
+  margin: 10px;
+}
+.ourKitchen-img {
+  width: 250px;
+  height: 250px;
+  border-radius: 5px;
+}
+.ourKitchen-flex {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.ourKitchen-ditch_name,
+.ourKitchen-ditch_origin,
+.ourKitchen-ditch_price {
+  font-size: 16px;
+  color: #555;
+}
+.ourKitchen-ditch_price {
+  background-color: #555;
+  font-size: 14px;
+  width: fit-content;
+  font-weight: 700;
+  padding: 1px 2px;
+  color: #f2f2f2;
+}
+.ourKitchen-more_btn {
+  background-color: #f09308;
+  border: 0;
+  padding: 3px 15px;
+  border-radius: 3px;
+  color: #f2f2f2;
+  margin-top: 5px;
+  cursor: pointer;
+}
+@media (max-width: 1100px) {
+  .ourKitchen-img {
+    width: 200px;
+    height: 200px;
+  }
+}
+@media (max-width: 860px) {
+  .ourKitchen-contents {
+    margin: 20px 0;
+    gap: 10% 10%;
+  }
+  .ourKitchen-img {
+    width: 180px;
+    height: 180px;
+  }
+  .ourKitchen-ditch_btnsDiv {
+    margin-left: -40px;
+  }
+}
+@media (max-width: 768px) {
+  .ourKitchen-wrapper {
+    margin: 40px 40px;
+  }
+  .ourKitchen-contents {
+    margin: 20px auto;
+    gap: 10% 0;
+  }
+}
+@media (max-width: 600px) {
+  .ourKitchen-wrapper {
+    display: flex;
+    align-items: center;
+    padding-bottom: 400px;
+  }
+  .ourKitchen-contents {
+    grid-template-columns: 1fr;
+    margin: 20px auto;
+    margin-left: -30px;
+    gap: 10% auto;
+  }
+  .ourKitchen-img {
+    width: 250px;
+    height: 250px;
+  }
+}
+@media (max-width: 335px) {
+  .ourKitchen-wrapper {
+    display: flex;
+    align-items: center;
+    padding-bottom: 400px;
+  }
+  .ourKitchen-contents {
+    grid-template-columns: 1fr;
+    margin: 20px auto;
+    margin-left: -12px;
+    gap: 10% auto;
+  }
+  .ourKitchen-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .ourKitchen-img {
+    width: 250px;
+    height: 250px;
+  }
+  .ourKitchen-content_index {
+    display: none;
+  }
+}
