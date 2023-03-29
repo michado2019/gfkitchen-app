@@ -3,14 +3,10 @@ import "./OurSingleKitchen.css";
 import ourKitchenData from "../ourKitchenData/OurKitchenData";
 import { useParams } from "react-router-dom";
 import ourKitchenImg from "../ourKitchenData/assets/profile-pix.jpg";
-import BackBtn from "../../../backBtn/BackBtn";
 const OurSingleKitchen = () => {
   const { id } = useParams();
   return (
       <div className="ourSingle-kitchen_wrapper">
-        <div style={{ marginLeft: "-630px", marginTop: "55px" }}>
-        <BackBtn />
-      </div>
       <div className="ourSingle-kitchen_contents">
         {ourKitchenData
           .filter((ourKitchenDatum) => ourKitchenDatum.id == id)

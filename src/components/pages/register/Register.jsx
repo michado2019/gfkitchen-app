@@ -1,11 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import BackBtn from "../../backBtn/BackBtn";
 import "./Register.css";
 const Register = () => {
   return (
     <div className="registerWrapper">
-      <BackBtn />
       <div className="registerContents">
         <div className="registerContent-one">
           <h2 className="registerTitle">Register</h2>

@@ -4,7 +4,6 @@ import ourKitchenData from "./ourKitchenData/OurKitchenData";
 import ourKitchenImg from "./ourKitchenData/assets/profile-pix.jpg";
 import Pagination from "../../pagination/Pagination";
 import { Link } from "react-router-dom";
-import BackBtn from "../../backBtn/BackBtn";
 
 const OurKitchen = () => {
   // States
@@ -14,9 +13,6 @@ const OurKitchen = () => {
   const skip = page * perPage - perPage;
   return (
     <div className="ourKitchen-wrapper">
-       <div style={{ marginLeft: "-600px", marginTop: "55px" }}>
-        <BackBtn />
-      </div>
       <div className="ourKitchen-contents">
         {ourKitchenData
           .slice(skip, skip + perPage)

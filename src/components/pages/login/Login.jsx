@@ -1,13 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import BackBtn from "../../backBtn/BackBtn";
 import "./Login.css";
 const Login = () => {
   return (
     <div className="loginWrapper">
-      <div style={{ marginLeft: "-130px", marginTop: "-15px" }}>
-        <BackBtn />
-      </div>
       <div className="loginContents">
         <h2 className="loginTitle">Login</h2>
         <form className="loginForm">

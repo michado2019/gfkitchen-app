@@ -1,45 +1,44 @@
 .sidebarWrapper {
-  background-color: #fff;
   min-width: 250px;
   height: 100vh;
-  box-shadow: 2px 0.5px 0.5px #f2f2f2;
-  position: fixed;
-  top: 10.3vh;
+  box-shadow: 4px 4px 6px #ccc;
+  margin-top: -16vh;
+  color: #555;
   left: 0;
   border-top: 1px solid #f09308;
+  background-color: #fff;
+}
+.sidebarContents1, .sidebarContents2{
+  font-size: 20px;
+}
+.sidebarContents1, .sidebarServices-lists_title{
+  color: #f09308;
+  text-shadow: none;
+  margin-bottom: 10px;
 }
 .sidebarContents {
-  background-image: url("./assets/codeLogo.png");
-  background-repeat: no-repeat;
-  background-size: 70%;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: repeat-y;
   height: 100%;
   display: flex;
   flex-direction: column;
-  place-items: center;
-  justify-content: center;
   align-items: center;
   max-width: 250px;
-  padding: 0 15px;
+  padding: 0 45px;
+  padding-top: 150px;
   text-align: center;
-  text-shadow: 2px 3px 5px #f09308;
-  background-color: #f2f2f2;
-  font-size: 24px;
+  font-size: 16px;
 }
-.sidebarIntro{
-  animation: animatedBackground 5s linear infinite alternate;
-  animation-timeline: 10s;
+.sidebarServices{
+  text-shadow: none;
+  line-height: 30px;
+  cursor: pointer;
+  font-weight: 600;
 }
-@keyframes animatedBackground {
-  from {
-    margin-left: -1000px;
-  }
-  to {
-    margin-left:  inherit;
-    transition: all 5s;
-  }
+.sidebarServices-list{
+  border-bottom: none;
+}
+.sidebarServices-list:hover{
+  border-bottom: 3px solid #f09308;
+  transition: all 0.3s;
 }
 @media (max-width: 940px) {
   .sidebarWrapper {

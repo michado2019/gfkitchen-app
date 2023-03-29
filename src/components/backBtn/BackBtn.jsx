@@ -10,11 +10,12 @@ const BackBtn = () => {
       <button
         style={{
           cursor: "pointer",
-          marginTop: "-400px",
-          marginLeft: "-30vh",
+          marginLeft: "200px",
           padding: "3px 10px",
           border: "0",
-          backgroundColor: "#f2f2f2",
+          backgroundColor: "#eee",
+          boxShadow: '0.2px 0.3px 4px #555',
+          borderRadius: '3px',
           color: "#f09308",
         }}
         onClick={handleLocation}
