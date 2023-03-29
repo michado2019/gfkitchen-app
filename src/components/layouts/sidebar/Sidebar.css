@@ -1,12 +1,13 @@
 .sidebarWrapper {
-  min-width: 250px;
-  height: 100vh;
+  max-width: 200px;
+  min-height: 100%;
   box-shadow: 4px 4px 6px #ccc;
-  margin-top: -16vh;
   color: #555;
   left: 0;
+  top: 10.3vh;
   border-top: 1px solid #f09308;
   background-color: #fff;
+  position: fixed;
 }
 .sidebarContents1, .sidebarContents2{
   font-size: 20px;

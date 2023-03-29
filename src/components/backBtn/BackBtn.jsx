@@ -10,7 +10,7 @@ const BackBtn = () => {
       <button
         style={{
           cursor: "pointer",
-          marginLeft: "200px",
+          marginLeft: "150px",
           padding: "3px 10px",
           border: "0",
           backgroundColor: "#eee",

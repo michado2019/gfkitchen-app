@@ -78,7 +78,7 @@ const Home = () => {
               style={{display: pageSouthern <= 1 ? 'none' : ''}}
               onClick={() => setPageSouthern((prev) => prev - 1)}
               />
-              <div className="homeContent-flex">
+              <div className="homeContent-flex" id="homeContent-flex">
                 <h2 className="homeContent-title">Top Southern Dishes</h2>
                 {topSouthernDishes.slice(skipSouthern, skipSouthern + perPage).map((topDish) => {
                   return (
@@ -87,6 +87,7 @@ const Home = () => {
                         src={topDish.img}
                         alt="img"
                         className="homeDish-img"
+                        id="homeDish-img"
                       />
                       <h3 className="homeDish-name">{topDish.ditchName}</h3>
                     </div>

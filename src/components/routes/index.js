@@ -26,6 +26,7 @@ const AppRouter = () => {
         <Route path="/ourKitchen/:id" element={<OurSingleKitchen />} />
         <Route path="/meetOurMd" element={<MeetOurMd />} />
       </Routes>
+      <div></div>
     </div>
   );
 };

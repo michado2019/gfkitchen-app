@@ -1,8 +1,8 @@
 .footerWrapper{
     height: 17vh;
     background-color: #f09308;
-    width: 100%;
-    left: 0;
+    width: 84.9%;
+    margin-left: 203px;
     padding: 20px 0;
 }
 .footerContents-flex{
