@@ -4,7 +4,12 @@
 }
 .aboutUs-contents{
     display: flex;
-    width: 450px;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+.aboutUs-content1{
+    display: flex;
+    width: 400px;
     flex-direction: column;
     padding: 0 auto;
     min-height: 100vh;
@@ -29,4 +34,11 @@
     width: 150%;
     padding: 40px 50px;
     border-radius: 10px;
+}
+.aboutUs-content2{
+    height: 300px;
+    width: 250px;
+    margin-top: -70px;
+    border: 3px solid #f09308;
+    border-radius: 5px;
 }

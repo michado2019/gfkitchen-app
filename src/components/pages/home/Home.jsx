@@ -126,7 +126,7 @@ const Home = () => {
             <div className="homeContent-div_content">
               {ourKitchenData.map((ourKitchenDatum) => {
                 return (
-                  <div className="home-content">
+                  <div className="home-content" key={ourKitchenDatum.id}>
                     <div className="home">
                       <img
                         src={ourKitchenDatum.ditchImg}
