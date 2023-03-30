@@ -56,7 +56,8 @@ const Header = ({ display, setDisplay }) => {
             >
               <div className="headerAbout-us_list">
                 <h4 className="headerAbout-lists_title">About GFkitchen:</h4>
-                <div className="headerAbout-us_list">{aboutUsData[0]}</div>
+                <a href="#about" className="headerAbout-us_list">{aboutUsData[0]}</a>
+                <br />
                 <Link to="/ourKitchen" className="headerAbout-us_list">{aboutUsData[1]}</Link>
                 <div className="headerAbout-us_list">{aboutUsData[2]}</div>
                 <Link to="/meetOurMd" className="headerAbout-us_list">{aboutUsData[3]}</Link>

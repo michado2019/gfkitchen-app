@@ -36,7 +36,7 @@ export const Sidebar = () => {
         <div className="sidebarLocation">
         <h2 className="sidebarLocation-lists_title">Locations:</h2>
         <br />
-        {locationData.slice(skip, skip + perPage).map((locationDatum, index) => {
+        {locationData.slice(skip, skip + perPage).map((locationDatum) => {
           return (
             <div className="sidebarLocation-contents" key={locationDatum.id}>
               <div className="sidebarLocation-content">
@@ -45,7 +45,7 @@ export const Sidebar = () => {
                 style={{ display: page <= 1 ? "none" : "" }}
                 onClick={() => setPage((prev) => prev - 1)}
               />
-                <h2 className="sidebarLocation-num">{index + 1}</h2>
+                <h2 className="sidebarLocation-num">*</h2>
                 <div className="sidebarLocation-content2">
                  <h4 className="sidebarLocation-geo">{locationDatum.geo.geo_one}, </h4> <h4>{locationDatum.geo.geo_two}</h4>
                  <h4 className="sidebarLocation-state">{locationDatum.state},</h4>

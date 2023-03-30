@@ -1,0 +1,32 @@
+.aboutUs-wrapper{
+    margin: 100px auto;
+    margin-bottom: -200px;
+}
+.aboutUs-contents{
+    display: flex;
+    width: 450px;
+    flex-direction: column;
+    padding: 0 auto;
+    min-height: 100vh;
+    margin-left: -125%;
+}
+.aboutUs-title {
+    color: #555;
+    background-color: #ddd;
+    min-width: fit-content;
+    width: 200px;
+    height: 35px;
+    border-radius: 2px;
+    margin: 0 120px;
+    text-align: center;
+    font-size: 24px;
+    padding: 2px 5px;
+    margin-left: 60px;
+}
+.aboutUs-details{
+    font-size: 24px;
+    color: #555;
+    width: 150%;
+    padding: 40px 50px;
+    border-radius: 10px;
+}

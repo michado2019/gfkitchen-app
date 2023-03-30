@@ -6,8 +6,8 @@ import { topWesternDishes } from "./homeData/HomeData";
 import { topNorthernDishes } from "./homeData/HomeData";
 import { topSouthernDishes } from "./homeData/HomeData";
 import ourKitchenData from "../ourKitchen/ourKitchenData/OurKitchenData";
+import AboutUS from "./AboutUS";
 const Home = () => {
-
   //State
   const [page, setPage] = useState(1);
   const [pageNorthern, setPageNorthern] = useState(1);
@@ -23,7 +23,9 @@ const Home = () => {
   return (
     <div className="homeWrapper">
       <div className="homeConntents">
-            <h2 className="homeContent1-title">Top Nigerian dishes:</h2>
+        <AboutUS />
+        <br />
+        <h2 className="homeContent1-title">Top Nigerian dishes:</h2>
         <div className="homeContent1">
           <div className="homeContent1-div">
             <div className="homeContent-div">
@@ -119,39 +121,46 @@ const Home = () => {
           </div>
         </div>
         <div className="homeContent2">
-            <h2 className="homeContent2-title">Our dishes:</h2>
+          <h2 className="homeContent2-title">Our dishes:</h2>
           <div className="homeContent-div2">
             <div className="homeContent-div_content">
-            {ourKitchenData.map((ourKitchenDatum) => {
-            return (
-              <div className="home-content">
-                <div className="home">
-                  <img
-                    src={ourKitchenDatum.ditchImg}
-                    alt="img"
-                    className="home-img"
-                  />
-                  <div className="home-flex">
-                    <div>
-                      <h2 className="home-ditch_name">
-                        {ourKitchenDatum.ditchName}
-                      </h2>
-                      <p className="home-ditch_origin">
-                        {ourKitchenDatum.origin}
-                      </p>
-                      <p className="home-ditch_price">
-                        {ourKitchenDatum.price}
-                      </p>
-                    </div>
-                    <div className="home-ditch_btnsDiv">
-                      <button className="home-more_btn"><Link to={`/ourKitchen/${ourKitchenDatum.id}`} className="ourKitchen-link">More</Link></button>
-                      <button className="home-more_btn">Buy</button>
+              {ourKitchenData.map((ourKitchenDatum) => {
+                return (
+                  <div className="home-content">
+                    <div className="home">
+                      <img
+                        src={ourKitchenDatum.ditchImg}
+                        alt="img"
+                        className="home-img"
+                      />
+                      <div className="home-flex">
+                        <div>
+                          <h2 className="home-ditch_name">
+                            {ourKitchenDatum.ditchName}
+                          </h2>
+                          <p className="home-ditch_origin">
+                            {ourKitchenDatum.origin}
+                          </p>
+                          <p className="home-ditch_price">
+                            {ourKitchenDatum.price}
+                          </p>
+                        </div>
+                        <div className="home-ditch_btnsDiv">
+                          <button className="home-more_btn">
+                            <Link
+                              to={`/ourKitchen/${ourKitchenDatum.id}`}
+                              className="ourKitchen-link"
+                            >
+                              More
+                            </Link>
+                          </button>
+                          <button className="home-more_btn">Buy</button>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
-            );
-          })}
+                );
+              })}
             </div>
           </div>
         </div>
