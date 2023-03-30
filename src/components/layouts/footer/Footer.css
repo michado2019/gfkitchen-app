@@ -28,6 +28,12 @@ text-decoration: none;
 color: #3f3f3f;
 font-size: 14px;
 }
+@media (max-width: 768px) {
+    .footerWrapper{
+        margin-left: 0;
+        width: 100%;
+    }
+}
 @media (max-width: 435px) {
     .footerWrapper{
         height: 27vh;

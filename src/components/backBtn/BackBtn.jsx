@@ -17,6 +17,7 @@ const BackBtn = () => {
           boxShadow: '0.2px 0.3px 4px #555',
           borderRadius: '3px',
           color: "#f09308",
+          marginTop: '40px'
         }}
         onClick={handleLocation}
       >

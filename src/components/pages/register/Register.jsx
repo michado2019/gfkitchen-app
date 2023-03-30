@@ -34,14 +34,6 @@ const Register = () => {
             </Link>
           </form>
         </div>
-        <div className="registerContent-two">
-          <h2 className="registerTitle">Why register ?</h2>
-          <p className="registerTitle-details">
-            Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem
-            ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum
-            lorem ipsum Lorem ipsum lorem ipsum.
-          </p>
-        </div>
       </div>
     </div>
   );

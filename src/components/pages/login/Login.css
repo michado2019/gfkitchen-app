@@ -1,6 +1,7 @@
 .loginWrapper{
     min-height: 50vh;
-    margin-top: 70px;
+    margin-top: 0;
+    margin-left: 65%;
 }
 .loginContents{
     display: flex;
@@ -41,11 +42,16 @@
 }
 @media (max-width: 940px) {
     .loginWrapper{
-        margin: 40px auto;
+        margin-left: 65%;
     }
     .loginContents{
         flex-direction: column;
         align-items: center;
         justify-content: center;
+    }
+}
+@media (max-width: 768px) {
+    .loginWrapper{
+        margin: 20px auto
     }
 }

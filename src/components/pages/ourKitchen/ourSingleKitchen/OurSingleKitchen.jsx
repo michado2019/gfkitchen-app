@@ -2,7 +2,6 @@ import React from "react";
 import "./OurSingleKitchen.css";
 import ourKitchenData from "../ourKitchenData/OurKitchenData";
 import { useParams } from "react-router-dom";
-import ourKitchenImg from "../ourKitchenData/assets/profile-pix.jpg";
 const OurSingleKitchen = () => {
   const { id } = useParams();
   return (
@@ -17,7 +16,7 @@ const OurSingleKitchen = () => {
                 <div className="ourSingleKitchen-div">
                   <div className="ourSingleKitchen">
                     <img
-                      src={ourKitchenImg}
+                      src={ourKitchenDatum.ditchImg}
                       alt="img"
                       className="ourSingleKitchen-img"
                     />
@@ -33,6 +32,7 @@ const OurSingleKitchen = () => {
                           {ourKitchenDatum.price}
                         </p>
                       </div>
+                      <button className="ourSingleKitchen-more_btn">Buy</button>
                     </div>
                   </div>
                   <div className="ourSingleKitchen-ditch_detail">

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./OurKitchen.css";
 import ourKitchenData from "./ourKitchenData/OurKitchenData";
-import ourKitchenImg from "./ourKitchenData/assets/profile-pix.jpg";
 import Pagination from "../../pagination/Pagination";
 import { Link } from "react-router-dom";
 
@@ -22,7 +21,7 @@ const OurKitchen = () => {
                 <h2 className="ourKitchen-content_index">{index + 1}</h2>
                 <div className="ourKitchen">
                   <img
-                    src={ourKitchenImg}
+                    src={ourKitchenDatum.ditchImg}
                     alt="img"
                     className="ourKitchen-img"
                   />

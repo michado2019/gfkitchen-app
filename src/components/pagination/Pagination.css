@@ -43,4 +43,8 @@
       transition: all 0.3s;
     }
   
-  
+  @media (max-width: 600px) {
+    .paginationWrapper {
+      margin-top: -100px;
+    }
+  }

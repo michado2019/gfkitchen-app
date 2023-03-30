@@ -1,7 +1,7 @@
 .sidebarWrapper {
   max-width: 200px;
   min-height: 100%;
-  box-shadow: 4px 4px 6px #ccc;
+  box-shadow: 0.1px 0.5px 8px #212121;
   color: #555;
   left: 0;
   top: 10.3vh;
@@ -24,7 +24,7 @@
   align-items: center;
   max-width: 250px;
   padding: 0 45px;
-  padding-top: 150px;
+  padding-top: 70px;
   text-align: center;
   font-size: 16px;
 }
@@ -40,6 +40,39 @@
 .sidebarServices-list:hover{
   border-bottom: 3px solid #f09308;
   transition: all 0.3s;
+}
+.sidebarLocation-contents{
+  background-color: #555;
+  padding: 5px 0;
+  border-radius: 3px;
+  color: #f2f2f2;
+  width: 190px;
+  padding: 12px 15px;
+  min-height: fit-content;
+  min-width: fit-content;
+}
+.sidebarLocation-lists_title{
+  color: #f09308;
+}
+.sidebarLocation-content{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+.sidebarLocation-arrow{
+  color: #f09308 !important;
+  font-size: 18px !important;
+  cursor: pointer;
+}
+.sidebarLocation-num{
+  color: #f2f2f2;
+  font-size: 10px;
+  background-color: #f09308;
+  border-radius: 50%;
+  padding: 5px;
+}
+.sidebarLocation-content2{
+  padding-left: 20px;
 }
 @media (max-width: 940px) {
   .sidebarWrapper {

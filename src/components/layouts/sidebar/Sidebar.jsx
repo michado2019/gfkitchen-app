@@ -1,8 +1,17 @@
-import React from "react";
+import React, {useState} from "react";
 import "./Sidebar.css";
 import servicesData from "../header/headerData/HeaderData";
 import BackBtn from "../../backBtn/BackBtn";
+import { locationData } from "./sideBarData/SideBarData";
+import { ArrowBackIosNew, ArrowForwardIos } from "@mui/icons-material";
 export const Sidebar = () => {
+
+   //State
+   const [page, setPage] = useState(1);
+ 
+   const perPage = 1;
+   const pages = Math.ceil(locationData.length / perPage)
+   const skip = page * perPage - perPage;
   return (
     <div className="sidebarWrapper">
       <div className="sidebarContents">
@@ -19,6 +28,35 @@ export const Sidebar = () => {
           return (
             <div className="sidebarServices-list" key={service.id}>
               {service.service}
+            </div>
+          );
+        })}
+        </div>
+        <br />
+        <div className="sidebarLocation">
+        <h2 className="sidebarLocation-lists_title">Locations:</h2>
+        <br />
+        {locationData.slice(skip, skip + perPage).map((locationDatum, index) => {
+          return (
+            <div className="sidebarLocation-contents" key={locationDatum.id}>
+              <div className="sidebarLocation-content">
+              <ArrowBackIosNew
+                className="sidebarLocation-arrow"
+                style={{ display: page <= 1 ? "none" : "" }}
+                onClick={() => setPage((prev) => prev - 1)}
+              />
+                <h2 className="sidebarLocation-num">{index + 1}</h2>
+                <div className="sidebarLocation-content2">
+                 <h4 className="sidebarLocation-geo">{locationDatum.geo.geo_one}, </h4> <h4>{locationDatum.geo.geo_two}</h4>
+                 <h4 className="sidebarLocation-state">{locationDatum.state},</h4>
+                 <h4 className="sidebarLocation-country">{locationDatum.country}</h4>
+                 </div>
+                 <ArrowForwardIos
+                className="sidebarLocation-arrow"
+                onClick={() => setPage((prev) => prev + 1)}
+                style={{ display: page >= pages ? "none" : "" }}
+              />
+              </div>
             </div>
           );
         })}

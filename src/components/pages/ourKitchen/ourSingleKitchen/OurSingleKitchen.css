@@ -59,6 +59,19 @@
   padding: 1px 2px;
   color: #f2f2f2;
 }
+.ourSingleKitchen-more_btn {
+  background-color: #f09308;
+  border: 0;
+  padding: 3px 15px;
+  border-radius: 3px;
+  color: #f2f2f2;
+  margin-top: 5px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+.ourSingleKitchen-more_btn:hover {
+  padding: 4px 15px;
+}
 @media (max-width: 768px) {
   .ourSingle-kitchen_wrapper {
     margin: 40px 50px;
