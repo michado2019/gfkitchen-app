@@ -41,6 +41,10 @@
   border-bottom: 3px solid #f09308;
   transition: all 0.3s;
 }
+.sidebarServices-link{
+  text-decoration: none;
+  color: #555;
+}
 .sidebarLocation-contents{
   background-color: #555;
   padding: 5px 0;

@@ -57,9 +57,7 @@ const Header = ({ display, setDisplay }) => {
               <div className="headerAbout-us_list">
                 <h4 className="headerAbout-lists_title">About GFkitchen:</h4>
                 <a href="#about" className="headerAbout-us_list">{aboutUsData[0]}</a>
-                <br />
                 <Link to="/ourKitchen" className="headerAbout-us_list">{aboutUsData[1]}</Link>
-                <div className="headerAbout-us_list">{aboutUsData[2]}</div>
                 <Link to="/meetOurMd" className="headerAbout-us_list">{aboutUsData[3]}</Link>
               </div>
             </div>
@@ -87,7 +85,7 @@ const Header = ({ display, setDisplay }) => {
               <h4 className="headerServices-lists_title">Services:</h4>
               {servicesData.map((service) => {
                 return (
-                  <div className="headerServices-list" key={service.id}>{service.service}</div>
+                  <Link to={`perculiarService/${service.id}`} className="headerServices-list" key={service.id}>{service.service}</Link>
                 );
               })}
             </div>

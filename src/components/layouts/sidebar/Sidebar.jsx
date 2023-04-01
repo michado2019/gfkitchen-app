@@ -4,6 +4,7 @@ import servicesData from "../header/headerData/HeaderData";
 import BackBtn from "../../backBtn/BackBtn";
 import { locationData } from "./sideBarData/SideBarData";
 import { ArrowBackIosNew, ArrowForwardIos } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 export const Sidebar = () => {
 
    //State
@@ -27,7 +28,7 @@ export const Sidebar = () => {
         {servicesData.map((service) => {
           return (
             <div className="sidebarServices-list" key={service.id}>
-              {service.service}
+              <Link to={`perculiarService/${service.id}`} className="sidebarServices-link">{service.service}</Link>
             </div>
           );
         })}

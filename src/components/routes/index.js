@@ -9,6 +9,7 @@ import ChangePassword from "../pages/login/changePassword/ChangePassword";
 import OurKitchen from "../pages/ourKitchen/OurKitchen";
 import OurSingleKitchen from "../pages/ourKitchen/ourSingleKitchen/OurSingleKitchen";
 import MeetOurMd from "../pages/meetOurMd/MeetOurMd";
+import PerculiarService from "../pages/perculiarService/PerculiarService";
 
 const AppRouter = () => {
   return (
@@ -25,6 +26,7 @@ const AppRouter = () => {
         <Route path="/ourKitchen" element={<OurKitchen />} />
         <Route path="/ourKitchen/:id" element={<OurSingleKitchen />} />
         <Route path="/meetOurMd" element={<MeetOurMd />} />
+        <Route path="/perculiarService/:id" element={<PerculiarService />} />
       </Routes>
       <div></div>
     </div>

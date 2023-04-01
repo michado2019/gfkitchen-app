@@ -81,6 +81,16 @@
   font-size: 16px;
   margin: 10px 0;
   color: #f2f2f2;
+  line-height: 25px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.headerServices-list:hover, .headerAbout-us_list:hover{
+  border-bottom: 2px solid #f09308;
+  transition: all 0.3s;
 }
 .headerServices-lists_title, .headerAbout-lists_title{
   color: #f09308;
