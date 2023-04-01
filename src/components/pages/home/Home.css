@@ -2,13 +2,11 @@
   min-height: 55vh;
 }
 .homeConntents {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   margin: -110px 62%;
-}
-.homeConntents {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 .homeContent1 {
   display: flex;
@@ -44,7 +42,7 @@
 }
 .homeContent-title {
   padding: 10px;
-  font-size: 20px;
+  font-size: 16px;
   color: #f09308;
 }
 .homeContent-img_name {
@@ -67,13 +65,12 @@
   background-color: #323232;
   width: 83.5vw;
   padding: 10px 0;
-  margin-left: -53px;
+  margin-left: -83px;
   margin-bottom: 40px;
 }
 .homeContent1-title,
 .homeContent2-title {
-    color: #555;
-    background-color: #ddd;
+  color: #f09308;
   min-width: fit-content;
   width: 200px;
   height: 35px;
@@ -152,7 +149,7 @@
   }
   .homeContent-title {
     padding: 10px;
-    font-size: 14px;
+    font-size: 12px;
   }
   .homeContent-img_name {
     padding: 5px;
@@ -238,7 +235,7 @@
     margin-left: -120px;
   }
   .homeContent2 {
-    margin-left: -25%;
+    margin-left: -23%;
     width: 79%;
   }
 }
@@ -246,15 +243,16 @@
   .homeContent1 {
     display: grid;
     background-color: #f2f2f2;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     margin: 20px auto;
+    margin-left: -11%;
   }
   .homeContent1-title {
-    margin-left: 120px;
+    margin-left: -60px;
   }
   .homeContent-flex {
-    width: 220px;
-    height: 280px;
+    width: 200px;
+    height: 220px;
   }
   .homeContent-title {
     padding: 5px;
@@ -266,7 +264,7 @@
   }
   .homeDish-img {
     width: 100%;
-    height: 200px;
+    height: 150px;
   }
   .homeDish-name {
     padding: 5px;
@@ -275,13 +273,13 @@
   .homeContent2 {
     margin: 0 auto;
     background-color: #f2f2f2;
+    margin-left: -5%;
   }
   .homeContent-div_content {
-    grid-template-columns: 1fr;
-    margin-left: 15%;
+    margin-left: 8%;
   }
   .home-img {
-    width: 260px;
+    width: 240px;
   }
   .home-ditch_name {
     color: #555;
@@ -291,28 +289,41 @@
   }
   .home-ditch_price {
     color: #555;
-  }
+  } 
 }
 @media (max-width: 600px) {
-  .homeContent1 {
-    margin: 0 auto;
-    max-width: 300px;
-  }
   .homeContent2 {
-    margin: 0 auto;
-    max-width: 300px;
-    margin-left: 2%;
+    margin-left: -7%;
+  }
+  .home-img {
+    width: 200px;
+  }
+}
+@media (max-width: 515px) {
+  .homeContent1 {
+    grid-template-columns: 1fr;
+  }
+  .homeContent-div_content {
+    grid-template-columns: 1fr;
+    margin-left: 24%;
+    gap: 20px 0;
+  }
+  .home-img{
+    width: 240px;
+  }
+  .homeContent2-title{
+    margin-left: 37%;
   }
 }
 @media (max-width: 420px) {
   .homeContent1 {
-    margin-left: 11%;
+    margin-left: -15%;
   }
   .homeContent1-title {
-    margin-left: 75px;
+    margin-left: -60px;
   }
   .homeContent2 {
-    margin-left: -4%;
+    margin-left: -12%;
   }
 }
 @media (max-width: 345px) {
@@ -320,10 +331,10 @@
     margin-left: 2%;
   }
   .homeContent1-title {
-    margin-left: -10px;
+    margin-left: 60px;
   }
   .homeContent2 {
-    margin-left: -14%;
+    margin-left: -18%;
   }
   .homeContent2-title {
     margin-left: 115px;
@@ -331,6 +342,13 @@
 }
 @media (max-width: 320px) {
     .homeContent1 {
-        margin-left: 0.5%;
+        margin-left: -25%;
       }
+      .homeContent1-title{
+        margin-left: -28%;
+      }
+      .homeContent2 {
+        margin-left: -20%;
+      }
+    
 }

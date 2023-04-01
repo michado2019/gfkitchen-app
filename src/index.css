@@ -3,6 +3,10 @@
   padding: 0;
   box-sizing: border-box;
 }
+body{
+  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
+}
 body::-webkit-scrollbar {
   width: 15px; /* width of the entire scrollbar */
 }
