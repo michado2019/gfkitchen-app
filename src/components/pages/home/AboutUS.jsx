@@ -33,7 +33,7 @@ const AboutUS = () => {
     <div className="aboutUs-wrapper" id="about">
       <div className="aboutUs-contents">
         <div className="aboutUs-content1">
-          <h2 className="aboutUs-title">About</h2>
+          <h2 className="aboutUs-title">About us</h2>
           <p className="aboutUs-details">
             Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum, Lorem ipsum lorem
             ipsum. Lorem ipsum lorem ipsum, Lorem ipsum lorem ipsum, Lorem

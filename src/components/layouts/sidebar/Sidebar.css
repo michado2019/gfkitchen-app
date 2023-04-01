@@ -1,7 +1,7 @@
 .sidebarWrapper {
   max-width: 200px;
   min-height: 100%;
-  box-shadow: 0.1px 0.5px 8px #212121;
+  box-shadow: 0.1px 0.5px 2px #212121;
   color: #555;
   left: 0;
   top: 10.3vh;
