@@ -1,13 +1,12 @@
 .routesIndex-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px auto;
-    margin: 150px auto;
+  display: flex;
+  align-items: center;
+  margin-left: 200px;
+  max-width: 82.6vw;
 }
 @media (max-width: 768px) {
-.routesIndex-wrapper{
-    margin: 70px auto;
-}
+  .routesIndex-wrapper {
+      margin-left: -200px;
+      margin: 50px auto;
+  }
 }

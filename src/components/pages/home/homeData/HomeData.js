@@ -35,4 +35,16 @@ export const topNorthernDishes = [
           img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfplokqdtYHsMgsvwxvgsRnLB8fday40IoZw&usqp=CAU"
         }
         ];
+        export const topEasternDishes = [
+          {
+            id: 1,
+            ditchName: "Abacha",
+            img: "https://netstorage-legit.akamaized.net/images/vllkyt6oumi80j38l.jpg?imwidth=720",
+          },
+          {
+            id: 2,
+            ditchName: "Ora soup",
+            img: "https://netstorage-legit.akamaized.net/images/vllkyt1ur3g1l5cfl8.jpg?imwidth=720"
+          }
+          ];
       

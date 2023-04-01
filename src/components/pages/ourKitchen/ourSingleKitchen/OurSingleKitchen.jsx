@@ -1,58 +1,68 @@
 import React from "react";
 import "./OurSingleKitchen.css";
 import ourKitchenData from "../ourKitchenData/OurKitchenData";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+
 const OurSingleKitchen = () => {
   const { id } = useParams();
   return (
-      <div className="ourSingle-kitchen_wrapper">
-      <div className="ourSingle-kitchen_contents">
-        {ourKitchenData
-          .filter((ourKitchenDatum) => ourKitchenDatum.id == id)
-          .map((ourKitchenDatum) => {
-            return (
-                <div className="ourSingle-kitchen_content">
-                  <h2 className="ourSingleKitchen-content_id">{id}</h2>
-                <div className="ourSingleKitchen-div">
-                  <div className="ourSingleKitchen">
-                    <img
-                      src={ourKitchenDatum.ditchImg}
-                      alt="img"
-                      className="ourSingleKitchen-img"
-                    />
-                    <div className="ourSingleKitchen-flex">
-                      <div>
-                        <h2 className="ourSingleKitchen-ditch_name">
-                          {ourKitchenDatum.ditchName}
-                        </h2>
-                        <p className="ourSingleKitchen-ditch_origin">
-                          {ourKitchenDatum.origin}
-                        </p>
-                        <p className="ourSingleKitchen-ditch_price">
-                          {ourKitchenDatum.price}
-                        </p>
+    <div className="ourSingle-kitchen_wrapper">
+              <div className="homeContent-div_content">
+                {ourKitchenData.filter((ourKitchenDatum) => ourKitchenDatum.id == id)
+                .map((ourKitchenDatum) => {
+                  return (
+                    <div className="home-content" key={ourKitchenDatum.id}>
+                      <div className="home">
+                        <img
+                          src={ourKitchenDatum.ditchImg}
+                          alt="img"
+                          className="home-img"
+                        />
+                        <div className="home-flex">
+                          <div>
+                            <h2 className="home-ditch_name">
+                              {ourKitchenDatum.ditchName}
+                            </h2>
+                            <p className="home-ditch_origin">
+                              {ourKitchenDatum.origin}
+                            </p>
+                            <p className="home-ditch_price">
+                              {ourKitchenDatum.price}
+                            </p>
+                          </div>
+                          <div className="home-ditch_btnsDiv">
+                            <button className="home-more_btn">
+                              <Link
+                                to={`/ourKitchen/${ourKitchenDatum.id}`}
+                                className="ourKitchen-link"
+                              >
+                                More
+                              </Link>
+                            </button>
+                            <button className="home-more_btn">Buy</button>
+                          </div>
+                        </div>
                       </div>
-                      <button className="ourSingleKitchen-more_btn">Buy</button>
                     </div>
-                  </div>
-                  <div className="ourSingleKitchen-ditch_detail">
-                    <h2 className="ourSingleKitchen-ditch_value">
-                      Nutritional value: {ourKitchenDatum.nutritional_value}
-                    </h2>
-                    <p className="ourSingleKitchen-ditch_ingredients">
-                      Ingredients: {ourKitchenDatum.ingredients}
-                    </p>
-                    <p className="ourSingleKitchen-ditch_details">
-                      Details: {ourKitchenDatum.details}
-                    </p>
-                  </div>
-                </div>
+                  );
+                })}
               </div>
-            );
-          })}
-      </div>
+              <div>
+                {ourKitchenData.filter((ourKitchenDatum) => ourKitchenDatum.id == id).
+                map((ourKitchenDatum) => {
+                  return(
+                    <div>
+                       <h2>Nutritional value: {ourKitchenDatum.nutritional_value}</h2>
+                       <h3>ingredients: {ourKitchenDatum.ingredients}</h3>
+                       <p>Details: {ourKitchenDatum.details}</p>
+                    </div>
+                  )
+                })
+                }
+              </div>
     </div>
   );
 };
 
 export default OurSingleKitchen;
+
