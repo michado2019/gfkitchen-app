@@ -1,7 +1,35 @@
-.ourSingle-kitchen_wrapper{
+.ourSingle-kitchen_wrapper {
   min-height: 75vh;
   margin: 50px auto;
   display: flex;
   align-items: center;
+  padding: 0 5%;
 }
-
+.ourSingleKitchen-flex_col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.ourSingleKitchen-value,
+.ourSingleKitchen-ingredients,
+.ourSingleKitchen-details {
+  font-size: 18px;
+  color: #555;
+  margin-top: 10px;
+}
+.ourSingleKitchen-span{
+  color: #f09308;
+}
+@media (max-width: 768px) {
+  .ourSingle-kitchen_wrapper {
+    padding: 0 0;
+  }
+}
+@media (max-width: 600px) {
+  .ourSingle-kitchen_wrapper {
+    flex-direction: column;
+    margin: 0 auto;
+    margin-left: -10px;
+  }
+}

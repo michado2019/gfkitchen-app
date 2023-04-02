@@ -47,14 +47,14 @@ const OurSingleKitchen = () => {
                   );
                 })}
               </div>
-              <div>
+              <div className="ourSingleKitchen-contents">
                 {ourKitchenData.filter((ourKitchenDatum) => ourKitchenDatum.id == id).
                 map((ourKitchenDatum) => {
                   return(
-                    <div>
-                       <h2>Nutritional value: {ourKitchenDatum.nutritional_value}</h2>
-                       <h3>ingredients: {ourKitchenDatum.ingredients}</h3>
-                       <p>Details: {ourKitchenDatum.details}</p>
+                    <div className="ourSingleKitchen-flex_col">
+                       <h2 className="ourSingleKitchen-value"><span className="ourSingleKitchen-span">Nutritional value:</span> {ourKitchenDatum.nutritional_value}</h2>
+                       <h3 className="ourSingleKitchen-ingredients"><span className="ourSingleKitchen-span">ingredients:</span> {ourKitchenDatum.ingredients}</h3>
+                       <p className="ourSingleKitchen-details"><span className="ourSingleKitchen-span">Details:</span> {ourKitchenDatum.details}</p>
                     </div>
                   )
                 })
