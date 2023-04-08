@@ -20,7 +20,7 @@ export const Sidebar = () => {
         <h2 className="sidebarContents1">This is</h2>
         <p className="sidebarContents2">GFkitchen.</p>
         <p className="sidebarIntro">
-          This is where you can find ditches that will satisfy your hunger
+          This is where you can find dishes that will satisfy your hunger
         </p>
         <br />
         <div className="sidebarServices">

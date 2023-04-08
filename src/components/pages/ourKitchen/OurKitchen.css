@@ -2,16 +2,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  align-items: center;
-  margin-left: 25%;
+  width: 100vw;
+  margin: 70px auto;
 }
 .ourKitchen-contents {
   display: grid;
   grid-template-columns: 2fr 2fr;
-  margin: 0 40px;
-  margin-left: -30px;
-  gap: 9% 20%;
   padding-bottom: 150px;
+  gap: 5% 10%;
 }
 .ourKitchen-content {
   display: flex;
@@ -61,14 +59,11 @@
 .ourKitchen-more_btn:hover {
   padding: 4px 15px;
 }
-.ourKitchen-link{
-    text-decoration: none;
-    color: #f2f2f2;
+.ourKitchen-link {
+  text-decoration: none;
+  color: #f2f2f2;
 }
 @media (max-width: 1100px) {
-  .ourKitchen-wrapper {
-    margin-left: 35%;
-  }
   .ourKitchen-img {
     width: 200px;
     height: 200px;
@@ -87,9 +82,14 @@
     margin-left: -40px;
   }
 }
+@media (max-width: 820px) {
+  .ourKitchen-wrapper {
+    margin-left: -20%;
+  }
+}
 @media (max-width: 768px) {
   .ourKitchen-wrapper {
-    margin: 40px 40px;
+    margin: 40px auto;
   }
   .ourKitchen-contents {
     margin: 20px auto;
@@ -105,35 +105,14 @@
     grid-template-columns: 1fr;
     margin: 0 auto;
     gap: 40px;
-    margin-left: -30px;
   }
   .ourKitchen-img {
     width: 250px;
     height: 250px;
   }
 }
-@media (max-width: 335px) {
+@media (max-width: 375px) {
   .ourKitchen-wrapper {
-    display: flex;
-    align-items: center;
-  }
-  .ourKitchen-contents {
-    grid-template-columns: 1fr;
-    margin: 20px auto;
-    margin-left: -12px;
-    gap: 10% auto;
-  }
-  .ourKitchen-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  .ourKitchen-img {
-    width: 250px;
-    height: 250px;
-  }
-  .ourKitchen-content_index {
-    display: none;
+    margin-left:  -15px;
   }
 }

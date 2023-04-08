@@ -16,17 +16,17 @@ const AppRouter = () => {
     <div className="routesIndex-wrapper">
       <Routes>
         <Route exact path="/" element={<Home />} />
-        {/* <Route path="/register" element={<Register />} />
+         <Route path="/register" element={<Register />} />
         <Route path="/logIn" element={<Login />} />
         <Route path="/login/forgotPassword" element={<ForgotPassword />} />
         <Route
           path="/login/forgotPassword/changePassword"
           element={<ChangePassword />}
         />
-        <Route path="/ourKitchen" element={<OurKitchen />} /> */}
+        <Route path="/ourKitchen" element={<OurKitchen />} /> 
         <Route path="/ourKitchen/:id" element={<OurSingleKitchen />} />
-        {/* <Route path="/meetOurMd" element={<MeetOurMd />} />
-        <Route path="/perculiarService/:id" element={<PerculiarService />} /> */}
+         <Route path="/meetOurMd" element={<MeetOurMd />} />
+        <Route path="/perculiarService/:id" element={<PerculiarService />} />
       </Routes>
     </div>
   );

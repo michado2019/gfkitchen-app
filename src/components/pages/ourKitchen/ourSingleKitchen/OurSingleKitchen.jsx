@@ -31,14 +31,6 @@ const OurSingleKitchen = () => {
                             </p>
                           </div>
                           <div className="home-ditch_btnsDiv">
-                            <button className="home-more_btn">
-                              <Link
-                                to={`/ourKitchen/${ourKitchenDatum.id}`}
-                                className="ourKitchen-link"
-                              >
-                                More
-                              </Link>
-                            </button>
                             <button className="home-more_btn">Buy</button>
                           </div>
                         </div>
