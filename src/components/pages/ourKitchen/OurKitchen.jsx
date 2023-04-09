@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const OurKitchen = () => {
   // States
   const [page, setPage] = useState(1);
-  const perPage = 4;
+  const perPage = 6;
   const pages = Math.ceil(ourKitchenData.length / perPage);
   const skip = page * perPage - perPage;
   return (
@@ -17,33 +17,39 @@ const OurKitchen = () => {
           .slice(skip, skip + perPage)
           .map((ourKitchenDatum, index) => {
             return (
-              <div className="ourKitchen-content">
-                <h2 className="ourKitchen-content_index">{index + 1}</h2>
-                <div className="ourKitchen">
-                  <img
-                    src={ourKitchenDatum.ditchImg}
-                    alt="img"
-                    className="ourKitchen-img"
-                  />
-                  <div className="ourKitchen-flex">
-                    <div>
-                      <h2 className="ourKitchen-ditch_name">
-                        {ourKitchenDatum.ditchName}
-                      </h2>
-                      <p className="ourKitchen-ditch_origin">
-                        {ourKitchenDatum.origin}
-                      </p>
-                      <p className="ourKitchen-ditch_price">
-                        {ourKitchenDatum.price}
-                      </p>
-                    </div>
-                    <div className="ourKitchen-ditch_btnsDiv">
-                      <button className="ourKitchen-more_btn"><Link to={`/ourKitchen/${ourKitchenDatum.id}`} className="ourKitchen-link">More</Link></button>
-                      <button className="ourKitchen-more_btn">Buy</button>
-                    </div>
+              <div className="home-content" key={ourKitchenDatum.id}>
+              <div className="home">
+                <img
+                  src={ourKitchenDatum.ditchImg}
+                  alt="img"
+                  className="home-img"
+                />
+                <div className="home-flex">
+                  <div>
+                    <h2 className="home-ditch_name">
+                      {ourKitchenDatum.ditchName}
+                    </h2>
+                    <p className="home-ditch_origin">
+                      {ourKitchenDatum.origin}
+                    </p>
+                    <p className="home-ditch_price">
+                      {ourKitchenDatum.price}
+                    </p>
+                  </div>
+                  <div className="home-ditch_btnsDiv">
+                    <button className="home-more_btn">
+                      <Link
+                        to={`/ourKitchen/${ourKitchenDatum.id}`}
+                        className="ourKitchen-link"
+                      >
+                        More
+                      </Link>
+                    </button>
+                    <button className="home-more_btn">Buy</button>
                   </div>
                 </div>
               </div>
+            </div>
             );
           })}
       </div>

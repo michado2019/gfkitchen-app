@@ -7,9 +7,9 @@
 }
 .ourKitchen-contents {
   display: grid;
-  grid-template-columns: 2fr 2fr;
+  grid-template-columns: 1fr 1fr 1fr;
   padding-bottom: 150px;
-  gap: 5% 10%;
+  gap: 1% 1px;
 }
 .ourKitchen-content {
   display: flex;
@@ -69,22 +69,14 @@
     height: 200px;
   }
 }
-@media (max-width: 860px) {
+@media (max-width: 1000px) {
   .ourKitchen-contents {
-    margin: 20px 0;
-    gap: 10% 10%;
-  }
-  .ourKitchen-img {
-    width: 180px;
-    height: 180px;
-  }
-  .ourKitchen-ditch_btnsDiv {
-    margin-left: -40px;
+    grid-template-columns: 1fr 1fr;
   }
 }
 @media (max-width: 820px) {
   .ourKitchen-wrapper {
-    margin-left: -20%;
+    margin-left: -10%;
   }
 }
 @media (max-width: 768px) {
