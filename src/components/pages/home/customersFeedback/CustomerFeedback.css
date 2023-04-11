@@ -1,0 +1,41 @@
+.customerFeedback-wrapper {
+  margin: 40px auto;
+}
+.customerFeedback-contents {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  padding: 10px 20px;
+}
+.customerFeedback-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+}
+.customerFeedback-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+.customerFeedback-feedback {
+  color: #ccc;
+  font-size: 18px;
+}
+.customerFeedback-name {
+  color: #f09308;
+  font-weight: 600;
+}
+.paginationBtn-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  margin-top: 20px;
+}
+.paginationBtn{
+    width: 10px;
+    height: 10px;
+}
+.paginationIndicator{
+    width: 10px;
+    height: 10px;
+}

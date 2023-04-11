@@ -1,6 +1,11 @@
 .App {
   background-color: #f2f2f2;
 }
+.appCart-away {
+  position: fixed;
+  top: 65px;
+  right: 0;
+}
 .sidebarRouter {
   display: flex;
   align-items: center;

@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import menuIcon from "./assets/menu_FILL0_wght400_GRAD0_opsz48.png";
-import cancelIcon from "./assets/cancel--icon.png";
 import servicesData from "./headerData/HeaderData";
 import { aboutUsData } from "./headerData/HeaderData";
 import "./Header.css";
-const Header = ({ display, setDisplay }) => {
+import { Close, MenuOutlined, SellOutlined } from "@mui/icons-material";
+const Header = ({ display, setDisplay, cartDisplay, setCartDisplay }) => {
   //States
   const [switcher, setSwitcher] = useState(false);
   const [switcherTwo, setSwitcherTwo] = useState(false);
@@ -102,22 +101,21 @@ const Header = ({ display, setDisplay }) => {
               </Link>
             </div>
           </li>
+          <li className="headerNav-links" style={{display: cartDisplay?'block': 'none'}}>
+            <div>
+              <Link to="#" className="headerLink" >
+                <SellOutlined onClick={()=>setCartDisplay(prev=>!prev)}/>
+              </Link>
+            </div>
+          </li>
         </ul>
         <div className="headerMenu-icon_div">
           {display ? (
-            <img
-              src={cancelIcon}
-              alt="menuImg"
-              className="headerMenu-icon"
-              onClick={handleSmallScreenNavDisplay}
-            />
+            <Close  className="headerMenu-icon"
+            onClick={handleSmallScreenNavDisplay}/>
           ) : (
-            <img
-              src={menuIcon}
-              alt="menuImg"
-              className="headerMenu-icon"
-              onClick={handleSmallScreenNavDisplay}
-            />
+            <MenuOutlined className="headerMenu-icon"
+            onClick={handleSmallScreenNavDisplay}/>
           )}
         </div>
       </nav>

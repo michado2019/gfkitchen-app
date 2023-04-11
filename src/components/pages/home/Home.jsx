@@ -1,5 +1,5 @@
 import { ArrowBackIosNew, ArrowForwardIos } from "@mui/icons-material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
 import { topWesternDishes } from "./homeData/HomeData";
@@ -8,7 +8,8 @@ import { topSouthernDishes } from "./homeData/HomeData";
 import { topEasternDishes } from "./homeData/HomeData";
 import ourKitchenData from "../ourKitchen/ourKitchenData/OurKitchenData";
 import AboutUS from "./AboutUS";
-const Home = () => {
+import CustomerFeedback from "./customersFeedback/CustomerFeedback";
+const Home = ({storage, setStorage, setCartDisplay}) => {
   //State
   const [page, setPage] = useState(1);
   const [pageNorthern, setPageNorthern] = useState(1);
@@ -24,6 +25,13 @@ const Home = () => {
   const skipNorthern = pageNorthern * perPage - perPage;
   const skipSouthern = pageSouthern * perPage - perPage;
   const skipEastern = pageEastern * perPage - perPage;
+
+  useEffect(() => {
+    const getForm = localStorage.getItem("form");
+    setStorage(JSON.parse(getForm));
+    const userForm = JSON.parse(getForm);
+    setStorage(userForm)
+  }, [setStorage])
   return (
     <div className="homeWrapper">
       <div className="homeContents">
@@ -154,7 +162,9 @@ const Home = () => {
               />
             </div>
           </div>
-          <div className="homeContent2">
+          {
+            storage ?
+            <div className="homeContent2">
             <h2 className="homeContent2-title">Our dishes:</h2>
             <div className="homeContent-div2">
               <div className="homeContent-div_content">
@@ -188,7 +198,7 @@ const Home = () => {
                                 More
                               </Link>
                             </button>
-                            <button className="home-more_btn">Buy</button>
+                            <button className="home-more_btn" onClick={() => setCartDisplay(prev=>!prev)}>Buy</button>
                           </div>
                         </div>
                       </div>
@@ -197,6 +207,10 @@ const Home = () => {
                 })}
               </div>
             </div>
+          </div>: ''
+          }
+          <div className='homeContent3'>
+              <CustomerFeedback />
           </div>
         </div>
       </div>

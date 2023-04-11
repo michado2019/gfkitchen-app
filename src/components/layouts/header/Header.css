@@ -104,8 +104,8 @@
   display: none;
 }
 .headerMenu-icon {
-  width: 35px;
-  height: 35px;
+  width: 35px !important;
+  height: 35px !important;
   cursor: pointer;
 }
 @media screen and (max-width: 768px) {

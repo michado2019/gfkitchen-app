@@ -1,0 +1,19 @@
+.adminWrapper{
+    margin: 70px 7%;
+    width: 100vw;
+    height: 75vh;
+}
+.adminContents{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.adminLogin{
+    margin-left: -30%;
+}
+@media (max-width: 320px) {
+    .adminLogin{
+        margin-left: -19%;
+    }
+}
