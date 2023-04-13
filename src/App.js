@@ -18,6 +18,7 @@ function App() {
     plates: 0,
     totalPrice: 0,
   });
+  
   return (
     <div className="App">
       <Header

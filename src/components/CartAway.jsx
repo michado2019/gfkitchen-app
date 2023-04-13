@@ -29,7 +29,7 @@ const CartAway = ({ cartDisplay, setCartDisplay, input, setInput }) => {
         totalPrice: calculateTotalPrice(input.price, input.plates),
       };
     });
-    console.log(input.totalPrice);
+      localStorage.setItem("input", JSON.stringify(input));
   };
 
   //useParam
