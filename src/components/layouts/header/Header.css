@@ -96,6 +96,19 @@
 .headerServices-lists_title, .headerAbout-lists_title{
   color: #f09308;
 }
+.headerCart-flex_row{
+  display: flex;
+  align-items: flex-end;
+}
+.headerCart{
+  color: #f09308;
+  font-size: 13px;
+  margin-right: 1px;
+  border: 1px solid #f09308;
+  padding: 1px;
+  border-radius: 50%;
+  background-color: #555;
+}
 .headerLink {
   color: #f09308;
   text-decoration: none;

@@ -9,17 +9,20 @@ import ChangePassword from "../pages/login/changePassword/ChangePassword";
 import OurKitchen from "../pages/ourKitchen/OurKitchen";
 import OurSingleKitchen from "../pages/ourKitchen/ourSingleKitchen/OurSingleKitchen";
 import MeetOurMd from "../pages/meetOurMd/MeetOurMd";
+import Payment from "../pages/payment/Payment";
 import PerculiarService from "../pages/perculiarService/PerculiarService";
 import Admin from "../pages/admin/Admin";
+import CartAway from "../CartAway";
 
-const AppRouter = ({ storage, setStorage, setCartDisplay }) => {
+const AppRouter = ({ storage, setStorage, setCartDisplay, ourKitchenDishes, cartDisplay, setDisplay, input, setInput }) => {
+
   return (
     <div className="routesIndex-wrapper">
       <Routes>
         <Route
           exact
           path="/"
-          element={<Home storage={storage} setStorage={setStorage} setCartDisplay ={setCartDisplay }/>}
+          element={<Home storage={storage} setStorage={setStorage} setCartDisplay ={setCartDisplay } ourKitchenDishes={ourKitchenDishes}/>}
         />
         <Route path="/register" element={<Register />} />
         <Route
@@ -38,7 +41,9 @@ const AppRouter = ({ storage, setStorage, setCartDisplay }) => {
         <Route path="/ourKitchen/:id" element={<OurSingleKitchen />} />
         <Route path="/meetOurMd" element={<MeetOurMd />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/payment" element={<Payment />} />
         <Route path="/perculiarService/:id" element={<PerculiarService />} />
+        <Route path="/cartAway/:id" element={<CartAway setDisplay={setDisplay} input={input} setInput={setInput} cartDisplay={cartDisplay} setCartDisplay={setCartDisplay} />}/>
       </Routes>
     </div>
   );

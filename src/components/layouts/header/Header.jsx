@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import servicesData from "./headerData/HeaderData";
 import { aboutUsData } from "./headerData/HeaderData";
 import "./Header.css";
-import { Close, MenuOutlined, SellOutlined } from "@mui/icons-material";
-const Header = ({ display, setDisplay, cartDisplay, setCartDisplay }) => {
+import { Close, MenuOutlined, AddShoppingCartOutlined } from "@mui/icons-material";
+const Header = ({ display, setDisplay, cartDisplay, setCartDisplay, input }) => {
   //States
   const [switcher, setSwitcher] = useState(false);
   const [switcherTwo, setSwitcherTwo] = useState(false);
@@ -102,9 +102,10 @@ const Header = ({ display, setDisplay, cartDisplay, setCartDisplay }) => {
             </div>
           </li>
           <li className="headerNav-links" style={{display: cartDisplay?'block': 'none'}}>
-            <div>
+            <div className="headerCart-flex_row">
+              <h6 className="headerCart">{input.plates}</h6>
               <Link to="#" className="headerLink" >
-                <SellOutlined onClick={()=>setCartDisplay(prev=>!prev)}/>
+                <AddShoppingCartOutlined onClick={()=>setCartDisplay(prev=>!prev)}/>
               </Link>
             </div>
           </li>

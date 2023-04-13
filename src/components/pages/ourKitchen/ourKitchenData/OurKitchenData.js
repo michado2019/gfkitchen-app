@@ -1,123 +1,135 @@
 const ourKitchenData = [
   {
     id: 1,
-    ditchImg: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC9JAd5ZTOSHpKqwLoj0SsM_jIVhRW_aPJXNCTE-fArw&s",
+    ditchImg:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC9JAd5ZTOSHpKqwLoj0SsM_jIVhRW_aPJXNCTE-fArw&s",
     ditchName: "Pounded yam",
     origin: "Nigeria",
     nutritional_value: "Lorem ipsum Lorem ipsum",
     ingredients: "Lorem ipsum",
     details: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
-    price: '#2,000'
+    price: 2000
   },
   {
     id: 2,
-    ditchImg: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6ZNESIKBOeZXAaLGquaRSQtp0VUl4SAlb_g&usqp=CAU",
+    ditchImg:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6ZNESIKBOeZXAaLGquaRSQtp0VUl4SAlb_g&usqp=CAU",
     ditchName: "Amala",
     origin: "Nigeria",
     nutritional_value: "Lorem ipsum Lorem ipsum",
     ingredients: "Lorem ipsum",
     details: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
-    price: '#2,000'
+    price: 1000
   },
   {
     id: 3,
-    ditchImg: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSD7aRYfFtYHHfyevr61QC7_mH50N-gsCHyrw&usqp=CAU",
+    ditchImg:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSD7aRYfFtYHHfyevr61QC7_mH50N-gsCHyrw&usqp=CAU",
     ditchName: "Tuwo shinkafa",
     origin: "Nigeria",
     nutritional_value: "Lorem ipsum Lorem ipsum",
     ingredients: "Lorem ipsum",
     details: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
-    price: '#2,000'
+    price: 3000
   },
   {
     id: 4,
-    ditchImg: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdaTdf_sLQ0TAumUv-q6nSqQq2mCUPHxRxQbIqXkhNgA&s",
+    ditchImg:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdaTdf_sLQ0TAumUv-q6nSqQq2mCUPHxRxQbIqXkhNgA&s",
     ditchName: "Dan wake",
     origin: "Nigeria",
     nutritional_value: "Lorem ipsum Lorem ipsum",
     ingredients: "Lorem ipsum",
     details: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
-    price: '#2,000'
+    price: 4000
   },
   {
     id: 5,
-    ditchImg: "https://i.pinimg.com/originals/99/68/14/99681487a103be8aad6317b8ad3c1b36.jpg",
+    ditchImg:
+      "https://i.pinimg.com/originals/99/68/14/99681487a103be8aad6317b8ad3c1b36.jpg",
     ditchName: "Ogbono soup",
     origin: "Nigeria",
     nutritional_value: "Lorem ipsum Lorem ipsum",
     ingredients: "Lorem ipsum",
     details: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
-    price: '#2,000'
+    price: 5000
   },
   {
     id: 6,
-    ditchImg: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfplokqdtYHsMgsvwxvgsRnLB8fday40IoZw&usqp=CAU",
+    ditchImg:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfplokqdtYHsMgsvwxvgsRnLB8fday40IoZw&usqp=CAU",
     ditchName: "Banga soup",
     origin: "Nigeria",
     nutritional_value: "Lorem ipsum Lorem ipsum",
     ingredients: "Lorem ipsum",
     details: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
-    price: '#2,000'
+    price: 1500
   },
   {
     id: 7,
-    ditchImg: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfplokqdtYHsMgsvwxvgsRnLB8fday40IoZw&usqp=CAU",
+    ditchImg:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfplokqdtYHsMgsvwxvgsRnLB8fday40IoZw&usqp=CAU",
     ditchName: "Edikaikong soup",
     origin: "Nigeria",
     nutritional_value: "Lorem ipsum Lorem ipsum",
     ingredients: "Lorem ipsum",
     details: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
-    price: '#2,000'
+    price: 2200
   },
   {
     id: 8,
-    ditchImg: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfplokqdtYHsMgsvwxvgsRnLB8fday40IoZw&usqp=CAU",
+    ditchImg:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfplokqdtYHsMgsvwxvgsRnLB8fday40IoZw&usqp=CAU",
     ditchName: "Okra soup",
     origin: "Nigeria",
     nutritional_value: "Lorem ipsum Lorem ipsum",
     ingredients: "Lorem ipsum",
     details: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
-    price: '#2,000'
+    price: 2200
   },
   {
     id: 9,
-    ditchImg: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfplokqdtYHsMgsvwxvgsRnLB8fday40IoZw&usqp=CAU",
+    ditchImg:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfplokqdtYHsMgsvwxvgsRnLB8fday40IoZw&usqp=CAU",
     ditchName: "Gbegiri soup",
     origin: "Nigeria",
     nutritional_value: "Lorem ipsum Lorem ipsum",
     ingredients: "Lorem ipsum",
     details: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
-    price: '#2,000'
+    price: 2600
   },
   {
     id: 10,
-    ditchImg: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfplokqdtYHsMgsvwxvgsRnLB8fday40IoZw&usqp=CAU",
+    ditchImg:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfplokqdtYHsMgsvwxvgsRnLB8fday40IoZw&usqp=CAU",
     ditchName: "Tuwo masara",
     origin: "Nigeria",
     nutritional_value: "Lorem ipsum Lorem ipsum",
     ingredients: "Lorem ipsum",
     details: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
-    price: '#2,000'
+    price: 2800
   },
   {
     id: 11,
-    ditchImg: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfplokqdtYHsMgsvwxvgsRnLB8fday40IoZw&usqp=CAU",
+    ditchImg:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfplokqdtYHsMgsvwxvgsRnLB8fday40IoZw&usqp=CAU",
     ditchName: "Efo riro",
     origin: "Nigeria",
     nutritional_value: "Lorem ipsum Lorem ipsum",
     ingredients: "Lorem ipsum",
     details: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
-    price: '#2,000'
+    price: 2900
   },
   {
     id: 12,
-    ditchImg: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfplokqdtYHsMgsvwxvgsRnLB8fday40IoZw&usqp=CAU",
+    ditchImg:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfplokqdtYHsMgsvwxvgsRnLB8fday40IoZw&usqp=CAU",
     ditchName: "Abari",
     origin: "Nigeria",
     nutritional_value: "Lorem ipsum Lorem ipsum",
     ingredients: "Lorem ipsum",
     details: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
-    price: '#2,000'
-  }
+    price: 3100
+  },
 ];
 export default ourKitchenData;

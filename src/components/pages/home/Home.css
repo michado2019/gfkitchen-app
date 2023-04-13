@@ -166,6 +166,15 @@
     margin-left: -10px;
   }
 }
+@media (max-width: 768px) {
+  .homeDish-img {
+    width: 225px;
+    height: 225px;
+  }
+  .homeDish-arrow{
+    margin-left: 10px;
+  }
+}
 @media (max-width: 620px) {
   .homeContent2 {
     background-color: #323232;
