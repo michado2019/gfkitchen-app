@@ -9,7 +9,6 @@ import { topEasternDishes } from "./homeData/HomeData";
 import AboutUS from "./AboutUS";
 import CustomerFeedback from "./customersFeedback/CustomerFeedback";
 const Home = ({ storage, setStorage, setCartDisplay, ourKitchenDishes }) => {
-
   //State
   const [page, setPage] = useState(1);
   const [pageNorthern, setPageNorthern] = useState(1);
@@ -185,7 +184,7 @@ const Home = ({ storage, setStorage, setCartDisplay, ourKitchenDishes }) => {
                                 {ourKitchenDatum.origin}
                               </p>
                               <p className="home-ditch_price">
-                                {ourKitchenDatum.price}
+                                #{ourKitchenDatum.price}
                               </p>
                             </div>
                             <div className="home-ditch_btnsDiv">
@@ -205,7 +204,7 @@ const Home = ({ storage, setStorage, setCartDisplay, ourKitchenDishes }) => {
                                   to={`/cartAway/${ourKitchenDatum.id}`}
                                   className="ourKitchen-link"
                                 >
-                                   Buy
+                                  Buy
                                 </Link>
                               </button>
                             </div>

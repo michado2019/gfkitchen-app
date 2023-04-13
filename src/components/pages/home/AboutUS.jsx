@@ -73,7 +73,7 @@ const AboutUS = () => {
                 className="aboutUs-content2_img"
               />
               <h2 className="aboutUs-content2_name">{randomData.ditchName}</h2>
-              <h3 className="aboutUs-content2_price">{randomData.price}</h3>
+              <h3 className="aboutUs-content2_price">#{randomData.price}</h3>
             </div>
           )}
         </div>

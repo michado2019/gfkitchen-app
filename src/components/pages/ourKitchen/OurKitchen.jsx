@@ -13,11 +13,9 @@ const OurKitchen = () => {
   return (
     <div className="ourKitchen-wrapper">
       <div className="ourKitchen-contents">
-        {ourKitchenData
-          .slice(skip, skip + perPage)
-          .map((ourKitchenDatum, index) => {
-            return (
-              <div className="home-content" key={ourKitchenDatum.id}>
+        {ourKitchenData.slice(skip, skip + perPage).map((ourKitchenDatum) => {
+          return (
+            <div className="home-content" key={ourKitchenDatum.id}>
               <div className="home">
                 <img
                   src={ourKitchenDatum.ditchImg}
@@ -32,9 +30,7 @@ const OurKitchen = () => {
                     <p className="home-ditch_origin">
                       {ourKitchenDatum.origin}
                     </p>
-                    <p className="home-ditch_price">
-                      {ourKitchenDatum.price}
-                    </p>
+                    <p className="home-ditch_price">#{ourKitchenDatum.price}</p>
                   </div>
                   <div className="home-ditch_btnsDiv">
                     <button className="home-more_btn">
@@ -45,13 +41,15 @@ const OurKitchen = () => {
                         More
                       </Link>
                     </button>
-                    <button className="home-more_btn">Buy</button>
+                    <button className="home-more_btn">
+                    <Link className="ourKitchen-link" to={`/cartAway/${ourKitchenDatum.id}`}>Buy</Link>
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
-            );
-          })}
+          );
+        })}
       </div>
       <Pagination page={page} pages={pages} setPage={setPage} />
     </div>

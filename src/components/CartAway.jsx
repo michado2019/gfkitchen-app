@@ -84,7 +84,7 @@ const CartAway = ({ cartDisplay, setCartDisplay, input, setInput }) => {
                     </p>
                     <p className="cartAway-content1_price">
                       <span className="cartAway-descriptions">Price: </span>
-                      {ourKitchenDatum.price}
+                      #{ourKitchenDatum.price}
                     </p>
                     <p className="cartAway-content1_details">
                       <span className="cartAway-descriptions">Details: </span>

@@ -1,7 +1,7 @@
 import React from "react";
 import "./OurSingleKitchen.css";
 import ourKitchenData from "../ourKitchenData/OurKitchenData";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 const OurSingleKitchen = () => {
   const { id } = useParams();
@@ -28,11 +28,18 @@ const OurSingleKitchen = () => {
                         {ourKitchenDatum.origin}
                       </p>
                       <p className="home-ditch_price">
-                        {ourKitchenDatum.price}
+                        #{ourKitchenDatum.price}
                       </p>
                     </div>
                     <div className="home-ditch_btnsDiv">
-                      <button className="home-more_btn">Buy</button>
+                      <button className="home-more_btn">
+                        <Link
+                          className="ourKitchen-link"
+                          to={`/cartAway/${ourKitchenDatum.id}`}
+                        >
+                          Buy
+                        </Link>
+                      </button>
                     </div>
                   </div>
                 </div>
