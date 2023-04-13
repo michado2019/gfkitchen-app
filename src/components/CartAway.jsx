@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./CartAway.css";
 import ourKitchenData from "./pages/ourKitchen/ourKitchenData/OurKitchenData";
 import { Close } from "@mui/icons-material";
 import { useParams, Link } from "react-router-dom";
+import { DbContext } from "../App";
+import { collection, addDoc } from "firebase/firestore";
 
 const CartAway = ({ cartDisplay, setCartDisplay, input, setInput }) => {
+  //Db useContext
+  const db = useContext(DbContext);
 
-
+  //Database instance
+  const dbRef = collection(db, "dishOrders");
+  console.log(dbRef);
   //Handlers
   const handleChange = (e) => {
     e.preventDefault();
@@ -29,9 +35,31 @@ const CartAway = ({ cartDisplay, setCartDisplay, input, setInput }) => {
         totalPrice: calculateTotalPrice(input.price, input.plates),
       };
     });
-      localStorage.setItem("input", JSON.stringify(input));
   };
 
+  const handleOrder = () => {
+    //Database
+    const addData = async () => {
+      if (input.name && input.plates && input.totalPrice && input.price) {
+        try {
+          await addDoc(dbRef, {
+            name: input.name,
+            plates: input.plates,
+            price: input.price,
+            totalPrice: input.totalPrice,
+          });
+          setInput((prev) => {
+            return { ...prev, loading: true };
+          });
+        } catch (error) {
+          setInput((prev) => {
+            return { ...prev, error: true };
+          });
+        }
+      }
+    };
+    addData();
+  };
   //useParam
   const { id } = useParams();
   return (
@@ -83,8 +111,8 @@ const CartAway = ({ cartDisplay, setCartDisplay, input, setInput }) => {
                       {ourKitchenDatum.ingredients}
                     </p>
                     <p className="cartAway-content1_price">
-                      <span className="cartAway-descriptions">Price: </span>
-                      #{ourKitchenDatum.price}
+                      <span className="cartAway-descriptions">Price: </span>#
+                      {ourKitchenDatum.price}
                     </p>
                     <p className="cartAway-content1_details">
                       <span className="cartAway-descriptions">Details: </span>
@@ -145,18 +173,21 @@ const CartAway = ({ cartDisplay, setCartDisplay, input, setInput }) => {
                     </div>
                     <button className="cartAway-calc_btn">Calculate</button>
                   </form>
+                  <button className="cartAway-calc_btn" onClick={handleOrder}>
+                    Order
+                  </button>
                   <Link
                     className="cartAway-order_btn"
                     style={{
                       backgroundColor: input.totalPrice !== 0 ? "#f09308" : "",
                       transition: "all 0.3",
                       color: input.totalPrice !== 0 ? "#f2f2f2" : "",
-                      cursor: input.totalPrice !== 0 ? "pointer":'',
+                      cursor: input.totalPrice !== 0 ? "pointer" : "",
                       display: input.totalPrice === 0 ? "none" : "block",
                     }}
-                  to='/payment'
+                    to="/payment"
                   >
-                    Order
+                    Payment
                   </Link>
                 </div>
               </div>
