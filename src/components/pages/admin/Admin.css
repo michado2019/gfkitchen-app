@@ -12,6 +12,11 @@
 .adminLogin{
     margin-left: -30%;
 }
+.adminDish-img{
+    width: 200px;
+    height: 200px;
+    border-radius: 4%;
+}
 @media (max-width: 320px) {
     .adminLogin{
         margin-left: -19%;

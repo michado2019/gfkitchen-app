@@ -161,64 +161,60 @@ const Home = ({ storage, setStorage, setCartDisplay, ourKitchenDishes }) => {
               />
             </div>
           </div>
-          {storage ? (
-            <div className="homeContent2">
-              <h2 className="homeContent2-title">Our dishes:</h2>
-              <div className="homeContent-div2">
-                <div className="homeContent-div_content">
-                  {ourKitchenDishes?.map((ourKitchenDatum) => {
-                    return (
-                      <div className="home-content" key={ourKitchenDatum.id}>
-                        <div className="home">
-                          <img
-                            src={ourKitchenDatum.ditchImg}
-                            alt="img"
-                            className="home-img"
-                          />
-                          <div className="home-flex">
-                            <div>
-                              <h2 className="home-ditch_name">
-                                {ourKitchenDatum.ditchName}
-                              </h2>
-                              <p className="home-ditch_origin">
-                                {ourKitchenDatum.origin}
-                              </p>
-                              <p className="home-ditch_price">
-                                #{ourKitchenDatum.price}
-                              </p>
-                            </div>
-                            <div className="home-ditch_btnsDiv">
-                              <button className="home-more_btn">
-                                <Link
-                                  to={`/ourKitchen/${ourKitchenDatum.id}`}
-                                  className="ourKitchen-link"
-                                >
-                                  More
-                                </Link>
-                              </button>
-                              <button
-                                className="home-more_btn"
-                                onClick={() => setCartDisplay((prev) => !prev)}
+          <div className="homeContent2">
+            <h2 className="homeContent2-title">Our dishes:</h2>
+            <div className="homeContent-div2">
+              <div className="homeContent-div_content">
+                {ourKitchenDishes?.map((ourKitchenDatum) => {
+                  return (
+                    <div className="home-content" key={ourKitchenDatum.id}>
+                      <div className="home">
+                        <img
+                          src={ourKitchenDatum.ditchImg}
+                          alt="img"
+                          className="home-img"
+                        />
+                        <div className="home-flex">
+                          <div>
+                            <h2 className="home-ditch_name">
+                              {ourKitchenDatum.ditchName}
+                            </h2>
+                            <p className="home-ditch_origin">
+                              {ourKitchenDatum.origin}
+                            </p>
+                            <p className="home-ditch_price">
+                              #{ourKitchenDatum.price}
+                            </p>
+                          </div>
+                          <div className="home-ditch_btnsDiv">
+                            <button className="home-more_btn">
+                              <Link
+                                to={`/ourKitchen/${ourKitchenDatum.id}`}
+                                className="ourKitchen-link"
                               >
-                                <Link
-                                  to={`/cartAway/${ourKitchenDatum.id}`}
-                                  className="ourKitchen-link"
-                                >
-                                  Buy
-                                </Link>
-                              </button>
-                            </div>
+                                More
+                              </Link>
+                            </button>
+                            <button
+                              className="home-more_btn"
+                              onClick={() => setCartDisplay((prev) => !prev)}
+                            >
+                              <Link
+                                to={`/cartAway/${ourKitchenDatum.id}`}
+                                className="ourKitchen-link"
+                              >
+                                Buy
+                              </Link>
+                            </button>
                           </div>
                         </div>
                       </div>
-                    );
-                  })}
-                </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
-          ) : (
-            ""
-          )}
+          </div>
           <div className="homeContent3">
             <CustomerFeedback />
           </div>

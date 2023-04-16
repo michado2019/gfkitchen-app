@@ -103,7 +103,7 @@ const Header = ({ display, setDisplay, cartDisplay, setCartDisplay, input }) => 
           </li>
           <li className="headerNav-links" style={{display: cartDisplay?'block': 'none'}}>
             <div className="headerCart-flex_row">
-              <h6 className="headerCart">{input.plates}</h6>
+              <h6 className="headerCart">{input?.plates}</h6>
               <Link to="#" className="headerLink" >
                 <AddShoppingCartOutlined onClick={()=>setCartDisplay(prev=>!prev)}/>
               </Link>

@@ -6,13 +6,19 @@ import { useParams, Link } from "react-router-dom";
 import { DbContext } from "../App";
 import { collection, addDoc } from "firebase/firestore";
 
-const CartAway = ({ cartDisplay, setCartDisplay, input, setInput }) => {
+const CartAway = ({
+  cartDisplay,
+  setCartDisplay,
+  input,
+  setInput,
+  state,
+  setState,
+}) => {
   //Db useContext
   const db = useContext(DbContext);
 
   //Database instance
   const dbRef = collection(db, "dishOrders");
-  console.log(dbRef);
   //Handlers
   const handleChange = (e) => {
     e.preventDefault();
@@ -20,9 +26,16 @@ const CartAway = ({ cartDisplay, setCartDisplay, input, setInput }) => {
     setInput((prev) => {
       return { ...prev, [name]: value };
     });
+    let dishData = JSON.parse(localStorage.getItem('dishData'))
     setInput((prev) => {
-      return { ...prev, price: JSON.parse(localStorage.getItem("price")) };
-    });
+      return {
+        ...prev, 
+        price: dishData.price,
+        dishName: dishData.dishName,
+        dishImg: dishData.dishImg,
+      }
+    })
+   
   };
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -37,31 +50,38 @@ const CartAway = ({ cartDisplay, setCartDisplay, input, setInput }) => {
     });
   };
 
-  const handleOrder = () => {
+  const handleOrder = async() => {
+    setState.laoding = true;
     //Database
-    const addData = async () => {
-      if (input.name && input.plates && input.totalPrice && input.price) {
+    
+    console.log(input.name)
+    console.log(input.totalPrice)
+    console.log(input.price)
+    console.log(input.plates)
+    console.log(input.dishImg)
+    console.log(input.dishName)
+    console.log(new Date().toLocaleString())
+      
         try {
           await addDoc(dbRef, {
-            name: input.name,
-            plates: input.plates,
-            price: input.price,
-            totalPrice: input.totalPrice,
+            name:input.name,
+            totalPrice:input.totalPrice,
+            price:input.price,
+            plates:input.plates,
+            dishImg:input.dishImg,
+            dishName:input.dishName,
+            time:new Date().toLocaleString()
           });
-          setInput((prev) => {
-            return { ...prev, loading: true };
-          });
+          setState.loading = false;
         } catch (error) {
-          setInput((prev) => {
-            return { ...prev, error: true };
-          });
+          setState.error = error;
         }
-      }
-    };
-    addData();
-  };
+      };
   //useParam
   const { id } = useParams();
+  if(state.loading === true){
+    return <h2>Loading....</h2>
+  }
   return (
     <div
       className="cartAway-wrapper"
@@ -77,10 +97,12 @@ const CartAway = ({ cartDisplay, setCartDisplay, input, setInput }) => {
         {ourKitchenData
           .filter((ourKitchenDatum) => ourKitchenDatum.id == id)
           .map((ourKitchenDatum) => {
-            localStorage.setItem(
-              "price",
-              JSON.stringify(ourKitchenDatum.price)
-            );
+            const dishData = {
+              dishName: ourKitchenDatum.ditchName,
+              dishImg: ourKitchenDatum.ditchImg,
+              price: ourKitchenDatum.price
+            }
+           localStorage.setItem('dishData', JSON.stringify(dishData))
             return (
               <div className="cartAway-content" key={ourKitchenDatum.id}>
                 <div className="cartAway-content1_flexCol">
@@ -137,8 +159,20 @@ const CartAway = ({ cartDisplay, setCartDisplay, input, setInput }) => {
                         id="cartAway-content2_inputs"
                         className="cartAway-content2_inputs"
                         name="name"
-                        value={input.name}
+                        value={input?.name}
                         onChange={handleChange}
+                      />
+                    </div>
+                    <div className="cartAway-form_flex">
+                      <label className="cartAway-labels">Dish's name: </label>
+                      <input
+                        type="text"
+                        placeholder={ourKitchenDatum.ditchName}
+                        id="cartAway-content2_inputs"
+                        className="cartAway-content2_inputs"
+                        value={ourKitchenDatum?.ditchName}
+                        onChange={handleChange}
+                        disabled
                       />
                     </div>
                     <div className="cartAway-form_flex">
@@ -146,7 +180,8 @@ const CartAway = ({ cartDisplay, setCartDisplay, input, setInput }) => {
                       <input
                         type="number"
                         className="cartAway-content2_inputs"
-                        placeholder={ourKitchenDatum.price}
+                        placeholder={ourKitchenDatum?.price}
+                        value={ourKitchenDatum?.price}
                         disabled
                       />
                     </div>
@@ -159,7 +194,7 @@ const CartAway = ({ cartDisplay, setCartDisplay, input, setInput }) => {
                         className="cartAway-content2_inputs"
                         onChange={handleChange}
                         name="plates"
-                        value={input.plates}
+                        value={input?.plates}
                       />
                     </div>
                     <div className="cartAway-form_flex">
@@ -167,7 +202,8 @@ const CartAway = ({ cartDisplay, setCartDisplay, input, setInput }) => {
                       <input
                         type="number"
                         className="cartAway-content2_inputs"
-                        placeholder={input.totalPrice}
+                        onChange={handleChange}
+                        placeholder={input?.totalPrice}
                         disabled
                       />
                     </div>
@@ -179,11 +215,11 @@ const CartAway = ({ cartDisplay, setCartDisplay, input, setInput }) => {
                   <Link
                     className="cartAway-order_btn"
                     style={{
-                      backgroundColor: input.totalPrice !== 0 ? "#f09308" : "",
+                      backgroundColor: input?.totalPrice !== 0 ? "#f09308" : "",
                       transition: "all 0.3",
-                      color: input.totalPrice !== 0 ? "#f2f2f2" : "",
-                      cursor: input.totalPrice !== 0 ? "pointer" : "",
-                      display: input.totalPrice === 0 ? "none" : "block",
+                      color: input?.totalPrice !== 0 ? "#f2f2f2" : "",
+                      cursor: input?.totalPrice !== 0 ? "pointer" : "",
+                      display: input?.totalPrice === 0 ? "none" : "block",
                     }}
                     to="/payment"
                   >

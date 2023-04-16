@@ -14,15 +14,32 @@ import PerculiarService from "../pages/perculiarService/PerculiarService";
 import Admin from "../pages/admin/Admin";
 import CartAway from "../CartAway";
 
-const AppRouter = ({ storage, setStorage, setCartDisplay, ourKitchenDishes, cartDisplay, setDisplay, input, setInput }) => {
-
+const AppRouter = ({
+  storage,
+  setStorage,
+  setCartDisplay,
+  ourKitchenDishes,
+  cartDisplay,
+  state,
+  setState,
+  setDisplay,
+  input,
+  setInput,
+}) => {
   return (
     <div className="routesIndex-wrapper">
       <Routes>
         <Route
           exact
           path="/"
-          element={<Home storage={storage} setStorage={setStorage} setCartDisplay ={setCartDisplay } ourKitchenDishes={ourKitchenDishes}/>}
+          element={
+            <Home
+              storage={storage}
+              setStorage={setStorage}
+              setCartDisplay={setCartDisplay}
+              ourKitchenDishes={ourKitchenDishes}
+            />
+          }
         />
         <Route path="/register" element={<Register />} />
         <Route
@@ -43,7 +60,20 @@ const AppRouter = ({ storage, setStorage, setCartDisplay, ourKitchenDishes, cart
         <Route path="/admin" element={<Admin />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/perculiarService/:id" element={<PerculiarService />} />
-        <Route path="/cartAway/:id" element={<CartAway setDisplay={setDisplay} input={input} setInput={setInput} cartDisplay={cartDisplay} setCartDisplay={setCartDisplay} />}/>
+        <Route
+          path="/cartAway/:id"
+          element={
+            <CartAway
+              setDisplay={setDisplay}
+              state={state}
+              setState={setState}
+              input={input}
+              setInput={setInput}
+              cartDisplay={cartDisplay}
+              setCartDisplay={setCartDisplay}
+            />
+          }
+        />
       </Routes>
     </div>
   );
