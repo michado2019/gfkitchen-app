@@ -5,6 +5,7 @@ import { onSnapshot } from "firebase/firestore";
 import { collection } from "firebase/firestore";
 import { DbContext } from "../../../App";
 import Pagination from "./pagination/Pagination";
+import { doc, deleteDoc } from "firebase/firestore";
 const Admin = () => {
   //States
   const [dishData, setDishData] = useState([]);
@@ -36,6 +37,16 @@ const Admin = () => {
     setLoading(true);
   });
 
+  //Delete order
+  const handleDelete = (id) => {
+    if (!id) {
+      return false;
+    } else {
+      const getDoc = doc(dbRef, id);
+      navigate("/admin");
+      return deleteDoc(getDoc);
+    }
+  };
   return (
     <div className="adminWrapper">
       <h2 className="adminHeading">Wecome, {user.firstName}.</h2>
@@ -85,7 +96,12 @@ const Admin = () => {
                       </h3>
                       <h3 className="adminDish-name">Name: {data.name}</h3>
                       <h3 className="adminDish-time">Time: {data.time}</h3>
-                      <button className="adminDish-btn">Complete order</button>
+                      <button
+                        className="adminDish-btn"
+                        onClick={() => handleDelete(data.id)}
+                      >
+                        Complete order
+                      </button>
                     </div>
                   </div>
                 </div>
