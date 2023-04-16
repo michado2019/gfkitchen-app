@@ -1,24 +1,154 @@
-.adminWrapper{
-    margin: 70px 7%;
-    width: 100vw;
-    height: 75vh;
+.adminWrapper {
+  margin: 70px 7%;
+  width: 100vw;
+  height: fit-content;
 }
-.adminContents{
+.adminContents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.adminContent {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 100%;
+  margin-top: 40px;
+}
+.adminContents-div{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: 100%;
+    border: 12px solid #f09308;
 }
-.adminLogin{
-    margin-left: -30%;
+.adminHeading {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #555;
+  margin-left: 80px;
 }
-.adminDish-img{
-    width: 200px;
-    height: 200px;
-    border-radius: 4%;
+.adminDetails-div {
+  display: flex;
+  flex-direction: column;
+  background-color: #f09308;
+  border-radius: 5px;
+  padding: 20px 30px;
+  width: 100%;
+}
+.adminDetail-heading,
+.adminDetail-name,
+.adminDetail-email {
+  font-size: 18px;
+  font-weight: 600;
+  color: #323232;
+}
+.adminDetails-content2 {
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  padding: 20px 30px;
+  margin-left: 20px;
+  padding-top: 20px;
+  width: 100%;
+}
+.adminDetails-content2_heading{
+    font-size: 20px;
+    color: #555;
+}
+.adminDetails-content2_details{
+    font-size: 16px;
+    margin-top: 20px;
+    color: #928e8e;
+    width: 320px;
+}
+.adminDetail-heading {
+  margin-bottom: 10px;
+}
+.adminDetail-name,
+.adminDetail-email {
+  color: #555;
+  font-size: 16px;
+}
+.adminLogin {
+  margin-left: -30%;
+}
+.adminDish-heading {
+  font-size: 18px;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 10px;
+}
+.adminDish-div {
+  display: flex;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  padding: 4px 20px;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.adminDish-div1,
+.adminDish-div2 {
+  margin: 5px;
+}
+.adminDish-div1 {
+  color: #f2f2f2;
+  padding: 3px 7px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+}
+.adminDish-img {
+  width: 70px;
+  height: 40px;
+  border-radius: 4%;
+}
+.adminDish-name {
+  font-size: 10px;
+  color: #f2f2f2;
+}
+.adminDish-price {
+  font-size: 8px;
+  color: #555;
+}
+.adminDish-plates {
+  font-size: 12px;
+  color: #323232;
+  margin: 4px 0;
+}
+.adminDish-totalPrice {
+  font-size: 12px;
+  color: #555;
+}
+.adminDish-name {
+  font-size: 12px;
+  margin: 4px 0;
+  color: #555;
+}
+.adminDish-time {
+  font-size: 10px;
+  color: #f09308;
+}
+.adminDish-btn{
+    background-color: #f09308;
+    color: #f2f2f2;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 0;
+    font-weight: 900;
 }
 @media (max-width: 320px) {
-    .adminLogin{
-        margin-left: -19%;
-    }
+  .adminLogin {
+    margin-left: -19%;
+  }
 }

@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import "./CartAway.css";
 import ourKitchenData from "./pages/ourKitchen/ourKitchenData/OurKitchenData";
 import { Close } from "@mui/icons-material";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { DbContext } from "../App";
 import { collection, addDoc } from "firebase/firestore";
 
@@ -14,9 +14,12 @@ const CartAway = ({
   state,
   setState,
 }) => {
+  //useState
+  const [stamp, setStamp] = React.useState(false);
   //Db useContext
   const db = useContext(DbContext);
-
+  //Navigation
+  const navigate = useNavigate();
   //Database instance
   const dbRef = collection(db, "dishOrders");
   //Handlers
@@ -26,19 +29,25 @@ const CartAway = ({
     setInput((prev) => {
       return { ...prev, [name]: value };
     });
-    let dishData = JSON.parse(localStorage.getItem('dishData'))
+    let dishData = JSON.parse(localStorage.getItem("dishData"));
     setInput((prev) => {
       return {
-        ...prev, 
+        ...prev,
         price: dishData.price,
         dishName: dishData.dishName,
         dishImg: dishData.dishImg,
-      }
-    })
-   
+      };
+    });
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (input.name !== "" && input.plates > 0) {
+      setStamp(true);
+    } else {
+      alert(
+        'Please, fill Buyer"s name field and Number of plates must be greater than 0'
+      );
+    }
     function calculateTotalPrice(price, plates) {
       return price * plates;
     }
@@ -50,37 +59,54 @@ const CartAway = ({
     });
   };
 
-  const handleOrder = async() => {
+  const handleOrder = async () => {
     setState.laoding = true;
     //Database
-    
-    console.log(input.name)
-    console.log(input.totalPrice)
-    console.log(input.price)
-    console.log(input.plates)
-    console.log(input.dishImg)
-    console.log(input.dishName)
-    console.log(new Date().toLocaleString())
-      
-        try {
-          await addDoc(dbRef, {
-            name:input.name,
-            totalPrice:input.totalPrice,
-            price:input.price,
-            plates:input.plates,
-            dishImg:input.dishImg,
-            dishName:input.dishName,
-            time:new Date().toLocaleString()
-          });
-          setState.loading = false;
-        } catch (error) {
-          setState.error = error;
-        }
+
+    console.log(input.name);
+    console.log(input.totalPrice);
+    console.log(input.price);
+    console.log(input.plates);
+    console.log(input.dishImg);
+    console.log(input.dishName);
+    console.log(new Date().toLocaleString());
+    if (input.name === "") {
+      return alert("Please, fill Buyer's name field");
+    }
+    if (input.plates <= 0) {
+      return alert("Number of plates must be greater than 0");
+    }
+    try {
+      await addDoc(dbRef, {
+        name: input.name,
+        totalPrice: input.totalPrice,
+        price: input.price,
+        plates: input.plates,
+        dishImg: input.dishImg,
+        dishName: input.dishName,
+        time: new Date().toLocaleString(),
+      });
+      setState.loading = false;
+    } catch (error) {
+      setState.error = error;
+    }
+    setInput((prev) => {
+      return {
+        prev,
+        price: 0,
+        name: "",
+        plates: 0,
+        totalPrice: 0,
+        dishImg: "",
+        dishName: "",
       };
+    });
+    navigate("/");
+  };
   //useParam
   const { id } = useParams();
-  if(state.loading === true){
-    return <h2>Loading....</h2>
+  if (state.loading === true) {
+    return <h2>Loading....</h2>;
   }
   return (
     <div
@@ -100,9 +126,9 @@ const CartAway = ({
             const dishData = {
               dishName: ourKitchenDatum.ditchName,
               dishImg: ourKitchenDatum.ditchImg,
-              price: ourKitchenDatum.price
-            }
-           localStorage.setItem('dishData', JSON.stringify(dishData))
+              price: ourKitchenDatum.price,
+            };
+            localStorage.setItem("dishData", JSON.stringify(dishData));
             return (
               <div className="cartAway-content" key={ourKitchenDatum.id}>
                 <div className="cartAway-content1_flexCol">
@@ -207,9 +233,13 @@ const CartAway = ({
                         disabled
                       />
                     </div>
-                    <button className="cartAway-calc_btn">Calculate</button>
+                    <button className="cartAway-calc_btn">Stamp</button>
                   </form>
-                  <button className="cartAway-calc_btn" onClick={handleOrder}>
+                  <button
+                    className="cartAway-calc_btn"
+                    onClick={handleOrder}
+                    style={{ display: stamp ? "block" : "none" }}
+                  >
                     Order
                   </button>
                   <Link
