@@ -30,6 +30,7 @@
   font-weight: 600;
   margin-bottom: 20px;
   color: #555;
+  font-family: "Lobster", cursive;
   margin-left: 80px;
 }
 .adminDetails-div {
@@ -82,6 +83,7 @@
   font-size: 18px;
   font-weight: 600;
   color: #555;
+  font-family: "Lobster", cursive;
   margin-bottom: 10px;
 }
 .adminDish-div {
@@ -149,6 +151,68 @@
 }
 .adminDish-pagination {
   margin-top: 70px;
+}
+@media (max-width: 1100px) {
+  .adminContents-div {
+    width: 615px;
+  }
+  .adminContent {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .adminDish-heading {
+    margin-top: 70px;
+  }
+  .adminDish {
+    margin-top: 20px;
+    width: 615px;
+  }
+}
+@media (max-width: 940px) {
+  .adminContents-div {
+    width: 450px;
+  }
+  .adminDish {
+    margin-top: 20px;
+    width: 450px;
+  }
+}
+@media (max-width: 768px) {
+  .adminWrapper {
+    margin: 70px auto;
+    width: 100%;
+  }
+}
+@media (max-width: 600px) {
+  .adminDish-pagination {
+    margin-top: 140px;
+  }
+}
+@media (max-width: 480px) {
+  .adminContents-div {
+    width: 300px;
+  }
+  .adminDetails-content2_details {
+    font-size: 14px;
+    width: 250px;
+  }
+  .adminHeading {
+    margin-left: 0;
+    text-align: center;
+    color: #f09308;
+  }
+  .adminDish {
+    width: 300px;
+  }
+  .adminDetails-content2_heading {
+    font-size: 18px;
+  }
+  .adminDish-heading {
+    font-size: 18px;
+    text-align: center;
+    color: #f09308;
+  }
 }
 @media (max-width: 320px) {
   .adminLogin {

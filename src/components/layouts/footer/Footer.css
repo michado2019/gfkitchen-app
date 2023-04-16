@@ -31,10 +31,14 @@
   color: #3f3f3f;
   font-size: 14px;
 }
+.footerContents-flex_need, .footerContents-flex_contact, .footerContents-flex_rights{
+  font-size: 14px;
+}
+
 @media (max-width: 768px) {
-    .footerWrapper {
-        min-width: 100%;
-        margin-left: 0;
-        margin: 0 auto;
-      }
+  .footerWrapper {
+    min-width: 100%;
+    margin-left: 0;
+    margin: 0 auto;
+  }
 }

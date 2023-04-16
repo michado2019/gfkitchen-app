@@ -91,9 +91,9 @@ const Admin = () => {
                 </div>
               );
             })}
-                  <div className="adminDish-pagination">
-                    <Pagination page={page} pages={pages} setPage={setPage} />
-                  </div>
+            <div className="adminDish-pagination">
+              <Pagination page={page} pages={pages} setPage={setPage} />
+            </div>
           </div>
         </div>
       </div>
