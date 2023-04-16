@@ -17,13 +17,13 @@
   height: 100%;
   margin-top: 40px;
 }
-.adminContents-div{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    border: 12px solid #f09308;
+.adminContents-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  border: 12px solid #f09308;
 }
 .adminHeading {
   font-size: 20px;
@@ -57,15 +57,15 @@
   padding-top: 20px;
   width: 100%;
 }
-.adminDetails-content2_heading{
-    font-size: 20px;
-    color: #555;
+.adminDetails-content2_heading {
+  font-size: 20px;
+  color: #555;
 }
-.adminDetails-content2_details{
-    font-size: 16px;
-    margin-top: 20px;
-    color: #928e8e;
-    width: 320px;
+.adminDetails-content2_details {
+  font-size: 16px;
+  margin-top: 20px;
+  color: #928e8e;
+  width: 320px;
 }
 .adminDetail-heading {
   margin-bottom: 10px;
@@ -136,16 +136,19 @@
   font-size: 10px;
   color: #f09308;
 }
-.adminDish-btn{
-    background-color: #f09308;
-    color: #f2f2f2;
-    padding: 5px 10px;
-    border-radius: 3px;
-    font-size: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    border: 0;
-    font-weight: 900;
+.adminDish-btn {
+  background-color: #f09308;
+  color: #f2f2f2;
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-size: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 0;
+  font-weight: 900;
+}
+.adminDish-pagination {
+  margin-top: 70px;
 }
 @media (max-width: 320px) {
   .adminLogin {
