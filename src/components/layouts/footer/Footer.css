@@ -41,4 +41,15 @@
     margin-left: 0;
     margin: 0 auto;
   }
+  .headerGF-kitchen {
+    font-size: 12px;
+    margin: 0 5px;
+  }
+}
+@media (max-width: 375px) {
+  .footerWrapper {
+    min-width: 100%;
+    margin-left: 0;
+    margin: 0 auto;
+  }
 }
