@@ -21,6 +21,8 @@ function App() {
     totalPrice: 0,
     dishImg: "",
     dishName: "",
+    address: "",
+    phone: ""
   });
   const [state, setState] = useState({
     loading: false,

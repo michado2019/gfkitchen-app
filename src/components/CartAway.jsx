@@ -13,6 +13,8 @@ const CartAway = ({
   setInput,
   state,
   setState,
+  address,
+  phone
 }) => {
   //useState
   const [stamp, setStamp] = React.useState(false);
@@ -85,6 +87,8 @@ const CartAway = ({
         dishImg: input.dishImg,
         dishName: input.dishName,
         time: new Date().toLocaleString(),
+        address: input.address,
+        phone: input.phone
       });
       setState.loading = false;
     } catch (error) {
@@ -231,6 +235,32 @@ const CartAway = ({
                         onChange={handleChange}
                         placeholder={input?.totalPrice}
                         disabled
+                      />
+                    </div>
+                    <div className="cartAway-form_flex">
+                      <label className="cartAway-labels">
+                        Address:{" "}
+                      </label>
+                      <input
+                        type="text/number"
+                        className="cartAway-content2_inputs"
+                        id="cartAway-content2_inputs"
+                        onChange={handleChange}
+                        name="address"
+                        value={input?.address}
+                      />
+                    </div>
+                    <div className="cartAway-form_flex">
+                      <label className="cartAway-labels">
+                        Phone:{" "}
+                      </label>
+                      <input
+                        type="tel"
+                        className="cartAway-content2_inputs"
+                        id="cartAway-content2_inputs"
+                        onChange={handleChange}
+                        name="phone"
+                        value={input?.phone}
                       />
                     </div>
                     <button className="cartAway-calc_btn">Stamp</button>

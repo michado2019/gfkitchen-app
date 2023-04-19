@@ -97,6 +97,8 @@ const Admin = () => {
                           </h3>
                           <h3 className="adminDish-name">Name: {data.name}</h3>
                           <h3 className="adminDish-time">Time: {data.time}</h3>
+                          <h3 className="adminDish-name">Address: {data.address}</h3>
+                          <h3 className="adminDish-time">Phone: {data.phone}</h3>
                           <button
                             className="adminDish-btn"
                             onClick={() => handleDelete(data.id)}
