@@ -72,8 +72,8 @@ const CartAway = ({
     console.log(input.dishImg);
     console.log(input.dishName);
     console.log(new Date().toLocaleString());
-    if (input.name === "") {
-      return alert("Please, fill Buyer's name field");
+    if (input.name === "" || input.address ==="" || input.phone ==="") {
+      return alert("Please, fill all fields");
     }
     if (input.plates <= 0) {
       return alert("Number of plates must be greater than 0");
