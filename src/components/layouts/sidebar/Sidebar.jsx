@@ -36,6 +36,9 @@ export const Sidebar = () => {
               </div>
             );
           })}
+          <Link to="/ourKitchen" className="sidebarServices-link" id="sidebarServices-list">
+            Online order
+          </Link>
         </div>
         <br />
         <div className="sidebarLocation">

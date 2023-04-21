@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "../pages/home/Home";
 import Login from "../pages/login/Login";
@@ -26,6 +26,8 @@ const AppRouter = ({
   input,
   setInput,
 }) => {
+  const [loading, setLoading] = useState(false);
+
   return (
     <div className="routesIndex-wrapper">
       <Routes>
@@ -38,6 +40,8 @@ const AppRouter = ({
               setStorage={setStorage}
               setCartDisplay={setCartDisplay}
               ourKitchenDishes={ourKitchenDishes}
+              loading={loading}
+              setLoading={setLoading}
             />
           }
         />

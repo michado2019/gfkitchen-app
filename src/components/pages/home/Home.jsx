@@ -6,9 +6,21 @@ import { topWesternDishes } from "./homeData/HomeData";
 import { topNorthernDishes } from "./homeData/HomeData";
 import { topSouthernDishes } from "./homeData/HomeData";
 import { topEasternDishes } from "./homeData/HomeData";
+import { Loading } from "../../loading/Loading";
 import AboutUS from "./AboutUS";
 import CustomerFeedback from "./customersFeedback/CustomerFeedback";
-const Home = ({ storage, setStorage, setCartDisplay, ourKitchenDishes }) => {
+const Home = ({
+  storage,
+  setStorage,
+  setCartDisplay,
+  ourKitchenDishes,
+  loading,
+  setLoading
+}) => {
+
+  //Local storage
+  localStorage.setItem("ourKitchenDishes", JSON.stringify(ourKitchenDishes));
+
   //State
   const [page, setPage] = useState(1);
   const [pageNorthern, setPageNorthern] = useState(1);
@@ -25,11 +37,13 @@ const Home = ({ storage, setStorage, setCartDisplay, ourKitchenDishes }) => {
   const skipSouthern = pageSouthern * perPage - perPage;
   const skipEastern = pageEastern * perPage - perPage;
   useEffect(() => {
+    setLoading(true)
     const getForm = localStorage.getItem("form");
     setStorage(JSON.parse(getForm));
     const userForm = JSON.parse(getForm);
     setStorage(userForm);
-  }, [setStorage]);
+    setLoading(false)
+  }, [setStorage, setLoading]);
 
   return (
     <div className="homeWrapper">

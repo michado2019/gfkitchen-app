@@ -11,11 +11,11 @@ const CartAway = ({
   setCartDisplay,
   input,
   setInput,
-  state,
   setState,
   address,
   phone
 }) => {
+
   //useState
   const [stamp, setStamp] = React.useState(false);
   //Db useContext
@@ -109,9 +109,7 @@ const CartAway = ({
   };
   //useParam
   const { id } = useParams();
-  if (state.loading === true) {
-    return <h2>Loading....</h2>;
-  }
+ 
   return (
     <div
       className="cartAway-wrapper"

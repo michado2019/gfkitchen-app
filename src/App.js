@@ -22,13 +22,11 @@ function App() {
     dishImg: "",
     dishName: "",
     address: "",
-    phone: ""
+    phone: "",
   });
   const [state, setState] = useState({
     loading: false,
-    error: null,
   });
-
   return (
     <div className="App">
       <DbContext.Provider value={db}>
