@@ -150,6 +150,12 @@
   border: 0;
   font-weight: 900;
 }
+.adminDish-btn:hover {
+  font-size: 9px;
+  font-weight: 900;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+  transition: all 0.3s;
+}
 .adminDish-pagination {
   margin-top: 70px;
 }

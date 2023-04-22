@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import "./CartAway.css";
 import ourKitchenData from "./pages/ourKitchen/ourKitchenData/OurKitchenData";
 import { Close } from "@mui/icons-material";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { DbContext } from "../App";
 import { collection, addDoc, getDocs } from "firebase/firestore";
 import { Loading } from "./loading/Loading";
@@ -12,12 +12,8 @@ const CartAway = ({
   setCartDisplay,
   input,
   setInput,
-  setState,
-  address,
-  phone,
   loading,
   setLoading,
-  docsLength,
 }) => {
   //useState
   const [docLength, setDocLength] = useState("");
@@ -25,8 +21,6 @@ const CartAway = ({
   const [notification, setNotification] = React.useState("");
   //Db useContext
   const db = useContext(DbContext);
-  //Navigation
-  const navigate = useNavigate();
   //Database instance
   const dbRef = collection(db, "dishOrders");
   //Handlers
@@ -67,16 +61,7 @@ const CartAway = ({
   };
 
   const handleOrder = async () => {
-    setState.laoding = true;
     //Database
-
-    console.log(input.name);
-    console.log(input.totalPrice);
-    console.log(input.price);
-    console.log(input.plates);
-    console.log(input.dishImg);
-    console.log(input.dishName);
-    console.log(new Date().toLocaleString());
     if (input.name === "" || input.address === "" || input.phone === "") {
       return alert("Please, fill all fields");
     }
@@ -97,7 +82,6 @@ const CartAway = ({
         phone: input.phone,
       });
     } catch (error) {
-      setState.error = error;
       setLoading = false;
     }
     async function getAllDishDocs() {

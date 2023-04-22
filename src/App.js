@@ -25,20 +25,17 @@ function App() {
     address: "",
     phone: "",
   });
-  const [state, setState] = useState({
-    loading: false,
-  });
-  const [docsLength, setDocsLength] = useState('')
+  const [docsLength, setDocsLength] = useState("");
+  const [loading, setLoading] = useState(false);
 
   //useEffect
   useEffect(() => {
-  const dbRef = collection(db, "dishOrders");
-
-      async function getAllDishDocs() {
-        const dishDocs = await getDocs(dbRef);
-        setDocsLength(dishDocs.docs.length);
-      }
-      getAllDishDocs();
+    const dbRef = collection(db, "dishOrders");
+    async function getAllDishDocs() {
+      const dishDocs = await getDocs(dbRef);
+      setDocsLength(dishDocs.docs.length);
+    }
+    getAllDishDocs();
   }, []);
   return (
     <div className="App">
@@ -62,9 +59,9 @@ function App() {
             setCartDisplay={setCartDisplay}
             input={input}
             setInput={setInput}
-            state={state}
-            setState={setState}
             docsLength={docsLength}
+            loading={loading}
+            setLoading={setLoading}
           />
         </div>
         <Footer />
