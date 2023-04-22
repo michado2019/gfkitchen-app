@@ -18,6 +18,7 @@
   margin-top: 40px;
 }
 .adminContents-div {
+  border-radius: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -79,6 +80,41 @@
 .adminLogin {
   margin-left: -30%;
 }
+.adminDashboard-heading{
+  font-size: 20px;
+  font-weight: 600;
+  color: #555;
+  font-family: "Lobster", cursive;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.adminDashboard-div {
+  display: flex;
+  background-color: #555;
+  border-radius: 5px;
+  padding: 10px 10px;
+  margin-top: 20px;
+  
+}
+.adminDashboard-flex_col{
+  margin: 0 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.adminDashboard-flex_heading{
+  color: #f09308;
+}
+.adminDashboard-flex_data{
+  color: #f2f2f2;
+  background-color: #f09308;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 7px;
+  border-radius: 50%;
+}
+
 .adminDish-heading {
   font-size: 18px;
   font-weight: 600;
@@ -215,12 +251,17 @@
     font-size: 14px;
     width: 250px;
   }
+  .adminDashboard{
+    width: 300px;
+    margin: 0 auto;
+  }
   .adminHeading {
     margin-left: 0;
     text-align: center;
   }
   .adminDish {
     width: 300px;
+    margin: 0 auto;
   }
   .adminDetails-content2_heading {
     font-size: 18px;

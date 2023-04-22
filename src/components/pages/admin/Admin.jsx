@@ -7,8 +7,9 @@ import { DbContext } from "../../../App";
 import Pagination from "./pagination/Pagination";
 import { doc, deleteDoc } from "firebase/firestore";
 import { Loading } from "../../loading/Loading";
+import ourKitchenData from "../ourKitchen/ourKitchenData/OurKitchenData";
 
-const Admin = ({ loading, setLoading }) => {
+const Admin = ({ loading, setLoading, docsLength }) => {
   //States
   const [dishData, setDishData] = useState([]);
   const [page, setPage] = useState(1);
@@ -40,8 +41,8 @@ const Admin = ({ loading, setLoading }) => {
         ...doc.data(),
       }));
       setDishData(dishData);
-      if(dishData.length !== 0){
-        setLoading(false)
+      if (dishData.length !== 0) {
+        setLoading(false);
       }
     });
   }, []);
@@ -85,11 +86,26 @@ const Admin = ({ loading, setLoading }) => {
                   </p>
                 </div>
               </div>
-                {loading ? (
-                  <Loading />
-                ) : (
-              <div className="adminOrdersDetails">
+              {loading ? (
+                <Loading />
+              ) : (
+                <div className="adminOrdersDetails">
                   <div>
+                  <div className="adminDashboard">
+                <div className="adminDashboard-content">
+                  <h2 className="adminDashboard-heading">Dashboard</h2>
+                  <div className="adminDashboard-div">
+                    <div className="adminDashboard-flex_col">
+                      <span className="adminDashboard-flex_heading">Total orders</span>
+                      <span className="adminDashboard-flex_data">{docsLength}</span>
+                    </div>
+                    <div className="adminDashboard-flex_col">
+                      <span className="adminDashboard-flex_heading">Total dishes</span>
+                      <span className="adminDashboard-flex_data">{ourKitchenData.length}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
                     <h2 className="adminDish-heading">Order details:</h2>
                     {dishData.slice(skip, skip + perPage).map((data) => {
                       return (
@@ -137,11 +153,11 @@ const Admin = ({ loading, setLoading }) => {
                       );
                     })}
                   </div>
-                <div className="adminDish-pagination">
-                  <Pagination page={page} pages={pages} setPage={setPage} />
+                  <div className="adminDish-pagination">
+                    <Pagination page={page} pages={pages} setPage={setPage} />
+                  </div>
                 </div>
-              </div>
-                )}
+              )}
             </div>
           </div>
         </div>

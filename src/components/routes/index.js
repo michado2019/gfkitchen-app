@@ -60,7 +60,13 @@ const AppRouter = ({
         <Route path="/meetOurMd" element={<MeetOurMd />} />
         <Route
           path="/admin"
-          element={<Admin loading={loading} setLoading={setLoading} />}
+          element={
+            <Admin
+              loading={loading}
+              setLoading={setLoading}
+              docsLength={docsLength}
+            />
+          }
         />
         <Route path="/payment" element={<Payment />} />
         <Route path="/perculiarService/:id" element={<PerculiarService />} />
