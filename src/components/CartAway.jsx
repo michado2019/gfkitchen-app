@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./CartAway.css";
 import ourKitchenData from "./pages/ourKitchen/ourKitchenData/OurKitchenData";
 import { Close } from "@mui/icons-material";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { DbContext } from "../App";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, getDocs } from "firebase/firestore";
+import { Loading } from "./loading/Loading";
 
 const CartAway = ({
   cartDisplay,
@@ -13,11 +14,15 @@ const CartAway = ({
   setInput,
   setState,
   address,
-  phone
+  phone,
+  loading,
+  setLoading,
+  docsLength,
 }) => {
-
   //useState
+  const [docLength, setDocLength] = useState("");
   const [stamp, setStamp] = React.useState(false);
+  const [notification, setNotification] = React.useState("");
   //Db useContext
   const db = useContext(DbContext);
   //Navigation
@@ -72,13 +77,14 @@ const CartAway = ({
     console.log(input.dishImg);
     console.log(input.dishName);
     console.log(new Date().toLocaleString());
-    if (input.name === "" || input.address ==="" || input.phone ==="") {
+    if (input.name === "" || input.address === "" || input.phone === "") {
       return alert("Please, fill all fields");
     }
     if (input.plates <= 0) {
       return alert("Number of plates must be greater than 0");
     }
     try {
+      setLoading(true);
       await addDoc(dbRef, {
         name: input.name,
         totalPrice: input.totalPrice,
@@ -88,12 +94,21 @@ const CartAway = ({
         dishName: input.dishName,
         time: new Date().toLocaleString(),
         address: input.address,
-        phone: input.phone
+        phone: input.phone,
       });
-      setState.loading = false;
     } catch (error) {
       setState.error = error;
+      setLoading = false;
     }
+    async function getAllDishDocs() {
+      const dishDocs = await getDocs(dbRef);
+      setDocLength(dishDocs.docs.length);
+      if (dishDocs) {
+        setLoading(false);
+        setNotification("Order successfully taken!");
+      }
+    }
+    getAllDishDocs();
     setInput((prev) => {
       return {
         prev,
@@ -105,11 +120,10 @@ const CartAway = ({
         dishName: "",
       };
     });
-    navigate("/");
   };
   //useParam
   const { id } = useParams();
- 
+
   return (
     <div
       className="cartAway-wrapper"
@@ -170,118 +184,133 @@ const CartAway = ({
                     </p>
                   </div>
                 </div>
-                <div className="cartAway-content2">
-                  <h2 className="cartAway-content2_welcome1">
-                    Hello, customer!
-                  </h2>
-                  <p className="cartAway-content2_welcome2">
-                    You are about to order for{" "}
-                    <span>{ourKitchenDatum.ditchName}</span>
-                  </p>
-                  <form className="cartAway-form" onSubmit={handleSubmit}>
-                    <div className="cartAway-form_flex">
-                      <label className="cartAway-labels">Buyer's name: </label>
-                      <input
-                        type="text"
-                        placeholder="Buyer's name"
-                        id="cartAway-content2_inputs"
-                        className="cartAway-content2_inputs"
-                        name="name"
-                        value={input?.name}
-                        onChange={handleChange}
-                      />
-                    </div>
-                    <div className="cartAway-form_flex">
-                      <label className="cartAway-labels">Dish's name: </label>
-                      <input
-                        type="text"
-                        placeholder={ourKitchenDatum.ditchName}
-                        id="cartAway-content2_inputs"
-                        className="cartAway-content2_inputs"
-                        value={ourKitchenDatum?.ditchName}
-                        onChange={handleChange}
-                        disabled
-                      />
-                    </div>
-                    <div className="cartAway-form_flex">
-                      <label className="cartAway-labels">Price: </label>
-                      <input
-                        type="number"
-                        className="cartAway-content2_inputs"
-                        placeholder={ourKitchenDatum?.price}
-                        value={ourKitchenDatum?.price}
-                        disabled
-                      />
-                    </div>
-                    <div className="cartAway-form_flex">
-                      <label className="cartAway-labels">
-                        Number of plates:{" "}
-                      </label>
-                      <input
-                        type="number"
-                        className="cartAway-content2_inputs"
-                        onChange={handleChange}
-                        name="plates"
-                        value={input?.plates}
-                      />
-                    </div>
-                    <div className="cartAway-form_flex">
-                      <label className="cartAway-labels">Total price</label>
-                      <input
-                        type="number"
-                        className="cartAway-content2_inputs"
-                        onChange={handleChange}
-                        placeholder={input?.totalPrice}
-                        disabled
-                      />
-                    </div>
-                    <div className="cartAway-form_flex">
-                      <label className="cartAway-labels">
-                        Address:{" "}
-                      </label>
-                      <input
-                        type="text/number"
-                        className="cartAway-content2_inputs"
-                        id="cartAway-content2_inputs"
-                        onChange={handleChange}
-                        name="address"
-                        value={input?.address}
-                      />
-                    </div>
-                    <div className="cartAway-form_flex">
-                      <label className="cartAway-labels">
-                        Phone:{" "}
-                      </label>
-                      <input
-                        type="tel"
-                        className="cartAway-content2_inputs"
-                        id="cartAway-content2_inputs"
-                        onChange={handleChange}
-                        name="phone"
-                        value={input?.phone}
-                      />
-                    </div>
-                    <button className="cartAway-calc_btn">Stamp</button>
-                  </form>
-                  <button
-                    className="cartAway-calc_btn"
-                    onClick={handleOrder}
-                    style={{ display: stamp ? "block" : "none" }}
+                {loading ? (
+                  <Loading />
+                ) : (
+                  <div
+                    className="cartAway-content2"
+                    style={{ display: notification !== "" ? "none" : "block" }}
                   >
-                    Order
-                  </button>
-                  <Link
-                    className="cartAway-order_btn"
-                    style={{
-                      backgroundColor: input?.totalPrice !== 0 ? "#f09308" : "",
-                      transition: "all 0.3",
-                      color: input?.totalPrice !== 0 ? "#f2f2f2" : "",
-                      cursor: input?.totalPrice !== 0 ? "pointer" : "",
-                      display: input?.totalPrice === 0 ? "none" : "block",
-                    }}
-                    to="/payment"
-                  >
-                    Payment
+                    <h2 className="cartAway-content2_welcome1">
+                      Hello, customer!
+                    </h2>
+                    <p className="cartAway-content2_welcome2">
+                      You are about to order for{" "}
+                      <span>{ourKitchenDatum.ditchName}</span>
+                    </p>
+                    <form className="cartAway-form" onSubmit={handleSubmit}>
+                      <div className="cartAway-form_flex">
+                        <label className="cartAway-labels">
+                          Buyer's name:{" "}
+                        </label>
+                        <input
+                          type="text"
+                          placeholder="Buyer's name"
+                          id="cartAway-content2_inputs"
+                          className="cartAway-content2_inputs"
+                          name="name"
+                          value={input?.name}
+                          onChange={handleChange}
+                        />
+                      </div>
+                      <div className="cartAway-form_flex">
+                        <label className="cartAway-labels">Dish's name: </label>
+                        <input
+                          type="text"
+                          placeholder={ourKitchenDatum.ditchName}
+                          id="cartAway-content2_inputs"
+                          className="cartAway-content2_inputs"
+                          value={ourKitchenDatum?.ditchName}
+                          onChange={handleChange}
+                          disabled
+                        />
+                      </div>
+                      <div className="cartAway-form_flex">
+                        <label className="cartAway-labels">Price: </label>
+                        <input
+                          type="number"
+                          className="cartAway-content2_inputs"
+                          placeholder={ourKitchenDatum?.price}
+                          value={ourKitchenDatum?.price}
+                          disabled
+                        />
+                      </div>
+                      <div className="cartAway-form_flex">
+                        <label className="cartAway-labels">
+                          Number of plates:{" "}
+                        </label>
+                        <input
+                          type="number"
+                          className="cartAway-content2_inputs"
+                          onChange={handleChange}
+                          name="plates"
+                          value={input?.plates}
+                        />
+                      </div>
+                      <div className="cartAway-form_flex">
+                        <label className="cartAway-labels">Total price</label>
+                        <input
+                          type="number"
+                          className="cartAway-content2_inputs"
+                          onChange={handleChange}
+                          placeholder={input?.totalPrice}
+                          disabled
+                        />
+                      </div>
+                      <div className="cartAway-form_flex">
+                        <label className="cartAway-labels">Address: </label>
+                        <input
+                          type="text/number"
+                          className="cartAway-content2_inputs"
+                          id="cartAway-content2_inputs"
+                          onChange={handleChange}
+                          name="address"
+                          value={input?.address}
+                        />
+                      </div>
+                      <div className="cartAway-form_flex">
+                        <label className="cartAway-labels">Phone: </label>
+                        <input
+                          type="tel"
+                          className="cartAway-content2_inputs"
+                          id="cartAway-content2_inputs"
+                          onChange={handleChange}
+                          name="phone"
+                          value={input?.phone}
+                        />
+                      </div>
+                      <button className="cartAway-calc_btn">Stamp</button>
+                    </form>
+                    <button
+                      className="cartAway-calc_btn"
+                      onClick={handleOrder}
+                      style={{ display: stamp ? "block" : "none" }}
+                    >
+                      Order
+                    </button>
+                    <Link
+                      className="cartAway-order_btn"
+                      style={{
+                        backgroundColor:
+                          input?.totalPrice !== 0 ? "#f09308" : "",
+                        transition: "all 0.3",
+                        color: input?.totalPrice !== 0 ? "#f2f2f2" : "",
+                        cursor: input?.totalPrice !== 0 ? "pointer" : "",
+                        display: input?.totalPrice === 0 ? "none" : "block",
+                      }}
+                      to="/payment"
+                    >
+                      Payment
+                    </Link>
+                  </div>
+                )}
+                <div
+                  className="cartAwayNotification-div"
+                  style={{ display: notification !== "" ? "block" : "none" }}
+                >
+                  <p className="cartAwayNotification">{notification}</p>
+                  <Link className="cartAwayNotification-btn" to="/">
+                    Go back home
                   </Link>
                 </div>
               </div>

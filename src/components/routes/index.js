@@ -23,6 +23,7 @@ const AppRouter = ({
   state,
   setState,
   setDisplay,
+  docsLength,
   input,
   setInput,
 }) => {
@@ -40,8 +41,6 @@ const AppRouter = ({
               setStorage={setStorage}
               setCartDisplay={setCartDisplay}
               ourKitchenDishes={ourKitchenDishes}
-              loading={loading}
-              setLoading={setLoading}
             />
           }
         />
@@ -75,6 +74,9 @@ const AppRouter = ({
               setInput={setInput}
               cartDisplay={cartDisplay}
               setCartDisplay={setCartDisplay}
+              loading={loading}
+              setLoading={setLoading}
+              docsLength={docsLength}
             />
           }
         />

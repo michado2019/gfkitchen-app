@@ -1,4 +1,4 @@
-import { useState, createContext } from "react";
+import { useState, createContext, useEffect } from "react";
 import "./App.css";
 import { Footer } from "./components/layouts/footer/Footer";
 import Header from "./components/layouts/header/Header";
@@ -7,6 +7,7 @@ import AppRouter from "./components/routes";
 import SmallScreenNav from "./components/SmallScreenNav";
 import ourKitchenData from "./components/pages/ourKitchen/ourKitchenData/OurKitchenData";
 import { db } from "./components/firebase";
+import { getDocs, collection } from "firebase/firestore";
 export const DbContext = createContext();
 
 function App() {
@@ -27,6 +28,18 @@ function App() {
   const [state, setState] = useState({
     loading: false,
   });
+  const [docsLength, setDocsLength] = useState('')
+
+  //useEffect
+  useEffect(() => {
+  const dbRef = collection(db, "dishOrders");
+
+      async function getAllDishDocs() {
+        const dishDocs = await getDocs(dbRef);
+        setDocsLength(dishDocs.docs.length);
+      }
+      getAllDishDocs();
+  }, []);
   return (
     <div className="App">
       <DbContext.Provider value={db}>
@@ -51,6 +64,7 @@ function App() {
             setInput={setInput}
             state={state}
             setState={setState}
+            docsLength={docsLength}
           />
         </div>
         <Footer />

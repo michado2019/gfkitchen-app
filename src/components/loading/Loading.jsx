@@ -3,7 +3,7 @@ import './Loading.css'
 export const Loading = () => {
     return(
         <div className="loading">
-            <h2>Loading....</h2>
+            <img src="https://icon-library.com/images/loading-icon-animated-gif/loading-icon-animated-gif-7.jpg" alt="Loading...." className="loadingAnim" />
         </div>
     )
 }

@@ -4,6 +4,17 @@
   padding: 7px 50px;
   width: 85%;
   margin-left: 10%;
+  animation: cartAway-wrapper 1s ease-in-out;
+}
+@keyframes cartAway-wrapper {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 .cartAway-close_icon {
   margin-left: 97%;
@@ -185,4 +196,43 @@
     justify-content: center;
     align-items: center;
   }
+}
+.cartAwayNotification-div{
+  min-width: 320px;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 4px 7px;
+  box-shadow: 1px 1px 2px #f09308;
+  margin: 10px 20px;
+  animation: cartAwayNotification-div 1s;
+}
+@keyframes cartAwayNotification-div {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.cartAwayNotification{
+  margin: 20px 0; 
+  font-size: 24px;
+  color: #555;
+}
+.cartAwayNotification-btn{
+  padding: 3px 10px;
+  background-color: #f2f2f2;
+  color: #f09308;
+  text-decoration: none;
+  border-radius: 4px;
+  border: 0;
+  cursor: pointer;
+  margin: 20px 0;
+}
+.cartAwayNotification-btn:hover{
+  background-color: #f09308;
+  color: #f2f2f2;
+  transition: all 0.3s;
 }
