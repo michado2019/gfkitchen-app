@@ -69,6 +69,12 @@
   color: #928e8e;
   width: 320px;
 }
+.adminOrders-alert{
+  font-size: 16px;
+  color: #f09308;
+  font-weight: 550;
+  margin-top: 50px;
+}
 .adminDetail-heading {
   margin-bottom: 10px;
 }

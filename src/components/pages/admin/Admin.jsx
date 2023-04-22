@@ -12,6 +12,7 @@ import ourKitchenData from "../ourKitchen/ourKitchenData/OurKitchenData";
 const Admin = ({ loading, setLoading, docsLength }) => {
   //States
   const [dishData, setDishData] = useState([]);
+  const [orderAlert, setOrderAlert] = useState('');
   const [displaySecondContent, setDisplaySecondContent] = useState(true);
   const [page, setPage] = useState(1);
   const perPage = 3;
@@ -45,6 +46,11 @@ const Admin = ({ loading, setLoading, docsLength }) => {
       if (dishData.length !== 0) {
         setLoading(false);
         setDisplaySecondContent(false);
+      }
+      if(dishData.length === 0){
+        setLoading(false);
+        setDisplaySecondContent(true);
+        setOrderAlert('No pending order!!!')
       }
     });
   }, []);
@@ -87,6 +93,9 @@ const Admin = ({ loading, setLoading, docsLength }) => {
                     Lorem ipsum Lorem ipsum Lorem ipsum
                   </p>
                 </div>
+              </div>
+              <div className="adminOrders-alert">
+                  {orderAlert}
               </div>
               {loading ? (
                 <Loading />

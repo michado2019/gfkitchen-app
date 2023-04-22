@@ -68,6 +68,7 @@ const CartAway = ({
     if (input.plates <= 0) {
       return alert("Number of plates must be greater than 0");
     }
+    setLoading(true);
     try {
       setLoading(true);
       await addDoc(dbRef, {
@@ -101,7 +102,7 @@ const CartAway = ({
         plates: 0,
         totalPrice: 0,
         dishImg: "",
-        dishName: "",
+        dishName: ""
       };
     });
   };
