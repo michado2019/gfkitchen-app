@@ -12,6 +12,7 @@ import ourKitchenData from "../ourKitchen/ourKitchenData/OurKitchenData";
 const Admin = ({ loading, setLoading, docsLength }) => {
   //States
   const [dishData, setDishData] = useState([]);
+  const [displaySecondContent, setDisplaySecondContent] = useState(true);
   const [page, setPage] = useState(1);
   const perPage = 3;
   const pages = Math.ceil(dishData.length / perPage);
@@ -43,6 +44,7 @@ const Admin = ({ loading, setLoading, docsLength }) => {
       setDishData(dishData);
       if (dishData.length !== 0) {
         setLoading(false);
+        setDisplaySecondContent(false);
       }
     });
   }, []);
@@ -91,22 +93,44 @@ const Admin = ({ loading, setLoading, docsLength }) => {
               ) : (
                 <div className="adminOrdersDetails">
                   <div>
-                  <div className="adminDashboard">
-                <div className="adminDashboard-content">
-                  <h2 className="adminDashboard-heading">Dashboard</h2>
-                  <div className="adminDashboard-div">
-                    <div className="adminDashboard-flex_col">
-                      <span className="adminDashboard-flex_heading">Total orders</span>
-                      <span className="adminDashboard-flex_data">{docsLength}</span>
+                    <div className="adminDashboard">
+                      <div
+                        className="adminDashboard-content"
+                        style={{
+                          display:
+                            displaySecondContent === true ? "none" : "block",
+                        }}
+                      >
+                        <h2 className="adminDashboard-heading">Dashboard</h2>
+                        <div className="adminDashboard-div">
+                          <div className="adminDashboard-flex_col">
+                            <span className="adminDashboard-flex_heading">
+                              Total orders
+                            </span>
+                            <span className="adminDashboard-flex_data">
+                              {docsLength}
+                            </span>
+                          </div>
+                          <div className="adminDashboard-flex_col">
+                            <span className="adminDashboard-flex_heading">
+                              Total dishes
+                            </span>
+                            <span className="adminDashboard-flex_data">
+                              {ourKitchenData.length}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <div className="adminDashboard-flex_col">
-                      <span className="adminDashboard-flex_heading">Total dishes</span>
-                      <span className="adminDashboard-flex_data">{ourKitchenData.length}</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-                    <h2 className="adminDish-heading">Order details:</h2>
+                    <h2
+                      className="adminDish-heading"
+                      style={{
+                        display:
+                          displaySecondContent === true ? "none" : "block",
+                      }}
+                    >
+                      Order details:
+                    </h2>
                     {dishData.slice(skip, skip + perPage).map((data) => {
                       return (
                         <div className="adminDish" key={data.id}>
@@ -153,7 +177,12 @@ const Admin = ({ loading, setLoading, docsLength }) => {
                       );
                     })}
                   </div>
-                  <div className="adminDish-pagination">
+                  <div
+                    className="adminDish-pagination"
+                    style={{
+                      display: displaySecondContent === true ? "none" : "block",
+                    }}
+                  >
                     <Pagination page={page} pages={pages} setPage={setPage} />
                   </div>
                 </div>
