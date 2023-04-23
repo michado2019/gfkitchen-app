@@ -182,14 +182,14 @@
   margin-bottom: 4px;
 }
 .adminDish-btn {
-  background-color: #f09308;
-  color: #f2f2f2;
+  border: 1px solid #f09308;
+  color: #f09308;
+  background-color: #f2f2f2;
   padding: 5px 10px;
   border-radius: 3px;
   font-size: 8px;
   font-weight: 600;
   cursor: pointer;
-  border: 0;
   font-weight: 900;
 }
 .adminDish-btn:hover {

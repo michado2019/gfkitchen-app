@@ -174,6 +174,9 @@ const Admin = ({ loading, setLoading, docsLength }) => {
                               <h3 className="adminDish-time">
                                 Phone: {data.phone}
                               </h3>
+                              <h3 className="adminDish-time">
+                                Delivery time: {data.deliveryTime}
+                              </h3>
                               <button
                                 className="adminDish-btn"
                                 onClick={() => handleDelete(data.id)}

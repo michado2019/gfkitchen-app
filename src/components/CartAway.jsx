@@ -62,7 +62,7 @@ const CartAway = ({
 
   const handleOrder = async () => {
     //Database
-    if (input.name === "" || input.address === "" || input.phone === "") {
+    if (input.name === "" || input.address === "" || input.phone === "" || input.deliveryTime === "") {
       return alert("Please, fill all fields");
     }
     if (input.plates <= 0) {
@@ -81,6 +81,7 @@ const CartAway = ({
         time: new Date().toLocaleString(),
         address: input.address,
         phone: input.phone,
+        deliveryTime: input.deliveryTime
       });
     } catch (error) {
       setLoading = false;
@@ -102,7 +103,10 @@ const CartAway = ({
         plates: 0,
         totalPrice: 0,
         dishImg: "",
-        dishName: ""
+        dishName: "",
+        address: "",
+        phone: "",
+        deliveryTime: ""
       };
     });
   };
@@ -206,7 +210,6 @@ const CartAway = ({
                           id="cartAway-content2_inputs"
                           className="cartAway-content2_inputs"
                           value={ourKitchenDatum?.ditchName}
-                          onChange={handleChange}
                           disabled
                         />
                       </div>
@@ -237,7 +240,6 @@ const CartAway = ({
                         <input
                           type="number"
                           className="cartAway-content2_inputs"
-                          onChange={handleChange}
                           placeholder={input?.totalPrice}
                           disabled
                         />
@@ -264,6 +266,17 @@ const CartAway = ({
                           value={input?.phone}
                         />
                       </div>
+                      <div className="cartAway-form_flex">
+                        <label className="cartAway-labels">Delivery time: </label>
+                        <input
+                          type="datetime-local"
+                          className="cartAway-content2_inputs"
+                          id="cartAway-content2_inputs"
+                          onChange={handleChange}
+                          name="deliveryTime"
+                          value={input?.deliveryTime}
+                        />
+                      </div>
                       <button className="cartAway-calc_btn">Stamp</button>
                     </form>
                     <button
@@ -277,7 +290,7 @@ const CartAway = ({
                       className="cartAway-order_btn"
                       style={{
                         backgroundColor:
-                          input?.totalPrice !== 0 ? "#f09308" : "",
+                        input?.totalPrice !== 0 ? "#f09308" : "",
                         transition: "all 0.3",
                         color: input?.totalPrice !== 0 ? "#f2f2f2" : "",
                         cursor: input?.totalPrice !== 0 ? "pointer" : "",

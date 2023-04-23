@@ -24,6 +24,7 @@ function App() {
     dishName: "",
     address: "",
     phone: "",
+    deliveryTime: ""
   });
   const [docsLength, setDocsLength] = useState("");
   const [loading, setLoading] = useState(false);
