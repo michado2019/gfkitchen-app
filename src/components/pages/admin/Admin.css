@@ -3,6 +3,13 @@
   width: 100vw;
   height: fit-content;
 }
+.adminVerify-email {
+  min-height: 40vh;
+  text-align: center;
+  margin-top: 20%;
+  color: #d3561d;
+  font-size: 24px;
+}
 .adminContents {
   display: flex;
   flex-direction: column;
@@ -58,6 +65,15 @@
   margin-left: 20px;
   padding-top: 20px;
   width: 100%;
+  animation: adminDetails-content2 1s;
+}
+@keyframes adminDetails-content2 {
+  0% {
+    margin-top: -100px;
+  }
+  100% {
+    margin-top: 0;
+  }
 }
 .adminDetails-content2_heading {
   font-size: 20px;
@@ -69,7 +85,7 @@
   color: #928e8e;
   width: 320px;
 }
-.adminOrders-alert{
+.adminOrders-alert {
   font-size: 16px;
   color: #f09308;
   font-weight: 550;
@@ -84,9 +100,14 @@
   font-size: 16px;
 }
 .adminLogin {
-  margin-left: -30%;
+  margin-left: -10%;
 }
-.adminDashboard-heading{
+.adminUser-flex_row {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.adminDashboard-heading {
   font-size: 20px;
   font-weight: 600;
   color: #555;
@@ -94,25 +115,35 @@
   margin-bottom: 10px;
   text-align: center;
 }
+.adminSingout-btn {
+  background-color: #d3561d;
+  color: #f2f2f2;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
 .adminDashboard-div {
   display: flex;
   background-color: #555;
   border-radius: 5px;
   padding: 10px 10px;
   margin-top: 20px;
-  
 }
-.adminDashboard-flex_col{
+.adminDashboard-flex_col {
   margin: 0 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.adminDashboard-flex_heading{
+.adminDashboard-flex_heading {
   color: #f09308;
 }
-.adminDashboard-flex_data{
+.adminDashboard-flex_data {
   color: #f2f2f2;
   background-color: #f09308;
   font-size: 12px;
@@ -138,6 +169,15 @@
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
   margin-bottom: 10px;
   margin-top: 10px;
+  animation: adminDish-div 1s;
+}
+@keyframes adminDish-div {
+  0% {
+    margin-top: -100px;
+  }
+  100% {
+    margin-top: 0;
+  }
 }
 .adminDish-div1,
 .adminDish-div2 {
@@ -240,8 +280,8 @@
   .adminHeading {
     font-size: 18px;
     color: #f09308;
-  margin-left: 0;
-  text-align: center;
+    margin-left: 0;
+    text-align: center;
   }
   .adminDish-heading {
     font-size: 18px;
@@ -257,7 +297,7 @@
     font-size: 14px;
     width: 250px;
   }
-  .adminDashboard{
+  .adminDashboard {
     width: 300px;
     margin: 0 auto;
   }
@@ -275,6 +315,6 @@
 }
 @media (max-width: 320px) {
   .adminLogin {
-    margin-left: -19%;
+    margin-left: -4%;
   }
 }

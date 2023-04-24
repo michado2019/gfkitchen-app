@@ -8,12 +8,17 @@ import Pagination from "./pagination/Pagination";
 import { doc, deleteDoc } from "firebase/firestore";
 import { Loading } from "../../loading/Loading";
 import ourKitchenData from "../ourKitchen/ourKitchenData/OurKitchenData";
+import { getAuth, signOut } from "../../firebase";
+import Login from "../login/Login";
 
 const Admin = ({ loading, setLoading, docsLength }) => {
   //States
   const [dishData, setDishData] = useState([]);
-  const [orderAlert, setOrderAlert] = useState('');
+  const [orderAlert, setOrderAlert] = useState("");
   const [displaySecondContent, setDisplaySecondContent] = useState(true);
+  const [signedOut, setSignedout] = useState(false);
+  const [userEmail, setUserEmail] = useState("");
+  const [userEmailVerified, setUserEmailVerified] = useState(false);
   const [page, setPage] = useState(1);
   const perPage = 3;
   const pages = Math.ceil(dishData.length / perPage);
@@ -29,7 +34,7 @@ const Admin = ({ loading, setLoading, docsLength }) => {
   const dbRef = collection(db, "dishOrders");
 
   //Localstorage
-  const form = localStorage.getItem("form");
+  const form = localStorage.getItem("userform");
   const user = JSON.parse(form);
 
   //UseEffect
@@ -47,10 +52,10 @@ const Admin = ({ loading, setLoading, docsLength }) => {
         setLoading(false);
         setDisplaySecondContent(false);
       }
-      if(dishData.length === 0){
+      if (dishData.length === 0) {
         setLoading(false);
         setDisplaySecondContent(true);
-        setOrderAlert('No pending order!!!')
+        setOrderAlert("No pending order!!!");
       }
     });
   }, []);
@@ -65,13 +70,61 @@ const Admin = ({ loading, setLoading, docsLength }) => {
       return deleteDoc(getDoc);
     }
   };
+
+  //Current user
+  useEffect(() => {
+    const auth = getAuth();
+    const user = auth.currentUser;
+
+    if (user) {
+      // ...
+    } else {
+      // No user is signed in.
+    }
+  }, []);
+
+  //Get User's profile
+  useEffect(() => {
+    const auth = getAuth();
+    const user = auth.currentUser;
+    if (user !== null) {
+      const email = user.email;
+      const emailVerified = user.emailVerified;
+      setUserEmail(email);
+      setUserEmailVerified(emailVerified);
+      const uid = user.uid;
+
+    }
+  });
+
+  //Signout
+  const handleSignout = () => {
+    const auth = getAuth();
+    signOut(auth)
+      .then(() => {
+        // Sign-out successful.
+        setSignedout(true);
+        console.log("out");
+      })
+      .catch((error) => {
+        // An error happened.
+      });
+  };
   return (
     <div className="adminWrapper">
-      {!user ? (
+      <div style={{display: userEmailVerified? "none": "block"}} className="adminVerify-email">
+      Register and/or verify email first!
+        </div>
+      {signedOut === true ? (
         navigate("/login")
       ) : (
-        <div>
-          <h2 className="adminHeading">Wecome, {user.firstName}.</h2>
+        <div style={{ display: signedOut === true ? "none" : "block" && userEmailVerified? "block": "none"}}>
+          <div className="adminUser-flex_row">
+            <h2 className="adminHeading">Wecome, {user.firstName}.</h2>
+            <button onClick={handleSignout} className="adminSingout-btn">
+              Sign out
+            </button>
+          </div>
           <div className="adminContents">
             <div className="adminContent">
               <div className="adminContents-div">
@@ -80,7 +133,7 @@ const Admin = ({ loading, setLoading, docsLength }) => {
                   <h3 className="adminDetail-name">
                     Name: {user.firstName} {user.lastName}
                   </h3>
-                  <h3 className="adminDetail-email">Email: {user.email}</h3>
+                  <h3 className="adminDetail-name">Email: {userEmail}</h3>
                 </div>
                 <div className="adminDetails-content2">
                   <h2 className="adminDetails-content2_heading">
@@ -94,9 +147,7 @@ const Admin = ({ loading, setLoading, docsLength }) => {
                   </p>
                 </div>
               </div>
-              <div className="adminOrders-alert">
-                  {orderAlert}
-              </div>
+              <div className="adminOrders-alert">{orderAlert}</div>
               {loading ? (
                 <Loading />
               ) : (

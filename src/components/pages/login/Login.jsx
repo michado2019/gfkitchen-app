@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 const Login = ({ storage, setStorage }) => {
   // Navigate
@@ -22,24 +23,33 @@ const Login = ({ storage, setStorage }) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    const getForm = localStorage.getItem("form");
-    setStorage(JSON.parse(getForm));
     if (form) {
       setForm({
         email: "",
         password: "",
       });
     }
-    const userForm = JSON.parse(getForm);
-    const email = userForm?.email;
-    const password = userForm?.password;
-    if (form.email === email && form.password === password) {
-      navigate("/");
-    } else {
+
+    const auth = getAuth();
+    const email = form.email;
+    const password = form.password;
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        if (user) {
+          navigate("/admin");
+        }
+        if (!user) {
+          navigate("/register");
+        }
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+      });
+    if (form.email === "" || form.password === "") {
       setAlert("Fill all fields correctly");
-    }
-    if (!storage) {
-      navigate("/register");
     }
   };
   return (
@@ -74,8 +84,8 @@ const Login = ({ storage, setStorage }) => {
             </Link>
           </h4>
           <h4>
-            Forgot password?{" "}
-            <Link to="forgotPassword" className="loginRegister-and_password">
+            Retrieve password?{" "}
+            <Link to="forgotPassword/changePassword" className="loginRegister-and_password">
               Here
             </Link>
           </h4>

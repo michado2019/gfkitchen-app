@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React  from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "../pages/home/Home";
 import Login from "../pages/login/Login";
 import "./index.css";
 import Register from "../pages/register/Register";
-import ForgotPassword from "../pages/login/forgotPassword/ForgotPassword";
+// import ForgotPassword from "../pages/login/forgotPassword/ForgotPassword";
 import ChangePassword from "../pages/login/changePassword/ChangePassword";
 import OurKitchen from "../pages/ourKitchen/OurKitchen";
 import OurSingleKitchen from "../pages/ourKitchen/ourSingleKitchen/OurSingleKitchen";
@@ -47,10 +47,10 @@ const AppRouter = ({
           path="/logIn"
           element={<Login storage={storage} setStorage={setStorage} />}
         />
-        <Route
+        {/* <Route
           path="/login/forgotPassword"
           element={<ForgotPassword storage={storage} setStorage={setStorage} />}
-        />
+        /> */}
         <Route
           path="/login/forgotPassword/changePassword"
           element={<ChangePassword />}

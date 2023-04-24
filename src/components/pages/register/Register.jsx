@@ -1,18 +1,24 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+} from "../../firebase";
+import { useNavigate } from "react-router-dom";
+
 import "./Register.css";
 const Register = () => {
-  // Navigate
+  //UseNavigate
   const navigate = useNavigate();
 
   //State
   const [form, setForm] = useState({
-    firstName: "",
-    lastName: "",
     email: "",
     password: "",
+    firstName: "",
+    lastName: "",
   });
-  const [storage, setStorage] = useState({});
   const [alert, setAlert] = useState("");
 
   // Handlers
@@ -20,21 +26,48 @@ const Register = () => {
     e.preventDefault();
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
+    const userform = {
+      firstName: form.firstName,
+      lastName: form.lastName,
+    };
+    //Local Storage
+    localStorage.setItem("userform", JSON.stringify(userform));
   };
   const handleSubmit = (e) => {
     e.preventDefault();
     if (
       form.email !== "" &&
+      form.password !== "" &&
       form.firstName !== "" &&
-      form.lastName !== "" &&
-      form.password !== ""
+      form.lastName !== ""
     ) {
-      localStorage.setItem("form", JSON.stringify(form));
-      const getForm = localStorage.getItem("form");
-      setStorage(JSON.parse(getForm));
-      navigate("/login"); 
+      const email = form.email;
+      const password = form.password;
+
+      const auth = getAuth();
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          if (user) {
+            //Email verification
+            const auth = getAuth();
+            sendEmailVerification(auth.currentUser).then(() => {
+              // Email verification sent!
+              // ...
+            });
+            navigate("/admin");
+          }
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          // ..
+        });
+    } else {
+      setAlert("Fill all fields correctly");
     }
-    setAlert('Fill all fields')
   };
   return (
     <div className="registerWrapper">
@@ -45,7 +78,7 @@ const Register = () => {
             <h2 className="registerAlert">{alert}</h2>
             <input
               type="text"
-              placeholder="First name"
+              placeholder="Enter firstname"
               className="registerInputs"
               onChange={handleChange}
               name="firstName"
@@ -53,7 +86,7 @@ const Register = () => {
             />
             <input
               type="text"
-              placeholder="Last name"
+              placeholder="Enter lastname"
               className="registerInputs"
               onChange={handleChange}
               name="lastName"
