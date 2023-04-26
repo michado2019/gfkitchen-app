@@ -7,18 +7,14 @@ import { topNorthernDishes } from "./homeData/HomeData";
 import { topSouthernDishes } from "./homeData/HomeData";
 import { topEasternDishes } from "./homeData/HomeData";
 import AboutUS from "./AboutUS";
-import CustomerFeedback from "./customersFeedback/CustomerFeedback";
-const Home = ({
-  storage,
-  setStorage,
-  setCartDisplay,
-  ourKitchenDishes,
-}) => {
 
+import CustomerFeedback from "./customersFeedback/CustomerFeedback";
+const Home = ({ storage, setStorage, setCartDisplay, ourKitchenDishes }) => {
   //Local storage
   localStorage.setItem("ourKitchenDishes", JSON.stringify(ourKitchenDishes));
 
   //State
+  const [state, setState] = useState(false);
   const [page, setPage] = useState(1);
   const [pageNorthern, setPageNorthern] = useState(1);
   const [pageSouthern, setPageSouthern] = useState(1);
@@ -36,11 +32,10 @@ const Home = ({
 
   //useEffect
   useEffect(() => {
-    const getForm = localStorage.getItem("form");
-    setStorage(JSON.parse(getForm));
-    const userForm = JSON.parse(getForm);
-    setStorage(userForm);
-  }, [setStorage]);
+    setState(true);
+    const data = localStorage.getItem("ourKitchenDishes");
+    setStorage(JSON.parse(data));
+  }, [state]);
 
   return (
     <div className="homeWrapper">
@@ -176,7 +171,7 @@ const Home = ({
             <h2 className="homeContent2-title">Our dishes:</h2>
             <div className="homeContent-div2">
               <div className="homeContent-div_content">
-                {ourKitchenDishes?.map((ourKitchenDatum) => {
+                {storage?.map((ourKitchenDatum) => {
                   return (
                     <div className="home-content" key={ourKitchenDatum.id}>
                       <div className="home">

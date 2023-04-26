@@ -13,7 +13,9 @@ export const Sidebar = () => {
   const pages = Math.ceil(locationData.length / perPage);
   const skip = page * perPage - perPage;
   return (
-    <div className="sidebarWrapper">
+    <div
+      className="sidebarWrapper"
+    >
       <div className="sidebarContents">
         <BackBtn />
         <h2 className="sidebarContents1">This is</h2>
@@ -36,7 +38,11 @@ export const Sidebar = () => {
               </div>
             );
           })}
-          <Link to="/ourKitchen" className="sidebarServices-link" id="sidebarServices-list">
+          <Link
+            to="/ourKitchen"
+            className="sidebarServices-link"
+            id="sidebarServices-list"
+          >
             Online order
           </Link>
         </div>

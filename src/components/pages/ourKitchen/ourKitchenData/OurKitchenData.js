@@ -8,7 +8,7 @@ const ourKitchenData = [
     nutritional_value: "Lorem ipsum Lorem ipsum",
     ingredients: "Lorem ipsum",
     details: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
-    price: 2000
+    price: 2000,
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ const ourKitchenData = [
     nutritional_value: "Lorem ipsum Lorem ipsum",
     ingredients: "Lorem ipsum",
     details: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
-    price: 1000
+    price: 1000,
   },
   {
     id: 3,
@@ -30,7 +30,7 @@ const ourKitchenData = [
     nutritional_value: "Lorem ipsum Lorem ipsum",
     ingredients: "Lorem ipsum",
     details: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
-    price: 3000
+    price: 3000,
   },
   {
     id: 4,
@@ -41,7 +41,7 @@ const ourKitchenData = [
     nutritional_value: "Lorem ipsum Lorem ipsum",
     ingredients: "Lorem ipsum",
     details: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
-    price: 4000
+    price: 4000,
   },
   {
     id: 5,
@@ -52,7 +52,7 @@ const ourKitchenData = [
     nutritional_value: "Lorem ipsum Lorem ipsum",
     ingredients: "Lorem ipsum",
     details: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
-    price: 5000
+    price: 5000,
   },
   {
     id: 6,
@@ -63,7 +63,7 @@ const ourKitchenData = [
     nutritional_value: "Lorem ipsum Lorem ipsum",
     ingredients: "Lorem ipsum",
     details: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
-    price: 1500
+    price: 1500,
   },
   {
     id: 7,
@@ -74,7 +74,7 @@ const ourKitchenData = [
     nutritional_value: "Lorem ipsum Lorem ipsum",
     ingredients: "Lorem ipsum",
     details: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
-    price: 2200
+    price: 2200,
   },
   {
     id: 8,
@@ -85,7 +85,7 @@ const ourKitchenData = [
     nutritional_value: "Lorem ipsum Lorem ipsum",
     ingredients: "Lorem ipsum",
     details: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
-    price: 2200
+    price: 2200,
   },
   {
     id: 9,
@@ -96,7 +96,7 @@ const ourKitchenData = [
     nutritional_value: "Lorem ipsum Lorem ipsum",
     ingredients: "Lorem ipsum",
     details: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
-    price: 2600
+    price: 2600,
   },
   {
     id: 10,
@@ -107,7 +107,7 @@ const ourKitchenData = [
     nutritional_value: "Lorem ipsum Lorem ipsum",
     ingredients: "Lorem ipsum",
     details: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
-    price: 2800
+    price: 2800,
   },
   {
     id: 11,
@@ -118,7 +118,7 @@ const ourKitchenData = [
     nutritional_value: "Lorem ipsum Lorem ipsum",
     ingredients: "Lorem ipsum",
     details: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
-    price: 2900
+    price: 2900,
   },
   {
     id: 12,
@@ -129,7 +129,7 @@ const ourKitchenData = [
     nutritional_value: "Lorem ipsum Lorem ipsum",
     ingredients: "Lorem ipsum",
     details: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
-    price: 3100
+    price: 3100,
   },
 ];
 export default ourKitchenData;

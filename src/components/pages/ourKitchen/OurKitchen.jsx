@@ -1,19 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./OurKitchen.css";
-import ourKitchenData from "./ourKitchenData/OurKitchenData";
 import Pagination from "../../pagination/Pagination";
 import { Link } from "react-router-dom";
+const OurKitchen = ({storage, setStorage}) => {
 
-const OurKitchen = () => {
   // States
   const [page, setPage] = useState(1);
+  const [state, setState] = useState(false)
+  //useEffect
+  useEffect(() => {
+    setState(true)
+    const data = localStorage.getItem("ourKitchenDishes");
+      setStorage(JSON.parse(data));
+  }, [state]);
+  
   const perPage = 6;
-  const pages = Math.ceil(ourKitchenData.length / perPage);
+  const pages = Math.ceil(storage.length / perPage);
   const skip = page * perPage - perPage;
+
   return (
     <div className="ourKitchen-wrapper">
       <div className="ourKitchen-contents">
-        {ourKitchenData.slice(skip, skip + perPage).map((ourKitchenDatum) => {
+        {storage.slice(skip, skip + perPage).map((ourKitchenDatum) => {
           return (
             <div className="home-content" key={ourKitchenDatum.id}>
               <div className="home">
@@ -42,7 +50,12 @@ const OurKitchen = () => {
                       </Link>
                     </button>
                     <button className="home-more_btn">
-                    <Link className="ourKitchen-link" to={`/cartAway/${ourKitchenDatum.id}`}>Buy</Link>
+                      <Link
+                        className="ourKitchen-link"
+                        to={`/cartAway/${ourKitchenDatum.id}`}
+                      >
+                        Buy
+                      </Link>
                     </button>
                   </div>
                 </div>

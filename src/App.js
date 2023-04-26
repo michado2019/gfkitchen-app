@@ -12,7 +12,7 @@ export const DbContext = createContext();
 
 function App() {
   //States
-  const [storage, setStorage] = useState({});
+  const [storage, setStorage] = useState([]);
   const [display, setDisplay] = useState(false);
   const [cartDisplay, setCartDisplay] = useState(false);
   const [input, setInput] = useState({

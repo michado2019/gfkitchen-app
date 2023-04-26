@@ -34,6 +34,7 @@
 .cartAway-content {
   display: flex;
   align-items: flex-start;
+  min-height: 70%;
   justify-content: center;
 }
 .cartAway-content1_flexCol,

@@ -1,6 +1,5 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import "./CartAway.css";
-import ourKitchenData from "./pages/ourKitchen/ourKitchenData/OurKitchenData";
 import { Close } from "@mui/icons-material";
 import { useParams, Link } from "react-router-dom";
 import { DbContext } from "../App";
@@ -14,10 +13,13 @@ const CartAway = ({
   setInput,
   loading,
   setLoading,
+  storage,
+  setStorage,
 }) => {
   //useState
   const [docLength, setDocLength] = useState("");
-  const [stamp, setStamp] = React.useState(false);
+  const [stamp, setStamp] = useState(false);
+  const [state, setState] = useState(false);
   const [notification, setNotification] = React.useState("");
   //Db useContext
   const db = useContext(DbContext);
@@ -62,7 +64,12 @@ const CartAway = ({
 
   const handleOrder = async () => {
     //Database
-    if (input.name === "" || input.address === "" || input.phone === "" || input.deliveryTime === "") {
+    if (
+      input.name === "" ||
+      input.address === "" ||
+      input.phone === "" ||
+      input.deliveryTime === ""
+    ) {
       return alert("Please, fill all fields");
     }
     if (input.plates <= 0) {
@@ -81,7 +88,7 @@ const CartAway = ({
         time: new Date().toLocaleString(),
         address: input.address,
         phone: input.phone,
-        deliveryTime: input.deliveryTime
+        deliveryTime: input.deliveryTime,
       });
     } catch (error) {
       setLoading = false;
@@ -106,12 +113,19 @@ const CartAway = ({
         dishName: "",
         address: "",
         phone: "",
-        deliveryTime: ""
+        deliveryTime: "",
       };
     });
   };
   //useParam
   const { id } = useParams();
+
+  //useEffect
+  useEffect(() => {
+    setState(true);
+    const data = localStorage.getItem("ourKitchenDishes");
+    setStorage(JSON.parse(data));
+  }, [state]);
 
   return (
     <div
@@ -125,8 +139,8 @@ const CartAway = ({
             onClick={() => setCartDisplay((prev) => !prev)}
           />
         </Link>
-        {ourKitchenData
-          .filter((ourKitchenDatum) => ourKitchenDatum.id == id)
+        {storage
+          ?.filter((ourKitchenDatum) => ourKitchenDatum.id == id)
           .map((ourKitchenDatum) => {
             const dishData = {
               dishName: ourKitchenDatum.ditchName,
@@ -267,7 +281,9 @@ const CartAway = ({
                         />
                       </div>
                       <div className="cartAway-form_flex">
-                        <label className="cartAway-labels">Delivery time: </label>
+                        <label className="cartAway-labels">
+                          Delivery time:{" "}
+                        </label>
                         <input
                           type="datetime-local"
                           className="cartAway-content2_inputs"
@@ -290,7 +306,7 @@ const CartAway = ({
                       className="cartAway-order_btn"
                       style={{
                         backgroundColor:
-                        input?.totalPrice !== 0 ? "#f09308" : "",
+                          input?.totalPrice !== 0 ? "#f09308" : "",
                         transition: "all 0.3",
                         color: input?.totalPrice !== 0 ? "#f2f2f2" : "",
                         cursor: input?.totalPrice !== 0 ? "pointer" : "",

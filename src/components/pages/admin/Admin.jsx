@@ -9,7 +9,6 @@ import { doc, deleteDoc } from "firebase/firestore";
 import { Loading } from "../../loading/Loading";
 import ourKitchenData from "../ourKitchen/ourKitchenData/OurKitchenData";
 import { getAuth, signOut } from "../../firebase";
-import Login from "../login/Login";
 
 const Admin = ({ loading, setLoading, docsLength }) => {
   //States
@@ -93,7 +92,6 @@ const Admin = ({ loading, setLoading, docsLength }) => {
       setUserEmail(email);
       setUserEmailVerified(emailVerified);
       const uid = user.uid;
-
     }
   });
 
@@ -112,13 +110,25 @@ const Admin = ({ loading, setLoading, docsLength }) => {
   };
   return (
     <div className="adminWrapper">
-      <div style={{display: userEmailVerified? "none": "block"}} className="adminVerify-email">
-      Register and/or verify email first!
-        </div>
+      <div
+        style={{ display: userEmailVerified ? "none" : "block" }}
+        className="adminVerify-email"
+      >
+        Register and/or verify email first!
+      </div>
       {signedOut === true ? (
         navigate("/login")
       ) : (
-        <div style={{ display: signedOut === true ? "none" : "block" && userEmailVerified? "block": "none"}}>
+        <div
+          style={{
+            display:
+              signedOut === true
+                ? "none"
+                : "block" && userEmailVerified
+                ? "block"
+                : "none",
+          }}
+        >
           <div className="adminUser-flex_row">
             <h2 className="adminHeading">Wecome, {user.firstName}.</h2>
             <button onClick={handleSignout} className="adminSingout-btn">

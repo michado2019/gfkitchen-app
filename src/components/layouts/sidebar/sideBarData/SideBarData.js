@@ -17,4 +17,22 @@ export const locationData = [
       geo_two: "Jebba",
     },
   },
+  {
+    id: 3,
+    country: "Nigeria",
+    state: "Edo State",
+    geo: {
+      geo_one: "Okada",
+      geo_two: "Benin city",
+    },
+  },
+  {
+    id: 4,
+    country: "Nigeria",
+    state: "Oyo State",
+    geo: {
+      geo_one: "Oyo",
+      geo_two: "Ibadan",
+    },
+  },
 ];

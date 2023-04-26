@@ -1,4 +1,4 @@
-import React  from "react";
+import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "../pages/home/Home";
 import Login from "../pages/login/Login";
@@ -55,7 +55,10 @@ const AppRouter = ({
           path="/login/forgotPassword/changePassword"
           element={<ChangePassword />}
         />
-        <Route path="/ourKitchen" element={<OurKitchen />} />
+        <Route
+          path="/ourKitchen"
+          element={<OurKitchen storage={storage} setStorage={setStorage} />}
+        />
         <Route path="/ourKitchen/:id" element={<OurSingleKitchen />} />
         <Route path="/meetOurMd" element={<MeetOurMd />} />
         <Route
@@ -82,6 +85,8 @@ const AppRouter = ({
               loading={loading}
               setLoading={setLoading}
               docsLength={docsLength}
+              storage={storage}
+              setStorage={setStorage}
             />
           }
         />
