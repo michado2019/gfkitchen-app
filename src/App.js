@@ -15,6 +15,7 @@ function App() {
   const [storage, setStorage] = useState([]);
   const [display, setDisplay] = useState(false);
   const [cartDisplay, setCartDisplay] = useState(false);
+  const [ourKitchenDisplay, setOurKitchenDisplay] = useState(false);
   const [input, setInput] = useState({
     price: 0,
     name: "",
@@ -47,11 +48,12 @@ function App() {
           cartDisplay={cartDisplay}
           setCartDisplay={setCartDisplay}
           input={input}
+          ourKitchenDisplay={ourKitchenDisplay}
         />
         <SmallScreenNav display={display} setDisplay={setDisplay} />
         <div className="appCart-away"></div>
         <div className="sidebarRouter">
-          <Sidebar />
+          <Sidebar ourKitchenDisplay={ourKitchenDisplay}/>
           <AppRouter
             ourKitchenDishes={ourKitchenData}
             storage={storage}
@@ -63,6 +65,7 @@ function App() {
             docsLength={docsLength}
             loading={loading}
             setLoading={setLoading}
+            setOurKitchenDisplay={setOurKitchenDisplay}
           />
         </div>
         <Footer />

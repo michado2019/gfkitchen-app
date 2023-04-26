@@ -5,13 +5,16 @@ import { Link } from "react-router-dom";
 const OurKitchen = ({storage, setStorage}) => {
 
   // States
+  const [state, setState] = useState(false);
   const [page, setPage] = useState(1);
-  const [state, setState] = useState(false)
+
   //useEffect
   useEffect(() => {
-    setState(true)
+    setState(true);
     const data = localStorage.getItem("ourKitchenDishes");
-      setStorage(JSON.parse(data));
+    setStorage(JSON.parse(data));
+    console.log('active')
+    console.log(storage)
   }, [state]);
   
   const perPage = 6;

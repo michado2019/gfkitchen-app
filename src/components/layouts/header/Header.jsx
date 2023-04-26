@@ -14,6 +14,7 @@ const Header = ({
   cartDisplay,
   setCartDisplay,
   input,
+  ourKitchenDisplay,
 }) => {
   //States
   const [switcher, setSwitcher] = useState(false);
@@ -89,6 +90,7 @@ const Header = ({
                     to="/ourKitchen"
                     className="headerAbout-us_list"
                     onClick={handleClose}
+                    style={{ display: ourKitchenDisplay ? "block" : "none" }}
                   >
                     {aboutUsData[1]}
                   </Link>
@@ -164,10 +166,8 @@ const Header = ({
           >
             <div className="headerCart-flex_row">
               <h6 className="headerCart">{input?.plates}</h6>
-              <Link to="#" className="headerLink">
-                <AddShoppingCartOutlined
-                  onClick={() => setCartDisplay((prev) => !prev)}
-                />
+              <Link to="/" className="headerLink">
+                <AddShoppingCartOutlined />
               </Link>
             </div>
           </li>

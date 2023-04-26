@@ -9,7 +9,13 @@ import { topEasternDishes } from "./homeData/HomeData";
 import AboutUS from "./AboutUS";
 
 import CustomerFeedback from "./customersFeedback/CustomerFeedback";
-const Home = ({ storage, setStorage, setCartDisplay, ourKitchenDishes }) => {
+const Home = ({
+  storage,
+  setStorage,
+  setCartDisplay,
+  ourKitchenDishes,
+  setOurKitchenDisplay,
+}) => {
   //Local storage
   localStorage.setItem("ourKitchenDishes", JSON.stringify(ourKitchenDishes));
 
@@ -167,7 +173,7 @@ const Home = ({ storage, setStorage, setCartDisplay, ourKitchenDishes }) => {
               />
             </div>
           </div>
-          <div className="homeContent2">
+          <div className="homeContent2" id="dishes">
             <h2 className="homeContent2-title">Our dishes:</h2>
             <div className="homeContent-div2">
               <div className="homeContent-div_content">
@@ -208,6 +214,7 @@ const Home = ({ storage, setStorage, setCartDisplay, ourKitchenDishes }) => {
                               <Link
                                 to={`/cartAway/${ourKitchenDatum.id}`}
                                 className="ourKitchen-link"
+                                onClick={() => setOurKitchenDisplay(true)}
                               >
                                 Buy
                               </Link>

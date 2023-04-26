@@ -49,13 +49,13 @@ const AboutUS = () => {
             ipsum lorem ipsum Lorem ipsum lorem ipsum, Lorem ipsum lorem
           </p>
           {order ? (
-            <Link to="/ourKitchen" className="aboutUs-link">
-              Enter our kitchen
-            </Link>
+            <a href="#dishes" className="aboutUs-link">
+              Order here
+            </a>
           ) : (
-            <Link to="/ourKitchen" className="aboutUs-link">
-              Place an order
-            </Link>
+            <a href="#dishes" className="aboutUs-link">
+              Order now
+            </a>
           )}
         </div>
         <div className="aboutUs-content2">

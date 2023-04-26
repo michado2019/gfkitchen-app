@@ -5,7 +5,7 @@ import BackBtn from "../../backBtn/BackBtn";
 import { locationData } from "./sideBarData/SideBarData";
 import { ArrowBackIosNew, ArrowForwardIos } from "@mui/icons-material";
 import { Link } from "react-router-dom";
-export const Sidebar = () => {
+export const Sidebar = ({ourKitchenDisplay}) => {
   //State
   const [page, setPage] = useState(1);
 
@@ -38,6 +38,7 @@ export const Sidebar = () => {
               </div>
             );
           })}
+          <div style={{display: ourKitchenDisplay?'block':'none'}}>
           <Link
             to="/ourKitchen"
             className="sidebarServices-link"
@@ -45,6 +46,7 @@ export const Sidebar = () => {
           >
             Online order
           </Link>
+          </div>
         </div>
         <br />
         <div className="sidebarLocation">

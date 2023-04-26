@@ -26,6 +26,7 @@ const AppRouter = ({
   docsLength,
   input,
   setInput,
+  setOurKitchenDisplay
 }) => {
   return (
     <div className="routesIndex-wrapper">
@@ -39,6 +40,7 @@ const AppRouter = ({
               setStorage={setStorage}
               setCartDisplay={setCartDisplay}
               ourKitchenDishes={ourKitchenDishes}
+              setOurKitchenDisplay={setOurKitchenDisplay}
             />
           }
         />
