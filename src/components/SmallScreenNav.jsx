@@ -30,13 +30,6 @@ const SmallScreenNav = ({display, setDisplay}) => {
               </Link>
             </div>
           </li>
-          <li className="smallScreen-nav_links">
-            <div>
-              <Link to="/smallScreenSidebar" className="headerLink" onClick={handleNavClose} >
-                S-bar
-              </Link>
-            </div>
-          </li>
         </ul>
       </nav>
     </div>

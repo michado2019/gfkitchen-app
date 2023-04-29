@@ -25,7 +25,7 @@ function App() {
     dishName: "",
     address: "",
     phone: "",
-    deliveryTime: ""
+    deliveryTime: "",
   });
   const [docsLength, setDocsLength] = useState("");
   const [loading, setLoading] = useState(false);
@@ -53,7 +53,7 @@ function App() {
         <SmallScreenNav display={display} setDisplay={setDisplay} />
         <div className="appCart-away"></div>
         <div className="sidebarRouter">
-          <Sidebar ourKitchenDisplay={ourKitchenDisplay}/>
+          <Sidebar ourKitchenDisplay={ourKitchenDisplay} />
           <AppRouter
             ourKitchenDishes={ourKitchenData}
             storage={storage}

@@ -1,0 +1,16 @@
+.errorPage-wrapper{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 77vh;
+    margin-top: 50px;
+    margin: 0 auto;
+}
+.errorPage-img{
+    box-shadow: 2px 2px 10px 2px #f09308;
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+}

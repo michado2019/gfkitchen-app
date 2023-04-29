@@ -13,6 +13,7 @@ import Payment from "../pages/payment/Payment";
 import PerculiarService from "../pages/perculiarService/PerculiarService";
 import Admin from "../pages/admin/Admin";
 import CartAway from "../CartAway";
+import ErrorPage from "../pages/errorPage/ErrorPage";
 
 const AppRouter = ({
   storage,
@@ -26,7 +27,7 @@ const AppRouter = ({
   docsLength,
   input,
   setInput,
-  setOurKitchenDisplay
+  setOurKitchenDisplay,
 }) => {
   return (
     <div className="routesIndex-wrapper">
@@ -92,6 +93,7 @@ const AppRouter = ({
             />
           }
         />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </div>
   );
