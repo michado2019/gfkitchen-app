@@ -15,6 +15,39 @@
   position: fixed;
   margin-top: -100px;
 }
+.errorBoundary {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 15% 20%;
+}
+.errorBoundary-title {
+  font-size: 32px;
+  color: #555;
+}
+.errorBoundary-message {
+  color: red;
+  font-size: 24px;
+}
+.errorBoundary-btn{
+  background-color: #f09308;
+  color: #f2f2f2;
+  font-weight: 700;
+  border: 1px solid #f2f2f2;
+  margin: 20px;
+  border-radius: 5px;
+  font-size: 12px;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 10px;
+}
+.errorBoundary-btn:hover{
+  padding-left: 20px;
+  font-size: 14px;
+  transition: all 0.3s;
+}
 @media (max-width: 620px) {
   .App {
     background-color: #323232;
