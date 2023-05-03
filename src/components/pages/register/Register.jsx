@@ -48,7 +48,6 @@ const Register = () => {
       if (userform) {
         navigate("/login");
       }
-
       const auth = getAuth();
       createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
