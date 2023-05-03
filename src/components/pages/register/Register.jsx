@@ -43,6 +43,11 @@ const Register = () => {
     ) {
       const email = form.email;
       const password = form.password;
+      localStorage.getItem("userform");
+      const userform = JSON.parse(localStorage.getItem("userform"));
+      if (userform) {
+        navigate("/login");
+      }
 
       const auth = getAuth();
       createUserWithEmailAndPassword(auth, email, password)
