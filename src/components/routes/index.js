@@ -27,6 +27,7 @@ const AppRouter = ({
   docsLength,
   input,
   setInput,
+  ourKitchenDisplay,
   setOurKitchenDisplay,
 }) => {
   return (
@@ -41,6 +42,7 @@ const AppRouter = ({
               setStorage={setStorage}
               setCartDisplay={setCartDisplay}
               ourKitchenDishes={ourKitchenDishes}
+              ourKitchenDisplay={ourKitchenDisplay}
               setOurKitchenDisplay={setOurKitchenDisplay}
             />
           }
@@ -62,7 +64,7 @@ const AppRouter = ({
           path="/ourKitchen"
           element={<OurKitchen storage={storage} setStorage={setStorage} />}
         />
-        <Route path="/ourKitchen/:id" element={<OurSingleKitchen />} />
+        <Route path="/ourKitchen/:id" element={<OurSingleKitchen setOurKitchenDisplay={setOurKitchenDisplay} />} />
         <Route path="/meetOurMd" element={<MeetOurMd />} />
         <Route
           path="/admin"

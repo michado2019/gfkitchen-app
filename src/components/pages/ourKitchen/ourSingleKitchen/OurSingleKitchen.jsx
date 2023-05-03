@@ -3,7 +3,7 @@ import "./OurSingleKitchen.css";
 import ourKitchenData from "../ourKitchenData/OurKitchenData";
 import { useParams, Link } from "react-router-dom";
 
-const OurSingleKitchen = () => {
+const OurSingleKitchen = ({ setOurKitchenDisplay }) => {
   const { id } = useParams();
   return (
     <div className="ourSingle-kitchen_wrapper">
@@ -32,7 +32,7 @@ const OurSingleKitchen = () => {
                       </p>
                     </div>
                     <div className="home-ditch_btnsDiv">
-                      <button className="home-more_btn">
+                      <button className="home-more_btn" onClick={() => setOurKitchenDisplay(true)}>
                         <Link
                           className="ourKitchen-link"
                           to={`/cartAway/${ourKitchenDatum.id}`}

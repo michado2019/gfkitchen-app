@@ -15,6 +15,7 @@ const Home = ({
   setCartDisplay,
   ourKitchenDishes,
   setOurKitchenDisplay,
+  ourKitchenDisplay,
 }) => {
   //Local storage
   localStorage.setItem("ourKitchenDishes", JSON.stringify(ourKitchenDishes));
@@ -199,7 +200,12 @@ const Home = ({
                             </p>
                           </div>
                           <div className="home-ditch_btnsDiv">
-                            <button className="home-more_btn">
+                            <button
+                              className="home-more_btn"
+                              style={{
+                                display: ourKitchenDisplay ? "block" : "none",
+                              }}
+                            >
                               <Link
                                 to={`/ourKitchen/${ourKitchenDatum.id}`}
                                 className="ourKitchen-link"

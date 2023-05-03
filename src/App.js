@@ -89,6 +89,7 @@ function App() {
               docsLength={docsLength}
               loading={loading}
               setLoading={setLoading}
+              ourKitchenDisplay={ourKitchenDisplay}
               setOurKitchenDisplay={setOurKitchenDisplay}
             />
           </div>
