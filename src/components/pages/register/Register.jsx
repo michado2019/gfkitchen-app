@@ -6,8 +6,8 @@ import {
   sendEmailVerification,
 } from "../../firebase";
 import { useNavigate } from "react-router-dom";
-
 import "./Register.css";
+
 const Register = () => {
   //UseNavigate
   const navigate = useNavigate();

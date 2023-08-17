@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./OurKitchen.css";
 import Pagination from "../../pagination/Pagination";
 import { Link } from "react-router-dom";
-const OurKitchen = ({storage, setStorage}) => {
-
+const OurKitchen = ({ storage, setStorage }) => {
   // States
   const [state, setState] = useState(false);
   const [page, setPage] = useState(1);
@@ -13,10 +12,10 @@ const OurKitchen = ({storage, setStorage}) => {
     setState(true);
     const data = localStorage.getItem("ourKitchenDishes");
     setStorage(JSON.parse(data));
-    console.log('active')
-    console.log(storage)
+    console.log("active");
+    console.log(storage);
   }, [state]);
-  
+
   const perPage = 6;
   const pages = Math.ceil(storage.length / perPage);
   const skip = page * perPage - perPage;

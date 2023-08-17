@@ -1,210 +1,185 @@
+/* Page Layout */
 .homeWrapper {
-  min-height: 100vh;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
+  background-color: #f5f5f5;
+  padding: 20px;
+  padding-top: 0;
 }
+
+.homeContents {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Section Styles */
+
+/* Home Content Section */
 .homeContent {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 50px;
+  margin-top: 20px;
 }
+
 .homeContent1-title {
-  font-size: 18px;
+  font-size: 24px;
   margin-bottom: 20px;
-  font-family: "Lobster", cursive;
-  color: #f09308;
 }
+
 .homeContent1 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  background-color: #323232;
-  width: 104%;
-  min-height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 }
+
+/* Dish Type Section */
 .homeContent1-div {
-  display: flex;
-  justify-content: center;
-  align-items:center;
-  padding: 60px 0;
-  padding-left: 80px;
-}
-.homeDish-arrow {
-  color: #f09308 !important;
-  font-size: 30px !important;
-  cursor: pointer;
-  margin: 10px;
-}
-.homeContent-flex {
-  display: flex;
-  width: 200px;
-  height: 300px;
-  min-height: fit-content;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.homeContent-title {
-  font-size: 18px;
-  color: #f09308;
-  font-family: "Lobster", cursive;
+  flex: 1;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
   margin-bottom: 20px;
 }
-.homeDish-img {
-  width: 230px;
-  height: 230px;
-  margin: 10px 0;
-  border-radius: 5px;
+
+.homeDish-arrow {
+  cursor: pointer;
+  font-size: 24px;
+  color: #f09308;
+  padding: 4px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
 }
-.homeDish-name {
-  font-size: 16px;
-  color: #f2f2f2;
-  margin: 8px 0;
+.homeDish-arrow:hover {
+  margin-left: 2px;
+}
+
+.homeContent-title {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.homeContent-img_name {
   text-align: center;
 }
+
+.homeDish-img {
+  width: 100%;
+  max-height: 250px;
+  min-height: 250px;
+  border-radius: 8px;
+}
+
+.homeDish-name {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Our Dishes Section */
 .homeContent2 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  background-color: #fff;
-  width: 104%;
-  padding: 40px 0;
-  padding-bottom: 80px;
+  margin-top: 40px;
 }
+
 .homeContent2-title {
-  font-family: "Lobster", cursive;
-  font-size: 18px;
-  color: #f09308;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
 }
+
 .homeContent-div_content {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
 }
-.home {
+
+.home-content {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
   display: flex;
-  align-items: center;
   flex-direction: column;
-  justify-content: center;
-  width: 200px;
-  height: 250px;
-  background-color: #f09308;
-  margin: 30px;
+  justify-content: space-between;
 }
+
 .home-img {
   width: 100%;
-  height: 70%;
-  border-radius: 4px;
-  margin-top: -35px;
+  height: 250px;
+  border-radius: 8px;
 }
-.home-flex {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  color: #f2f2f2;
-  margin-top: 20px;
-}
+
 .home-ditch_name {
-  font-size: 16px;
-  background-color: #f09308;
-  color: #f2f2f2;
+  font-size: 20px;
+  margin-top: 10px;
+  color: #333;
 }
-.home-ditch_origin {
-  border-radius: 2px;
-  font-weight: 700;
-  font-size: 14px;
-}
+
+.home-ditch_origin,
 .home-ditch_price {
-  font-size: 12px;
-  background-color: #f2f2f2;
-  font-weight: 700;
-  color: #f09308;
+  margin-top: 5px;
+  color: #777;
 }
+
 .home-ditch_btnsDiv {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-left: 40px;
+  justify-content: space-between;
+  margin-top: 20px;
 }
-.home-more_btn {
+
+.home-more_btn,
+.home-buy_btn {
   background-color: #f09308;
-  color: #f2f2f2;
-  font-weight: 700;
-  width: 50px;
-  height: 20px;
-  border: 1px solid #f2f2f2;
-  margin: 2px;
-  border-radius: 2px;
-  font-size: 12px;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
   cursor: pointer;
+  text-align: center;
+  width: 100%;
 }
-.home-more_btn:hover {
-  padding-left: 10px;
-  font-size: 10px;
-  transition: all 0.3s;
+
+.home-more_btn:hover,
+.home-buy_btn:hover {
+  background-color: #f07308;
+  transition: all 0.3s ease-in-out;
 }
-@media (max-width: 980px) {
+
+.ourKitchen-link {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+/* Customer Feedback Section */
+.homeContent3 {
+  margin-top: 40px;
+}
+
+/* Media Queries */
+
+/* Small devices (phones) */
+@media (max-width: 576px) {
+  .homeContent1-div,
+  .home-content {
+    flex-basis: 100%;
+  }
+  .homeContent-div2 {
+    grid-template-columns: 1fr;
+  }
+  .homeContent-div_content {
+    grid-template-columns: 1fr;
+  }
+}
+/* Medium devices (tablets) */
+@media (min-width: 577px) and (max-width: 992px) {
+  .homeContent1-div,
+  .home-content {
+    flex-basis: calc(50% - 10px);
+  }
   .homeContent-div_content {
     grid-template-columns: 1fr 1fr;
   }
-  .home {
-    width: 225px;
-  }
 }
-@media (max-width: 875px) {
-  .homeContent1-div{
-    padding-left: 10px;
-  }
-  .homeDish-img {
-    width: 190px;
-    height: 190px;
-  }
-  .homeDish-arrow{
-    margin-left: -10px;
-  }
-}
-@media (max-width: 768px) {
-  .homeDish-img {
-    width: 225px;
-    height: 225px;
-  }
-  .homeDish-arrow{
-    margin-left: 10px;
-  }
-}
-@media (max-width: 620px) {
-  .homeContent2 {
-    background-color: #323232;
-  }
-}
-@media (max-width: 600px) {
-  .homeContent1 {
-    grid-template-columns: 1fr;
-  }
-  .homeContent-div_content {
-    grid-template-columns: 1fr;
-  }
-  .homeContent1-div{
-    padding-left: 40px;
-  }
-  .homeDish-arrow{
-    margin-left: 10px;
-  }
-  .homeDish-img {
-    width: 230px;
-    height: 230px;
-  }
-}
-@media (max-width: 375px) {
-  .homeWrapper {
-    padding: 0;
-  }
-}
-@media (max-width: 320px) {
-  .homeContent1-div{
-    padding-left: 25px;
+
+/* Large devices (desktops) */
+@media (min-width: 993px) {
+  .homeContent1-div,
+  .home-content {
+    flex-basis: calc(33.33% - 15px);
   }
 }
