@@ -1,118 +1,120 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  sendEmailVerification,
-} from "../../firebase";
+import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from "../../firebase";
 import { useNavigate } from "react-router-dom";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 import "./Register.css";
 
 const Register = () => {
-  //UseNavigate
   const navigate = useNavigate();
 
-  //State
-  const [form, setForm] = useState({
-    email: "",
-    password: "",
-    firstName: "",
-    lastName: "",
+  const validationSchema = Yup.object().shape({
+    firstName: Yup.string().required("First name is required"),
+    lastName: Yup.string().required("Last name is required"),
+    email: Yup.string().email("Invalid email").required("Email is required"),
+    password: Yup.string().required("Password is required"),
   });
-  const [alert, setAlert] = useState("");
 
-  // Handlers
-  const handleChange = (e) => {
-    e.preventDefault();
-    const { name, value } = e.target;
-    setForm({ ...form, [name]: value });
-    const userform = {
-      firstName: form.firstName,
-      lastName: form.lastName,
-    };
-    //Local Storage
-    localStorage.setItem("userform", JSON.stringify(userform));
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  
+  const handleSubmit = (values) => {
     if (
-      form.email !== "" &&
-      form.password !== "" &&
-      form.firstName !== "" &&
-      form.lastName !== ""
+      values.email !== "" &&
+      values.password !== "" &&
+      values.firstName !== "" &&
+      values.lastName !== ""
     ) {
-      const email = form.email;
-      const password = form.password;
-      localStorage.getItem("userform");
-      const userform = JSON.parse(localStorage.getItem("userform"));
-      if (userform) {
-        navigate("/login");
-      }
+      const email = values.email;
+      const password = values.password;
       const auth = getAuth();
       createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-          // Signed in
           const user = userCredential.user;
           if (user) {
-            //Email verification
             const auth = getAuth();
             sendEmailVerification(auth.currentUser).then(() => {
-              // Email verification sent!
-              // ...
+              navigate("/admin");
             });
-            navigate("/admin");
           }
-          // ...
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          // ..
+          // Handle error
         });
-    } else {
-      setAlert("Fill all fields correctly");
-    }
-  };
-  return (
+      } else {
+        formik.setFieldError("alert", "Fill all fields correctly");
+      }
+    };
+    
+    const formik = useFormik({
+      initialValues: {
+        email: "",
+        password: "",
+        firstName: "",
+        lastName: "",
+      },
+      validationSchema: validationSchema,
+      onSubmit: handleSubmit,
+    });
+    return (
     <div className="registerWrapper">
       <div className="registerContents">
         <div className="registerContent-one">
           <h2 className="registerTitle">Register</h2>
-          <form className="registerForm" onSubmit={handleSubmit}>
-            <h2 className="registerAlert">{alert}</h2>
+          <form className="registerForm" onSubmit={formik.handleSubmit}>
+            <h2 className="registerAlert">{formik.errors.alert}</h2>
             <input
               type="text"
               placeholder="Enter firstname"
               className="registerInputs"
-              onChange={handleChange}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
               name="firstName"
-              value={form.firstName}
+              value={formik.values.firstName}
             />
+            {formik.touched.firstName && formik.errors.firstName ? (
+              <div className="registerError">{formik.errors.firstName}</div>
+            ) : null}
             <input
               type="text"
               placeholder="Enter lastname"
               className="registerInputs"
-              onChange={handleChange}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
               name="lastName"
-              value={form.lastName}
+              value={formik.values.lastName}
             />
+            {formik.touched.lastName && formik.errors.lastName ? (
+              <div className="registerError">{formik.errors.lastName}</div>
+            ) : null}
             <input
               type="email"
               placeholder="Enter Email"
               className="registerInputs"
-              onChange={handleChange}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
               name="email"
-              value={form.email}
+              value={formik.values.email}
             />
+            {formik.touched.email && formik.errors.email ? (
+              <div className="registerError">{formik.errors.email}</div>
+            ) : null}
             <input
               type="password"
               placeholder="Enter password"
               className="registerInputs"
-              onChange={handleChange}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
               name="password"
-              value={form.password}
+              value={formik.values.password}
             />
-            <button className="registerSubmit-btn">Submit</button>
+            {formik.touched.password && formik.errors.password ? (
+              <div className="registerError">{formik.errors.password}</div>
+            ) : null}
+            <button type="submit" className="registerSubmit-btn">
+              Submit
+            </button>
             <Link to="/login" className="registerLogin">
               Login
             </Link>
@@ -122,4 +124,5 @@ const Register = () => {
     </div>
   );
 };
+
 export default Register;
