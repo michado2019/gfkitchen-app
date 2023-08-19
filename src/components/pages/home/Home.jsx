@@ -23,6 +23,7 @@ const Home = ({
   //State
   const [state, setState] = useState(false);
   const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(false);
   const [pageNorthern, setPageNorthern] = useState(1);
   const [pageSouthern, setPageSouthern] = useState(1);
   const [pageEastern, setPageEastern] = useState(1);
@@ -40,10 +41,17 @@ const Home = ({
   //useEffect
   useEffect(() => {
     setState(true);
+    setLoading(true);
     const data = localStorage.getItem("ourKitchenDishes");
     setStorage(JSON.parse(data));
-  }, [state]);
+    if(storage !== null){
+      setLoading(false);
+    }
+  }, []);
 
+  if(loading){
+    <div>Loading.....</div>
+  }
   return (
     <div className="homeWrapper">
       <div className="homeContents">
@@ -200,31 +208,31 @@ const Home = ({
                             </p>
                           </div>
                           <div className="home-ditch_btnsDiv">
+                              <Link
+                                to={`/ourKitchen/${ourKitchenDatum.id}`}
+                                className="ourKitchen-link"
+                              >
                             <button
                               className="home-more_btn"
                               style={{
                                 display: ourKitchenDisplay ? "block" : "none",
                               }}
                             >
-                              <Link
-                                to={`/ourKitchen/${ourKitchenDatum.id}`}
-                                className="ourKitchen-link"
-                              >
                                 More
-                              </Link>
                             </button>
-                            <button
-                              className="home-more_btn"
-                              onClick={() => setCartDisplay((prev) => !prev)}
-                            >
+                              </Link>
                               <Link
                                 to={`/cartAway/${ourKitchenDatum.id}`}
                                 className="ourKitchen-link"
                                 onClick={() => setOurKitchenDisplay(true)}
                               >
+                            <button
+                              className="home-more_btn"
+                              onClick={() => setCartDisplay((prev) => !prev)}
+                            >
                                 Buy
-                              </Link>
                             </button>
+                              </Link>
                           </div>
                         </div>
                       </div>

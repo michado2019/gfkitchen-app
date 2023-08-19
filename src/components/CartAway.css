@@ -1,239 +1,131 @@
+/* CartAway.css */
+
 .cartAway-wrapper {
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-  padding: 7px 50px;
-  width: 85%;
-  margin-left: 10%;
-  animation: cartAway-wrapper 1s ease-in-out;
-}
-@keyframes cartAway-wrapper {
-  0% {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.cartAway-close_icon {
-  margin-left: 97%;
-  cursor: pointer;
-  color: #f09308 !important;
-  width: 35px !important;
-  height: 35px !important;
-  background-color: #555;
-  border-radius: 4px;
-  margin-bottom: 20px;
-}
-.cartAway-close_icon:hover {
-  width: 37px !important;
-  height: 37px !important;
-  transition: all 0.3s;
-}
-.cartAway-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
-  align-items: flex-start;
-  min-height: 70%;
   justify-content: center;
-}
-.cartAway-content1_flexCol,
-.cartAway-content2 {
-  padding: 10px 15px;
-  min-width: 40vw;
-  min-height: 75vh;
-  margin-bottom: 40px;
-}
-.cartAway-content1_flexCol {
-  background-color: #555;
-  padding: 40px 40px;
-  border-radius: 5px;
-  box-shadow: 1px 3px 7px #555;
-  color: #ccc;
-  font-size: 12px;
-}
-.cartAway-content1_img {
-  border-radius: 5%;
-  height: 250px;
-  width: 250px;
-}
-.cartAway-descriptions {
-  font-family: "Lobster", cursive;
-  color: #f09308;
-  font-size: 20px;
-}
-
-.cartAway-content2 {
-  margin: 10px 20px;
-}
-.cartAway-content2_welcome1 {
-  color: #f09308;
-  margin: 7px 0;
-}
-.cartAway-content2_welcome2 {
-  font-size: 24px;
-  color: #555;
-  margin: 7px 0;
-}
-.cartAway-form {
-  line-height: 28px;
-}
-.cartAway-form_flex {
-  display: flex;
   align-items: center;
-}
-.cartAway-labels {
-  font-weight: 700;
-  color: #f09308;
-}
-#cartAway-content2_inputs {
-  width: 45%;
-}
-.cartAway-content2_inputs {
-  width: 70px;
-  outline: none;
-  height: 30px;
-  border-radius: 4px;
-  background-color: #ccc;
-  border: 1px solid #ddd;
-  padding: 5px 5px;
-  margin: 10px 0;
-  margin-left: 10px;
-}
-.cartAway-calc_btn {
-  padding: 3px 10px;
-  background-color: #555;
-  color: #f2f2f2;
-  border-radius: 4px;
-  border: 0;
-  cursor: pointer;
-  margin: 10px 0;
-}
-.cartAway-calc_btn:hover {
-  padding: 3px 10px;
-  background-color: #f2f2f2;
-  border: 1px solid #555;
-  transition: all 0.3s;
-  color: #555;
-}
-.cartAway-order_btn {
-  padding: 3px 20px;
-  border-radius: 4px;
-  border: 0;
-  width: 100px;
-  text-align: center;
-  text-decoration: none;
-  margin-top: 7px;
-}
-.cartAway-order_btn:hover {
-  border: 1px solid #f09308;
-  background-color: #f2f2f2;
-  color: #f09308;
-  transition: all 0.3s;
-}
-@media (max-width: 1100px) {
-  .cartAway-wrapper {
-    margin: 0 auto;
-    width: 100vw;
-    margin-left: 5%;
-    padding: 0 auto;
-  }
-  .cartAway-content {
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-  }
-  .cartAway-close_icon {
-    margin-left: 85%;
-  }
+  z-index: 1000;
 }
 
-@media (max-width: 768px) {
-  .cartAway-wrapper {
-    margin-left: 0;
-  }
-  .cartAway-close_icon {
-    margin-left: 80%;
-  }
-}
-
-@media (max-width: 520px) {
-  .cartAway-wrapper {
-    margin-left: -5%;
-  }
-  #cartAway-content2_inputs {
-    width: 90%;
-  }
-}
-@media (max-width: 450px) {
-  .cartAway-wrapper {
-    margin-left: -10%;
-  }
-  .cartAway-close_icon {
-    margin-left: 90%;
-  }
-}
-@media (max-width: 420px) {
-  .cartAway-wrapper {
-    margin-left: -15%;
-  }
-}
-@media (max-width: 380px) {
-  .cartAway-wrapper {
-    margin-left: -23%;
-  }
-}
-@media (max-width: 350px) {
-  .cartAway-wrapper {
-    margin-left: -31%;
-  }
-  .cartAway-close_icon {
-    margin-left: 110%;
-  }
-  .cartAway-content2 {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-}
-.cartAwayNotification-div{
-  min-width: 320px;
+.cartAway-contents {
   background-color: #fff;
-  border-radius: 5px;
-  padding: 4px 7px;
-  box-shadow: 1px 1px 2px #f09308;
-  margin: 10px 20px;
-  animation: cartAwayNotification-div 1s;
+  min-height: 100vh;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 100%;
+  position: relative;
 }
-@keyframes cartAwayNotification-div {
-  0% {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.cartAwayNotification{
-  margin: 20px 0; 
-  font-size: 24px;
-  color: #555;
-}
-.cartAwayNotification-btn{
-  padding: 3px 10px;
-  background-color: #f2f2f2;
-  color: #f09308;
-  text-decoration: none;
-  border-radius: 4px;
-  border: 0;
+
+.cartAway-close_icon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  color: #333;
   cursor: pointer;
-  margin: 20px 0;
+  transition: color 0.3s ease;
 }
-.cartAwayNotification-btn:hover{
+
+.cartAway-close_icon:hover {
+  color: #f09308;
+}
+
+.cartAway-content1_flexCol {
+  display: flex;
+}
+
+.cartAway-content1_img {
+  max-width: 150px;
+  max-height: 150px;
+  object-fit: cover;
+  margin-right: 1rem;
+  border-radius: 5px;
+}
+
+.cartAway-content1_flexCol2 {
+  flex-grow: 1;
+}
+
+.cartAway-content1_ditchName {
+  font-size: 1.25rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: #f09308;
+}
+
+/* Add more styles for other details as needed */
+
+.cartAway-form {
+  margin-top: 1.5rem;
+}
+
+.cartAway-labels {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.cartAway-content2_inputs {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.cartAway-calc_btn,
+.cartAway-order_btn {
   background-color: #f09308;
-  color: #f2f2f2;
-  transition: all 0.3s;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cartAway-calc_btn:hover,
+.cartAway-order_btn:hover {
+  background-color: #d97706;
+}
+
+.cartAwayNotification-div {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.cartAwayNotification {
+  font-size: 1.25rem;
+  color: #f09308;
+  margin-bottom: 1rem;
+}
+
+.cartAwayNotification-btn {
+  background-color: #f09308;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cartAwayNotification-btn:hover {
+  background-color: #d97706;
+}
+@media (max-width: 480px) {
+  .cartAway-content1_flexCol{
+    flex-direction: column;
+  }
+  .cartAway-content1_img{
+    width: 100%;
+  }
 }

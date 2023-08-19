@@ -16,16 +16,13 @@ const CartAway = ({
   storage,
   setStorage,
 }) => {
-  //useState
   const [docLength, setDocLength] = useState("");
   const [stamp, setStamp] = useState(false);
   const [state, setState] = useState(false);
   const [notification, setNotification] = React.useState("");
-  //Db useContext
   const db = useContext(DbContext);
-  //Database instance
   const dbRef = collection(db, "dishOrders");
-  //Handlers
+
   const handleChange = (e) => {
     e.preventDefault();
     const { name, value } = e.target;
@@ -42,6 +39,7 @@ const CartAway = ({
       };
     });
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (input.name !== "" && input.plates > 0) {
@@ -63,7 +61,6 @@ const CartAway = ({
   };
 
   const handleOrder = async () => {
-    //Database
     if (
       input.name === "" ||
       input.address === "" ||
@@ -91,7 +88,7 @@ const CartAway = ({
         deliveryTime: input.deliveryTime,
       });
     } catch (error) {
-      setLoading = false;
+      setLoading(false);
     }
     async function getAllDishDocs() {
       const dishDocs = await getDocs(dbRef);
@@ -117,15 +114,23 @@ const CartAway = ({
       };
     });
   };
-  //useParam
+
   const { id } = useParams();
 
-  //useEffect
   useEffect(() => {
     setState(true);
     const data = localStorage.getItem("ourKitchenDishes");
     setStorage(JSON.parse(data));
-  }, [state]);
+
+    const storedInput = JSON.parse(localStorage.getItem("cartAwayInput"));
+    if (storedInput) {
+      setInput(storedInput);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("cartAwayInput", JSON.stringify(input));
+  }, [input]);
 
   return (
     <div
@@ -334,4 +339,5 @@ const CartAway = ({
     </div>
   );
 };
+
 export default CartAway;
