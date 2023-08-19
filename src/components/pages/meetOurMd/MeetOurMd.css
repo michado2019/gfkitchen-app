@@ -1,5 +1,6 @@
 /* MeetOurMd.css */
 .meetOur-md_wrapper {
+  margin: 100px auto;
   background-color: #f9f9f9;
   padding: 40px;
   display: flex;
