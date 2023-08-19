@@ -24,7 +24,8 @@
 }
 .ourKitchen-img {
   width: 250px;
-  height: 250px;
+  min-height: 250px;
+  max-height: 250px;
   border-radius: 5px;
 }
 .ourKitchen-flex {
