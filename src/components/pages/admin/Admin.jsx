@@ -78,7 +78,7 @@ const Admin = ({ loading, setLoading, docsLength }) => {
   };
 
   //No data
-  if(dishData.length === 0){
+  if(dishData.length === 0 && orderAlert !== ""){
     return(
       <div className="adminWrapper">
         No pending order!!!
