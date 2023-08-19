@@ -25,6 +25,13 @@ const SmallScreenNav = ({display, setDisplay}) => {
           </li>
           <li className="smallScreen-nav_links">
             <div>
+              <Link to="/admin" className="headerLink" onClick={handleNavClose}>
+                Admin
+              </Link>
+            </div>
+          </li>
+          <li className="smallScreen-nav_links">
+            <div>
               <Link to="/logIn" className="headerLink" onClick={handleNavClose}>
                 Log-in
               </Link>
