@@ -137,26 +137,6 @@ const Admin = ({ loading, setLoading, docsLength }) => {
           </div>
           <div className="adminContents">
             <div className="adminContent">
-              <div className="adminContents-div">
-                <div className="adminDetails-div">
-                  <h2 className="adminDetail-heading">Admin details:</h2>
-                  <h3 className="adminDetail-name">
-                    Name: {user.firstName} {user.lastName}
-                  </h3>
-                  <h3 className="adminDetail-name">Email: {userEmail}</h3>
-                </div>
-                <div className="adminDetails-content2">
-                  <h2 className="adminDetails-content2_heading">
-                    Admin, don't forget our core value:
-                  </h2>
-                  <p className="adminDetails-content2_details">
-                    Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
-                    Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
-                    Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
-                    Lorem ipsum Lorem ipsum Lorem ipsum
-                  </p>
-                </div>
-              </div>
               <div className="adminOrders-alert">{orderAlert}</div>
               {loading ? (
                 <Loading />
@@ -171,36 +151,26 @@ const Admin = ({ loading, setLoading, docsLength }) => {
                             displaySecondContent === true ? "none" : "block",
                         }}
                       >
-                        <h2 className="adminDashboard-heading">Dashboard</h2>
-                        <div className="adminDashboard-div">
-                          <div className="adminDashboard-flex_col">
-                            <span className="adminDashboard-flex_heading">
-                              Total orders
-                            </span>
-                            <span className="adminDashboard-flex_data">
-                              {docsLength}
-                            </span>
-                          </div>
-                          <div className="adminDashboard-flex_col">
-                            <span className="adminDashboard-flex_heading">
-                              Total dishes
-                            </span>
-                            <span className="adminDashboard-flex_data">
-                              {ourKitchenData.length}
-                            </span>
+                          <div className="adminDashboard-div">
+                            <div className="adminDashboard-flex_col">
+                              <span className="adminDashboard-flex_heading">
+                                Total orders
+                              </span>
+                              <span className="adminDashboard-flex_data">
+                                {docsLength}
+                              </span>
+                            </div>
+                            <div className="adminDashboard-flex_col">
+                              <span className="adminDashboard-flex_heading">
+                                Total dishes
+                              </span>
+                              <span className="adminDashboard-flex_data">
+                                {ourKitchenData.length}
+                              </span>
+                            </div>
                           </div>
                         </div>
-                      </div>
                     </div>
-                    <h2
-                      className="adminDish-heading"
-                      style={{
-                        display:
-                          displaySecondContent === true ? "none" : "block",
-                      }}
-                    >
-                      Order details:
-                    </h2>
                     {dishData.slice(skip, skip + perPage).map((data) => {
                       return (
                         <div className="adminDish" key={data.id}>
@@ -214,7 +184,7 @@ const Admin = ({ loading, setLoading, docsLength }) => {
                               <h2 className="adminDish-name">
                                 {data.dishName}
                               </h2>
-                              <h3 className="adminDish-price">{data.price}</h3>
+                              <h3 className="adminDish-price">#{data.price}</h3>
                             </div>
                             <div className="adminDish-div2">
                               <h3 className="adminDish-plates">
