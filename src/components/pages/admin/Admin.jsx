@@ -76,6 +76,15 @@ const Admin = ({ loading, setLoading, docsLength }) => {
         console.log(error.message);
       });
   };
+
+  //No data
+  if(dishData.length === 0){
+    return(
+      <div className="adminWrapper">
+        No pending order!!!
+      </div>
+    )
+  }     
   return (
     <div className="adminWrapper">
       {signedOut === true ? (
