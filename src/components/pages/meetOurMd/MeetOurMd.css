@@ -1,100 +1,59 @@
+/* MeetOurMd.css */
 .meetOur-md_wrapper {
-  margin: 0 auto;
-  min-height: 75vh;
-  padding: 100px 100px;
-}
-.meetOur-md_content {
+  background-color: #f9f9f9;
+  padding: 40px;
   display: flex;
+  justify-content: center;
   align-items: center;
 }
+
+.meetOur-md_content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.meetOur-md_info {
+  flex: 1;
+  text-align: center;
+}
+
 .meetOur-md_pix {
-  width: 270px;
-  height: 250px;
-  border-radius: 7px;
+  max-width: 100%;
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
+
 .meetOur-md_speech {
-  width: 60%;
-  color: #555;
-  margin: 0 40px;
+  flex: 2;
+  padding: 0 20px;
 }
+
 .meetOur-md_speechTitle {
+  font-size: 1.5rem;
   margin-bottom: 10px;
 }
+
 .meetOur-md_speechDetails {
-  margin-bottom: 10px;
+  font-size: 1rem;
+  line-height: 1.5;
 }
+
 .meetOur-md_name {
-  color: #f09308;
-  font-size: 16px;
-  margin-left: 50px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 20px;
 }
-@media (max-width: 1100px) {
-  .meetOur-md_wrapper {
-    padding: 100px 50px;
-  }
-  .meetOur-md_pix {
-    width: 200px;
-    height: 200px;
-  }
-}
-@media (max-width: 940px) {
-  .meetOur-md_wrapper {
-    height: 120vh;
-  }
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
   .meetOur-md_content {
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
   }
-  .meetOur-md_name {
-    margin-left: 160px;
-  }
-  .meetOur-md_speech {
-    margin-top: 50px;
-  }
-}
-@media (max-width: 860px) {
-  .meetOur-md_wrapper {
-    margin: 50px 0;
-  }
-  .meetOur-md_speechTitle {
-    font-size: 18px;
-  }
-  .meetOur-md_name {
-    margin-left: 10px;
-  }
-}
-@media (max-width: 768px) {
-  .meetOur-md_wrapper {
-    width: 150%;
-    margin: 0px auto;
-    height: 130vh;
-  }
-  .meetOur-md_name {
-    margin-left: 10px;
-  }
-}
-@media (max-width: 620px) {
-  .meetOur-md_speech{
-    color: #ccc;
-  }
-  .meetOur-md_speechTitle{
-    font-size: 14px;
-  }
-}
-@media (max-width: 500px) {
-  .meetOur-md_wrapper {
-    height: 140vh;
-  }
-}
-@media (max-width: 440px) {
-  .meetOur-md_speechDetails {
-    width: 130%;
-    margin-left: -10px;
-  }
-}
-@media (max-width: 320px) {
-  .meetOur-md_content {
-    margin-left: -17px;
+
+  .meetOur-md_info {
+    margin-bottom: 20px;
   }
 }

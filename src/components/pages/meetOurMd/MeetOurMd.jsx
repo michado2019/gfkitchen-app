@@ -11,7 +11,7 @@ const MeetOurMd = () => {
         <div className='meetOur-md_speech'>
           <h2 className='meetOur-md_speechTitle'>Hello, welcome to GFkitchen</h2>
           <p className='meetOur-md_speechDetails'>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum</p>
-          <h2 className='meetOur-md_name'>--- Sam God's favour.</h2>
+          <h2 className='meetOur-md_name'>--- Adeshina Michael.</h2>
         </div>
       </div>
     </div>
