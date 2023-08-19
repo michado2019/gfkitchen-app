@@ -1,76 +1,99 @@
+/* Login.css */
+
 .loginWrapper {
-  min-height: 75vh;
-  width: 100vw;
-}
-.loginContents {
-  margin: 100px auto;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
+  min-height:80vh;
+  margin-left:175%;
 }
+
+.loginContents {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  min-width: 150%;
+  max-width: 150%;
+}
+
 .loginTitle {
-  color: #555;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #f09308;
 }
+
 .loginForm {
   display: flex;
   flex-direction: column;
-  width: 300px;
 }
-.loginInputs,
-.loginSubmit-btn {
-  padding: 15px 10px;
-  border: 1px solid #ddd;
-  margin: 5px 0;
+
+.loginInputs {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
   border-radius: 4px;
-  outline: 0;
 }
-.loginInputs:hover,
-.loginSubmit-btn:hover {
-  border-bottom: 3px solid #f09308;
-  transition: all 0.5s;
-}
-.loginAlert {
-  font-size: 12px;
+
+.loginError {
   color: red;
-  text-align: center;
-  margin: 4px 0;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
 }
+
 .loginSubmit-btn {
-  font-weight: 900;
-  color: #f09308;
+  background-color: #f09308;
+  color: #fff;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
-.loginRegisterAnd-password_div {
-  color: #555;
+
+.loginSubmit-btn:hover {
+  background-color: #d97706;
 }
+
 .loginRegister-and_password {
   color: #f09308;
-  font-size: 12px;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
+
+.loginRegister-and_password:hover {
+  color: #d97706;
+}
+
+/* Media Queries */
+
+
+@media (max-width: 1200px) {
+  .loginWrapper{
+  margin-left: 100%;
+  }
+}
+
 @media (max-width: 940px) {
-  .loginContents {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  .loginWrapper{
+  margin-left: 70%;
   }
 }
 @media (max-width: 768px) {
-  .loginWrapper {
-    margin: 20px auto;
+  
+.loginWrapper {
+  margin-left: 0;
+}
+}
+@media (max-width: 480px) {
+  .loginContents {
+    min-width: 100%;
+    max-width: 100%;
   }
 }
-@media (max-width: 620px) {
-  .loginTitle {
-    color: #ccc;
-    margin-bottom: 20px;
-  }
-  .loginRegisterAnd-password_div {
-    color: #ccc;
-  }
-}
-@media (max-width: 320px) {
-  .loginWrapper {
-    margin-left: -16px;
+@media (max-width: 319px) {
+  .loginWrapper{
+  margin-left: -10px;
   }
 }

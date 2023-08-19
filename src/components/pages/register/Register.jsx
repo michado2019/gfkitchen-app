@@ -7,56 +7,60 @@ import * as Yup from "yup";
 import "./Register.css";
 
 const Register = () => {
+  
   const navigate = useNavigate();
 
-  const validationSchema = Yup.object().shape({
-    firstName: Yup.string().required("First name is required"),
-    lastName: Yup.string().required("Last name is required"),
-    email: Yup.string().email("Invalid email").required("Email is required"),
-    password: Yup.string().required("Password is required"),
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+      firstName: "",
+      lastName: "",
+    },
+    validationSchema: Yup.object().shape({
+      firstName: Yup.string().required("First name is required"),
+      lastName: Yup.string().required("Last name is required"),
+      email: Yup.string().email("Invalid email").required("Email is required"),
+      password: Yup.string().required("Password is required"),
+    }),
+    onSubmit: (values) => {
+      // Form submission logic
+      if (
+        values.email !== "" &&
+        values.password !== "" &&
+        values.firstName !== "" &&
+        values.lastName !== ""
+      ) {
+        const email = values.email;
+        const password = values.password;
+        console.log(email, password);
+        const auth = getAuth();
+        createUserWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+            const user = userCredential.user;
+            
+            if (user) {
+              console.log(user);
+              const auth = getAuth();
+              sendEmailVerification(auth.currentUser).then(() => {
+                navigate("/admin");
+              });
+            }
+          })
+          .catch((error) => {
+            console.log(error.code, error.message);
+            // Handle error
+          });
+        } else {
+          formik.setFieldError("Loading");
+        }
+      formik.resetForm();
+    },
   });
-
-  
-  const handleSubmit = (values) => {
-    if (
-      values.email !== "" &&
-      values.password !== "" &&
-      values.firstName !== "" &&
-      values.lastName !== ""
-    ) {
-      const email = values.email;
-      const password = values.password;
-      const auth = getAuth();
-      createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          const user = userCredential.user;
-          if (user) {
-            const auth = getAuth();
-            sendEmailVerification(auth.currentUser).then(() => {
-              navigate("/admin");
-            });
-          }
-        })
-        .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          // Handle error
-        });
-      } else {
-        formik.setFieldError("alert", "Fill all fields correctly");
-      }
-    };
+  // const handleSubmit = (values) => {
+   
+  //   };
     
-    const formik = useFormik({
-      initialValues: {
-        email: "",
-        password: "",
-        firstName: "",
-        lastName: "",
-      },
-      validationSchema: validationSchema,
-      onSubmit: handleSubmit,
-    });
     return (
     <div className="registerWrapper">
       <div className="registerContents">
@@ -108,6 +112,7 @@ const Register = () => {
               onBlur={formik.handleBlur}
               name="password"
               value={formik.values.password}
+              autoComplete="on"
             />
             {formik.touched.password && formik.errors.password ? (
               <div className="registerError">{formik.errors.password}</div>

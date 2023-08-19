@@ -1,80 +1,75 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
 const Login = ({ storage, setStorage }) => {
   // Navigate
   const navigate = useNavigate();
 
-  //State
-  const [form, setForm] = useState({
-    email: "",
-    password: "",
+  // Formik setup
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+    validationSchema: Yup.object({
+      email: Yup.string().email("Invalid email").required("Email is required"),
+      password: Yup.string().required("Password is required"),
+    }),
+    onSubmit: (values) => {
+      const auth = getAuth();
+      const email = values.email;
+      const password = values.password;
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          if (user) {
+            navigate("/admin");
+          }
+          if (!user) {
+            navigate("/register");
+          }
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+        });
+    },
   });
 
-  const [alert, setAlert] = useState("");
-
-  // Handlers
-  const handleChange = (e) => {
-    e.preventDefault();
-    const { name, value } = e.target;
-    setForm({ ...form, [name]: value });
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (form) {
-      setForm({
-        email: "",
-        password: "",
-      });
-    }
-
-    const auth = getAuth();
-    const email = form.email;
-    const password = form.password;
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        if (user) {
-          navigate("/admin");
-        }
-        if (!user) {
-          navigate("/register");
-        }
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-      });
-    if (form.email === "" || form.password === "") {
-      setAlert("Fill all fields correctly");
-    }
-  };
   return (
     <div className="loginWrapper">
       <div className="loginContents">
         <h2 className="loginTitle">Login</h2>
-        <form className="loginForm" onSubmit={handleSubmit}>
-          <h2 className="loginAlert">{alert}</h2>
+        <form className="loginForm" onSubmit={formik.handleSubmit}>
+          <h2 className="loginAlert">{formik.errors.alert}</h2>
           <input
             type="email"
             placeholder="Enter Email"
             className="loginInputs"
-            onChange={handleChange}
-            name="email"
-            value={form.email}
+            autoComplete="on"
+            {...formik.getFieldProps("email")}
           />
+          {formik.touched.email && formik.errors.email ? (
+            <div className="loginError">{formik.errors.email}</div>
+          ) : null}
           <input
             type="password"
             placeholder="Enter password"
+            autoComplete="on"
             className="loginInputs"
-            onChange={handleChange}
-            name="password"
-            value={form.password}
+            {...formik.getFieldProps("password")}
           />
-          <button className="loginSubmit-btn">Submit</button>
+          {formik.touched.password && formik.errors.password ? (
+            <div className="loginError">{formik.errors.password}</div>
+          ) : null}
+          <button type="submit" className="loginSubmit-btn">
+            Submit
+          </button>
         </form>
         <div className="loginRegisterAnd-password_div">
           <h4>
@@ -85,7 +80,10 @@ const Login = ({ storage, setStorage }) => {
           </h4>
           <h4>
             Retrieve password?{" "}
-            <Link to="forgotPassword/changePassword" className="loginRegister-and_password">
+            <Link
+              to="forgotPassword/changePassword"
+              className="loginRegister-and_password"
+            >
               Here
             </Link>
           </h4>
@@ -94,4 +92,5 @@ const Login = ({ storage, setStorage }) => {
     </div>
   );
 };
+
 export default Login;

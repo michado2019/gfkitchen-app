@@ -14,10 +14,7 @@ const Admin = ({ loading, setLoading, docsLength }) => {
   //States
   const [dishData, setDishData] = useState([]);
   const [orderAlert, setOrderAlert] = useState("");
-  const [displaySecondContent, setDisplaySecondContent] = useState(true);
   const [signedOut, setSignedout] = useState(false);
-  const [userEmail, setUserEmail] = useState("");
-  const [userEmailVerified, setUserEmailVerified] = useState(false);
   const [page, setPage] = useState(1);
   const perPage = 3;
   const pages = Math.ceil(dishData.length / perPage);
@@ -32,10 +29,6 @@ const Admin = ({ loading, setLoading, docsLength }) => {
   //Database instance
   const dbRef = collection(db, "dishOrders");
 
-  //Localstorage
-  const form = localStorage.getItem("userform");
-  const user = JSON.parse(form);
-
   //UseEffect
   useEffect(() => {
     setLoading(true);
@@ -49,15 +42,14 @@ const Admin = ({ loading, setLoading, docsLength }) => {
       setDishData(dishData);
       if (dishData.length !== 0) {
         setLoading(false);
-        setDisplaySecondContent(false);
       }
       if (dishData.length === 0) {
         setLoading(false);
-        setDisplaySecondContent(true);
         setOrderAlert("No pending order!!!");
       }
     });
   }, []);
+
 
   //Delete order
   const handleDelete = (id) => {
@@ -70,31 +62,6 @@ const Admin = ({ loading, setLoading, docsLength }) => {
     }
   };
 
-  //Current user
-  useEffect(() => {
-    const auth = getAuth();
-    const user = auth.currentUser;
-
-    if (user) {
-      // ...
-    } else {
-      // No user is signed in.
-    }
-  }, []);
-
-  //Get User's profile
-  useEffect(() => {
-    const auth = getAuth();
-    const user = auth.currentUser;
-    if (user !== null) {
-      const email = user.email;
-      const emailVerified = user.emailVerified;
-      setUserEmail(email);
-      setUserEmailVerified(emailVerified);
-      const uid = user.uid;
-    }
-  });
-
   //Signout
   const handleSignout = () => {
     const auth = getAuth();
@@ -106,31 +73,17 @@ const Admin = ({ loading, setLoading, docsLength }) => {
       })
       .catch((error) => {
         // An error happened.
+        console.log(error.message);
       });
   };
   return (
     <div className="adminWrapper">
-      <div
-        style={{ display: userEmailVerified ? "none" : "block" }}
-        className="adminVerify-email"
-      >
-        Register and/or verify email first!
-      </div>
       {signedOut === true ? (
         navigate("/login")
       ) : (
-        <div
-          style={{
-            display:
-              signedOut === true
-                ? "none"
-                : "block" && userEmailVerified
-                ? "block"
-                : "none",
-          }}
-        >
+        <div>
           <div className="adminUser-flex_row">
-            <h2 className="adminHeading">Wecome, {user.firstName}.</h2>
+            <h2 className="adminHeading">Wecome, Admin</h2>
             <button onClick={handleSignout} className="adminSingout-btn">
               Sign out
             </button>
@@ -146,10 +99,6 @@ const Admin = ({ loading, setLoading, docsLength }) => {
                     <div className="adminDashboard">
                       <div
                         className="adminDashboard-content"
-                        style={{
-                          display:
-                            displaySecondContent === true ? "none" : "block",
-                        }}
                       >
                           <div className="adminDashboard-div">
                             <div className="adminDashboard-flex_col">
@@ -222,9 +171,6 @@ const Admin = ({ loading, setLoading, docsLength }) => {
                   </div>
                   <div
                     className="adminDish-pagination"
-                    style={{
-                      display: displaySecondContent === true ? "none" : "block",
-                    }}
                   >
                     <Pagination page={page} pages={pages} setPage={setPage} />
                   </div>
